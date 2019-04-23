@@ -135,10 +135,10 @@ ggplot(online_store_promo, aes(x = Promotion, y = Sales)) +
   theme_bw() 
 ```
 
-To test for differences between groups, we can, for example, apply post hoc tests according to Nemenyi for pairwise multiple comparisons of the ranked data using the appropriate function from the ```PMCMRplus``` package.
+To test for differences between groups, we can, for example, apply post hoc tests according to Nemenyi for pairwise multiple comparisons of the ranked data using the appropriate function from the ```PMCMR``` package.
 
 ```{r message=FALSE, warning=FALSE, echo=TRUE, eval=TRUE}
-library(PMCMRplus)
+library(PMCMR)
 posthoc.kruskal.nemenyi.test(x = online_store_promo$Sales, g = online_store_promo$Promotion, dist = "Tukey")
 ```
 
