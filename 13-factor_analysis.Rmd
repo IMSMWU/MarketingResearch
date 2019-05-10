@@ -164,9 +164,10 @@ Now that we have a broad understanding of how factor analysis works, let's use a
 Let's assume, we have collected data from 2,571 respondents and stored the results in the data set "raq.dat".
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
-raq_data <- read.table("https://raw.githubusercontent.com/IMSMWU/Teaching/master/MRDA2017/raq.dat", 
-                          sep = "\t", 
+spotify_data <- read.csv("/home/felix/Dropbox/e-Assistant IMSM/course_daniel/music_data.csv", 
+                          sep = ",", 
                           header = TRUE) #read in data
+spotify_data <- na.omit(spotify_data[,16:27])
 ```
 
 ### Are the assumptions satisfied?
@@ -174,8 +175,8 @@ raq_data <- read.table("https://raw.githubusercontent.com/IMSMWU/Teaching/master
 Since PCA is based on the correlation between variables, the first step is to inspect the correlation matrix, which can be created using the ```cor()``` function. 
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
-raq_matrix <- cor(raq_data)
-round(raq_matrix,3)
+spotify_matrix <- cor(spotify_data)
+round(spotify_matrix,3)
 ```
 
 If the variables measure the same construct, we would expect to see a certain degree of correlation between the variables. Even if the variables turn out to measure different dimensions of the same underlying construct, we would still expect to see some degree of correlation. So the first problem that could occur is that the **correlations are not high enough**. A first approach would be to scan the correlation matrix for correlations lower than about 0.3 and identify variables that have many correlations below this threshold. If your data set contains many variables, this task can be quite tedious. To make the task a little easier, you could proceed as follows. 
@@ -183,7 +184,7 @@ If the variables measure the same construct, we would expect to see a certain de
 Create a dataframe from the correlation matrix and set the diagonal elements to missing since these are always 1:
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
-correlations <- as.data.frame(raq_matrix)
+correlations <- as.data.frame(spotify_matrix)
 diag(correlations) <- NA
 ```
 
@@ -209,7 +210,7 @@ You will, however, notice that this is a rather subjective approach. The **Bartl
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
 library(psych)
-cortest.bartlett(raq_matrix, n = nrow(raq_data))
+cortest.bartlett(spotify_matrix, n = nrow(spotify_data))
 ```
 
 In our example, the p-value is less than 0.05, which is good news since it confirms that overall the correlation between variables is different from zero. 
@@ -223,8 +224,8 @@ apply(abs(correlations) > 0.8, 1, sum, na.rm = TRUE)
 The results do not suggest any extreme or perfect correlations. Again, there is a more objective measure that could be applied. The **determinant** tells us whether the correlation matrix is singular (determinant = 0), or if all variables are completely unrelated (determinant = 1), or somewhere in between. As a rule of thumb, the determinant should be greater than 0.00001. The ```det()``` function can be used to compute the determinant:
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
-det(raq_matrix)
-det(raq_matrix) > 0.00001
+det(spotify_matrix)
+det(spotify_matrix) > 0.00001
 ```
 
 As you can see, the determinant is larger than the threshold, indicating that the overall correlation between variables is not too strong. 
@@ -248,7 +249,7 @@ where $r_{jk}$ is the correlation between two variables of interest and $p_{jk}$
 The KMO measure of sampling adequacy can be computed using the ```KMO()``` function from the ```psych``` package:
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
-KMO(raq_data)
+KMO(spotify_data)
 ```
 
 You can see that the statistic is calculated for the entire matrix and for each variable individually. In our example, the values for all variables as well as the overall matrix is above 0.5, suggesting that factor analysis is appropriate.  
@@ -267,7 +268,7 @@ Often, the decision is made based on a combination of different criteria.
 By extracting as many factors as there are variables we can inspect their eigenvalues and make decisions about which factors to extract. Since we have 23 variables, we set the argument ```nfactors``` to 23.
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
-pc1 <- principal(raq_data, nfactors = 23, rotate = "none")
+pc1 <- principal(spotify_data, nfactors = 12, rotate = "none")
 pc1
 ```
 
@@ -285,7 +286,7 @@ The dashed line is simply a visualization of the rule that we will retain factor
 Now that we know how many components we want to extract, we can rerun the analysis, specifying that number:
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
-pc2 <- principal(raq_data, nfactors = 4, rotate = "none")
+pc2 <- principal(spotify_data, nfactors = 4, rotate = "none")
 pc2
 ```
 
@@ -296,7 +297,7 @@ Note that there is a difference between PCA and common factor analysis. PCA focu
 You should also take a closer look at the residuals in order to check whether you have extracted the correct number of factors. The difference between the reproduced and the actual correlation matrices are the residuals. We can extract the residuals from our model using the ```factor.residuals()``` function from the ```psych``` package. It takes the original correlation matrix and the factor loadings as arguments:
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
-residuals <- factor.residuals(raq_matrix, pc2$loadings)
+residuals <- factor.residuals(spotify_matrix, pc2$loadings)
 round(residuals,3)
 ```
 
@@ -315,7 +316,7 @@ You could also manually compute this statistic by summing over the squared resid
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
 ssr <- (sum(residuals[upper.tri((residuals))]^2)) #sum of squared residuals 
-ssc <- (sum(raq_matrix[upper.tri((raq_matrix))]^2)) #sum of squared correlations
+ssc <- (sum(spotify_matrix[upper.tri((spotify_matrix))]^2)) #sum of squared correlations
 1-(ssr/ssc) #model fit
 ```
 
@@ -362,7 +363,7 @@ To aid interpretation, it is possible to maximize the loading of a variable on o
 To carry out a orthogonal rotation, we change the rotate option in the ```principal()``` function from “none” to “varimax” (we could also exclude it altogether because varimax is the default if the option is not specified):
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
-pc3 <- principal(raq_data, nfactors = 4, rotate = "varimax")
+pc3 <- principal(spotify_data, nfactors = 4, rotate = "varimax")
 pc3
 ```
 
@@ -384,7 +385,7 @@ As an example, we could name our factors as follows:
 The previous type of rotation (i.e., "varimax") assumed that the factors are independent. Oblique rotation is another type of rotation that can handle correlation between the factors. The command for an oblique rotation is very similar to that for an orthogonal rotation – we just change the rotate option from “varimax” to “oblimin”.
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
-pc4 <- principal(raq_data, nfactors = 4, rotate = "oblimin", scores = TRUE)
+pc4 <- principal(spotify_data, nfactors = 4, rotate = "oblimin", scores = TRUE)
 print.psych(pc4, cut = 0.3, sort = TRUE)
 ```
 
@@ -401,7 +402,7 @@ head(pc4$scores)
 We can also use the ```cbind()``` function to add the computed factor scores to the existing data set:
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
-raq_data <- cbind(raq_data, pc4$scores)
+spotify_data <- cbind(spotify_data, pc4$scores)
 ```
 
 This way, it is easier to use the new variables in subsequent analysis (e.g., t-tests, regression, ANOVA, cluster analysis).
@@ -424,20 +425,20 @@ The share of the items common variance (inter-correlation) in the total variance
 To see if the subscales that were derived from the previous PCA exhibit a sufficient degree of reliability, we first create subsets of our data set that contain the respective items for each of the factors (we use the results from the oblimin rotation here):  
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
-computer_fear <- raq_data[,c(6,7,10,13,14,15,18)]
-statistics_fear <- raq_data[,c(1,3,4,5,12,16,20,21)]
-math_fear <- raq_data[,c(8,11,17)]
-peer_evaluation <- raq_data[,c(2,9,19,22,23)]
+#computer_fear <- raq_data[,c(6,7,10,13,14,15,18)]
+#statistics_fear <- raq_data[,c(1,3,4,5,12,16,20,21)]
+#math_fear <- raq_data[,c(8,11,17)]
+#peer_evaluation <- raq_data[,c(2,9,19,22,23)]
 ```
 
 Now we can use the ```alpha()``` function from the ```psych``` package to test the reliability. Note that the ```keys``` argument may be used to indicate reverse coded items. In the example below, the second item of the "statistics_fear" factor is reverse coded as indicated by the ```-1```, meaning that it is phrased in a "positive" way, while the remaining items belonging to this factor are phrased in a "negative" way. This is often done to check if respondents are giving consistent answers. 
 
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
-psych::alpha(computer_fear)
-psych::alpha(statistics_fear, keys=c(1,-1,1,1,1,1,1,1))
-psych::alpha(math_fear)
-psych::alpha(peer_evaluation)
+#psych::alpha(computer_fear)
+#psych::alpha(statistics_fear, keys=c(1,-1,1,1,1,1,1,1))
+#psych::alpha(math_fear)
+#psych::alpha(peer_evaluation)
 ```
 
 The above output would lead us to conclude that the fear of computers, fear of statistics and fear of maths subscales of the RAQ all had sufficiently high reliabilities (i.e., Cronbach’s alpha > 0.70). However, the fear of negative peer evaluation subscale had relatively low reliability (Cronbach’s alpha = 0.57). As the output under "Reliability if an item is dropped" suggests, the alpha score would also not increase if an item was dropped from the scale. 
