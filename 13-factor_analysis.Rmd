@@ -171,7 +171,7 @@ raq_data <- read.table("https://raw.githubusercontent.com/IMSMWU/Teaching/master
 
 ### Are the assumptions satisfied?
 
-Since PCA is based the correlation between variables, the first step is to inspect the correlation matrix, which can be created using the ```cor()``` function. 
+Since PCA is based on the correlation between variables, the first step is to inspect the correlation matrix, which can be created using the ```cor()``` function. 
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
 raq_matrix <- cor(raq_data)
@@ -199,7 +199,7 @@ The output shows you the number of correlations below the threshold for each var
 apply(abs(correlations),1,mean,na.rm=TRUE)
 ```
 
-Another way to make the correlations more salient is to plot the correlation matrix using different colors that indicate the strength of the correlations. This can be done using the ```corPolot()``` function from the ```psych``` package. 
+Another way to make the correlations more salient is to plot the correlation matrix using different colors that indicate the strength of the correlations. This can be done using the ```corPlot()``` function from the ```psych``` package. 
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE, fig.align="center", fig.width=10, fig.cap="Correlation matrix"}
 corPlot(correlations,numbers=TRUE,upper=FALSE,diag=FALSE,main="Correlations between variables")
@@ -236,7 +236,7 @@ MSA_j=\frac{\sum_{k\ne j}^{}{r^2_{jk}}}{\sum_{k\ne j}^{}{r^2_{jk}}+\sum_{k\ne j}
 (\#eq:MSA)
 \end{equation}
 
-where $r_{jk}$ is the correlation between two variables of interest and $p_{jk}$ is their partial correlation. The partial correlation measures the degree of association between the two variables, when the effect of the remaining variables is controlled for. It can takes values between 0 (bad) and 1 (good), where a value of 0 indicates that the sum of partial correlations is large relative to the sum of correlations. If the remaining correlation between two variables remains high if you control for all the other variables, this provides an indication that the correlation is fairly concentrated and on a subset of the variables and factor analysis is likely to be inappropriate. In contrast, a value close to 1 means that the sum of the partial correlations is fairly is low, indicating a more compact pattern of correlations between a larger set of variables. Values should at least exceed 0.50, with the thresholds:
+where $r_{jk}$ is the correlation between two variables of interest and $p_{jk}$ is their partial correlation. The partial correlation measures the degree of association between the two variables, when the effect of the remaining variables is controlled for. It can take values between 0 (bad) and 1 (good), where a value of 0 indicates that the sum of partial correlations is large relative to the sum of correlations. If the remaining correlation between two variables remains high if you control for all the other variables, this provides an indication that the correlation is fairly concentrated and on a subset of the variables and factor analysis is likely to be inappropriate. In contrast, a value close to 1 means that the sum of the partial correlations is fairly low, indicating a more compact pattern of correlations between a larger set of variables. Values should at least exceed 0.50, with the thresholds:
 
 *  <.50 = unacceptable
 * \>.50 = miserable
@@ -255,7 +255,7 @@ You can see that the statistic is calculated for the entire matrix and for each 
 
 ### Deriving factors
 
-After testing that the data can be used for PCA, we can move on to conducting PCA. Conducting PCA is fairly simple in R using the ```principal()``` function from the ```psych``` package. However, before the apply the function to our data, it is useful to reflect on the goals of PCA again. The goal is to explain the maximum amount of total variance in a correlation matrix by transforming the original variables into a smaller set of linear components (factors). So the first decision we have to make is how many factors we should extract. There are different methods that can be used to decide on the appropriate number of factors, including: 
+After testing that the data can be used for PCA, we can move on to conducting PCA. Conducting PCA is fairly simple in R using the ```principal()``` function from the ```psych``` package. However, before we apply the function to our data, it is useful to reflect on the goals of PCA again. The goal is to explain the maximum amount of total variance in a correlation matrix by transforming the original variables into a smaller set of linear components (factors). So the first decision we have to make is how many factors we should extract. There are different methods that can be used to decide on the appropriate number of factors, including: 
 
 * **A priori determination**: Requires prior knowledge
 * **Determination based on percentage of variance**: When cumulative percentage of variance extracted by the factors reaches a satisfactory level (e.g., factors extracted should account for at least 60% of the variance)
