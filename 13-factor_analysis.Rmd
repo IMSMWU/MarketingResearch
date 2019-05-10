@@ -167,7 +167,8 @@ Let's assume, we have collected data from 2,571 respondents and stored the resul
 spotify_data <- read.csv("/home/felix/Dropbox/e-Assistant IMSM/course_daniel/music_data.csv", 
                           sep = ",", 
                           header = TRUE) #read in data
-spotify_data <- na.omit(spotify_data[,16:27])
+#spotify_data <- na.omit(spotify_data[16:27])
+spotify_data <- na.omit(spotify_data[,c(5,16:27,31,37,42,44)])
 ```
 
 ### Are the assumptions satisfied?

@@ -456,71 +456,113 @@ Social_i=&amp; 0.25*preventCavities_{i} + 0.80*shinyTeeth_{i} + 0.13*strengthenG
 <pre class="sourceCode r"><code class="sourceCode r">spotify_data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;/home/felix/Dropbox/e-Assistant IMSM/course_daniel/music_data.csv&quot;</span>, 
                           <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, 
                           <span class="dt">header =</span> <span class="ot">TRUE</span>) <span class="co">#read in data</span>
-spotify_data &lt;-<span class="st"> </span><span class="kw">na.omit</span>(spotify_data[,<span class="dv">16</span><span class="op">:</span><span class="dv">27</span>])</code></pre>
+<span class="co">#spotify_data &lt;- na.omit(spotify_data[16:27])</span>
+spotify_data &lt;-<span class="st"> </span><span class="kw">na.omit</span>(spotify_data[,<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">16</span><span class="op">:</span><span class="dv">27</span>,<span class="dv">31</span>,<span class="dv">37</span>,<span class="dv">42</span>,<span class="dv">44</span>)])</code></pre>
 <div id="are-the-assumptions-satisfied" class="section level3">
 <h3><span class="header-section-number">7.2.1</span> Are the assumptions satisfied?</h3>
 <p>Since PCA is based on the correlation between variables, the first step is to inspect the correlation matrix, which can be created using the <code>cor()</code> function.</p>
 <pre class="sourceCode r"><code class="sourceCode r">spotify_matrix &lt;-<span class="st"> </span><span class="kw">cor</span>(spotify_data)
 <span class="kw">round</span>(spotify_matrix,<span class="dv">3</span>)</code></pre>
-<pre><code>##                  danceability energy    key loudness   mode speechiness
-## danceability            1.000  0.198  0.010    0.187 -0.123       0.227
-## energy                  0.198  1.000  0.022    0.737 -0.110       0.093
-## key                     0.010  0.022  1.000    0.004 -0.161       0.023
-## loudness                0.187  0.737  0.004    1.000 -0.065      -0.012
-## mode                   -0.123 -0.110 -0.161   -0.065  1.000      -0.106
-## speechiness             0.227  0.093  0.023   -0.012 -0.106       1.000
-## acousticness           -0.247 -0.602 -0.006   -0.460  0.086      -0.077
-## instrumentalness       -0.089 -0.064 -0.007   -0.198  0.006      -0.077
-## liveness               -0.085  0.166 -0.010    0.088  0.019       0.034
-## valence                 0.369  0.402  0.031    0.271 -0.061       0.050
-## tempo                  -0.084  0.094 -0.004    0.077  0.011       0.061
-## duration_ms            -0.193 -0.026 -0.001   -0.021  0.045      -0.138
-##                  acousticness instrumentalness liveness valence  tempo
-## danceability           -0.247           -0.089   -0.085   0.369 -0.084
-## energy                 -0.602           -0.064    0.166   0.402  0.094
-## key                    -0.006           -0.007   -0.010   0.031 -0.004
-## loudness               -0.460           -0.198    0.088   0.271  0.077
-## mode                    0.086            0.006    0.019  -0.061  0.011
-## speechiness            -0.077           -0.077    0.034   0.050  0.061
-## acousticness            1.000            0.037   -0.070  -0.168 -0.083
-## instrumentalness        0.037            1.000   -0.008  -0.087 -0.016
-## liveness               -0.070           -0.008    1.000   0.060  0.018
-## valence                -0.168           -0.087    0.060   1.000  0.037
-## tempo                  -0.083           -0.016    0.018   0.037  1.000
-## duration_ms             0.040            0.026   -0.002  -0.127 -0.001
-##                  duration_ms
-## danceability          -0.193
-## energy                -0.026
-## key                   -0.001
-## loudness              -0.021
-## mode                   0.045
-## speechiness           -0.138
-## acousticness           0.040
-## instrumentalness       0.026
-## liveness              -0.002
-## valence               -0.127
-## tempo                 -0.001
-## duration_ms            1.000</code></pre>
+<pre><code>##                  trackPopularity danceability energy    key loudness
+## trackPopularity            1.000        0.071 -0.016 -0.004    0.031
+## danceability               0.071        1.000  0.016 -0.017    0.143
+## energy                    -0.016        0.016  1.000  0.008    0.725
+## key                       -0.004       -0.017  0.008  1.000   -0.008
+## loudness                   0.031        0.143  0.725 -0.008    1.000
+## mode                      -0.033       -0.072 -0.044 -0.172   -0.057
+## speechiness                0.004        0.226 -0.023  0.013   -0.106
+## acousticness               0.044       -0.271 -0.516  0.036   -0.481
+## instrumentalness           0.018       -0.103 -0.059 -0.022   -0.131
+## liveness                  -0.021       -0.105  0.128 -0.006    0.048
+## valence                    0.021        0.174  0.348  0.065    0.199
+## tempo                     -0.029        0.014  0.107 -0.019    0.079
+## duration_ms               -0.032       -0.106  0.106  0.003    0.097
+## followers                 -0.013        0.024 -0.023  0.013    0.011
+## total_releases            -0.054        0.185 -0.041  0.019    0.001
+## mstreams                  -0.007        0.093 -0.082 -0.006   -0.052
+## adv_spending              -0.013        0.007 -0.016  0.009   -0.019
+##                    mode speechiness acousticness instrumentalness liveness
+## trackPopularity  -0.033       0.004        0.044            0.018   -0.021
+## danceability     -0.072       0.226       -0.271           -0.103   -0.105
+## energy           -0.044      -0.023       -0.516           -0.059    0.128
+## key              -0.172       0.013        0.036           -0.022   -0.006
+## loudness         -0.057      -0.106       -0.481           -0.131    0.048
+## mode              1.000      -0.049        0.031           -0.014    0.006
+## speechiness      -0.049       1.000       -0.056           -0.076    0.103
+## acousticness      0.031      -0.056        1.000            0.100   -0.059
+## instrumentalness -0.014      -0.076        0.100            1.000   -0.017
+## liveness          0.006       0.103       -0.059           -0.017    1.000
+## valence          -0.009      -0.002       -0.048           -0.077    0.020
+## tempo             0.022       0.120       -0.136           -0.004    0.008
+## duration_ms       0.013      -0.022       -0.070           -0.009    0.023
+## followers        -0.032       0.002       -0.021           -0.004    0.011
+## total_releases   -0.019       0.220       -0.107           -0.035    0.058
+## mstreams         -0.014       0.060        0.020            0.001    0.002
+## adv_spending      0.008       0.002       -0.009            0.000    0.028
+##                  valence  tempo duration_ms followers total_releases
+## trackPopularity    0.021 -0.029      -0.032    -0.013         -0.054
+## danceability       0.174  0.014      -0.106     0.024          0.185
+## energy             0.348  0.107       0.106    -0.023         -0.041
+## key                0.065 -0.019       0.003     0.013          0.019
+## loudness           0.199  0.079       0.097     0.011          0.001
+## mode              -0.009  0.022       0.013    -0.032         -0.019
+## speechiness       -0.002  0.120      -0.022     0.002          0.220
+## acousticness      -0.048 -0.136      -0.070    -0.021         -0.107
+## instrumentalness  -0.077 -0.004      -0.009    -0.004         -0.035
+## liveness           0.020  0.008       0.023     0.011          0.058
+## valence            1.000 -0.008      -0.094    -0.038         -0.038
+## tempo             -0.008  1.000      -0.008    -0.042          0.049
+## duration_ms       -0.094 -0.008       1.000     0.118          0.087
+## followers         -0.038 -0.042       0.118     1.000          0.191
+## total_releases    -0.038  0.049       0.087     0.191          1.000
+## mstreams          -0.020 -0.003      -0.040     0.228          0.064
+## adv_spending      -0.011  0.025       0.001     0.064          0.019
+##                  mstreams adv_spending
+## trackPopularity    -0.007       -0.013
+## danceability        0.093        0.007
+## energy             -0.082       -0.016
+## key                -0.006        0.009
+## loudness           -0.052       -0.019
+## mode               -0.014        0.008
+## speechiness         0.060        0.002
+## acousticness        0.020       -0.009
+## instrumentalness    0.001        0.000
+## liveness            0.002        0.028
+## valence            -0.020       -0.011
+## tempo              -0.003        0.025
+## duration_ms        -0.040        0.001
+## followers           0.228        0.064
+## total_releases      0.064        0.019
+## mstreams            1.000        0.265
+## adv_spending        0.265        1.000</code></pre>
 <p>If the variables measure the same construct, we would expect to see a certain degree of correlation between the variables. Even if the variables turn out to measure different dimensions of the same underlying construct, we would still expect to see some degree of correlation. So the first problem that could occur is that the <strong>correlations are not high enough</strong>. A first approach would be to scan the correlation matrix for correlations lower than about 0.3 and identify variables that have many correlations below this threshold. If your data set contains many variables, this task can be quite tedious. To make the task a little easier, you could proceed as follows.</p>
 <p>Create a dataframe from the correlation matrix and set the diagonal elements to missing since these are always 1:</p>
 <pre class="sourceCode r"><code class="sourceCode r">correlations &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(spotify_matrix)
 <span class="kw">diag</span>(correlations) &lt;-<span class="st"> </span><span class="ot">NA</span></code></pre>
 <p>Now we can use the <code>apply()</code> function to count the number of correlations for each variable that are below a certain threshold (say, 0.3). The <code>apply()</code> function is very useful as it lets you apply function by the rows or columns in your dataframe. In the following example <code>abs(correlations) &lt; 0.3</code> returns a logical value for the correlation matrix that returns <code>TRUE</code> if the statement is true. The second argument <code>1</code> means that the function should be applied to the rows (<code>2</code> would apply it to the columns). The third argument states the function that should be applied. In our case, we would like to count the number of absolute correlations below 0.3 so we apply the <code>sum</code> function, which sums the number of <code>TRUE</code> occurrences by row. The final argument <code>na.rm = TRUE</code> simply tells R to neglect the missing values that we have created for the diagonals of the matrix.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apply</span>(<span class="kw">abs</span>(correlations) <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.3</span>, <span class="dv">1</span>, sum, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre>
-<pre><code>##     danceability           energy              key         loudness 
-##               10                8               11                9 
-##             mode      speechiness     acousticness instrumentalness 
-##               11               11                9               11 
-##         liveness          valence            tempo      duration_ms 
-##               11                9               11               11</code></pre>
+<pre><code>##  trackPopularity     danceability           energy              key 
+##               16               16               13               16 
+##         loudness             mode      speechiness     acousticness 
+##               14               16               16               14 
+## instrumentalness         liveness          valence            tempo 
+##               16               16               15               16 
+##      duration_ms        followers   total_releases         mstreams 
+##               16               16               16               16 
+##     adv_spending 
+##               16</code></pre>
 <p>The output shows you the number of correlations below the threshold for each variable. In a similar way, it would also be possible to compute the mean correlation for each variable.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apply</span>(<span class="kw">abs</span>(correlations),<span class="dv">1</span>,mean,<span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre>
-<pre><code>##     danceability           energy              key         loudness 
-##       0.16467066       0.22849118       0.02544163       0.19285013 
-##             mode      speechiness     acousticness instrumentalness 
-##       0.07210009       0.08148881       0.17060047       0.05578253 
-##         liveness          valence            tempo      duration_ms 
-##       0.05111482       0.15116375       0.04432370       0.05630245</code></pre>
+<pre><code>##  trackPopularity     danceability           energy              key 
+##       0.02575277       0.10173849       0.14121206       0.02613725 
+##         loudness             mode      speechiness     acousticness 
+##       0.13674902       0.03719904       0.06786037       0.12537279 
+## instrumentalness         liveness          valence            tempo 
+##       0.04197967       0.04009356       0.07324608       0.04210004 
+##      duration_ms        followers   total_releases         mstreams 
+##       0.05176550       0.05206670       0.07418177       0.05991113 
+##     adv_spending 
+##       0.03089821</code></pre>
 <p>Another way to make the correlations more salient is to plot the correlation matrix using different colors that indicate the strength of the correlations. This can be done using the <code>corPlot()</code> function from the <code>psych</code> package.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">corPlot</span>(correlations,<span class="dt">numbers=</span><span class="ot">TRUE</span>,<span class="dt">upper=</span><span class="ot">FALSE</span>,<span class="dt">diag=</span><span class="ot">FALSE</span>,<span class="dt">main=</span><span class="st">&quot;Correlations between variables&quot;</span>)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-379"></span>
@@ -533,25 +575,29 @@ Figure 7.2: Correlation matrix
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(psych)
 <span class="kw">cortest.bartlett</span>(spotify_matrix, <span class="dt">n =</span> <span class="kw">nrow</span>(spotify_data))</code></pre>
 <pre><code>## $chisq
-## [1] 96268.57
+## [1] 8823.305
 ## 
 ## $p.value
 ## [1] 0
 ## 
 ## $df
-## [1] 66</code></pre>
+## [1] 136</code></pre>
 <p>In our example, the p-value is less than 0.05, which is good news since it confirms that overall the correlation between variables is different from zero.</p>
 <p>The other problem that might occur is that <strong>the correlations are too high</strong>. Actually, a certain degree of multicollinearity is not a problem in PCA. However, it is important to avoid extreme multicollinearity (i.e., variables are highly correlated) and singularity (i.e., variables are perfectly correlated). Multicollinearity causes problems, because it becomes difficult to determine the unique contribution of a variable (as was the case in linear regression analysis). Again, inspecting the entire correlation matrix when there are many variables will be a tedious task. .</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apply</span>(<span class="kw">abs</span>(correlations) <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.8</span>, <span class="dv">1</span>, sum, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre>
-<pre><code>##     danceability           energy              key         loudness 
+<pre><code>##  trackPopularity     danceability           energy              key 
 ##                0                0                0                0 
-##             mode      speechiness     acousticness instrumentalness 
+##         loudness             mode      speechiness     acousticness 
 ##                0                0                0                0 
-##         liveness          valence            tempo      duration_ms 
-##                0                0                0                0</code></pre>
+## instrumentalness         liveness          valence            tempo 
+##                0                0                0                0 
+##      duration_ms        followers   total_releases         mstreams 
+##                0                0                0                0 
+##     adv_spending 
+##                0</code></pre>
 <p>The results do not suggest any extreme or perfect correlations. Again, there is a more objective measure that could be applied. The <strong>determinant</strong> tells us whether the correlation matrix is singular (determinant = 0), or if all variables are completely unrelated (determinant = 1), or somewhere in between. As a rule of thumb, the determinant should be greater than 0.00001. The <code>det()</code> function can be used to compute the determinant:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">det</span>(spotify_matrix)</code></pre>
-<pre><code>## [1] 0.1397147</code></pre>
+<pre><code>## [1] 0.1265555</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">det</span>(spotify_matrix) <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.00001</span></code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <p>As you can see, the determinant is larger than the threshold, indicating that the overall correlation between variables is not too strong.</p>
@@ -573,14 +619,18 @@ MSA_j=\frac{\sum_{k\ne j}^{}{r^2_{jk}}}{\sum_{k\ne j}^{}{r^2_{jk}}+\sum_{k\ne j}
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">KMO</span>(spotify_data)</code></pre>
 <pre><code>## Kaiser-Meyer-Olkin factor adequacy
 ## Call: KMO(r = spotify_data)
-## Overall MSA =  0.61
+## Overall MSA =  0.56
 ## MSA for each item = 
-##     danceability           energy              key         loudness 
-##             0.58             0.59             0.51             0.64 
-##             mode      speechiness     acousticness instrumentalness 
-##             0.66             0.45             0.72             0.44 
-##         liveness          valence            tempo      duration_ms 
-##             0.58             0.60             0.51             0.69</code></pre>
+##  trackPopularity     danceability           energy              key 
+##             0.44             0.43             0.55             0.49 
+##         loudness             mode      speechiness     acousticness 
+##             0.63             0.53             0.47             0.68 
+## instrumentalness         liveness          valence            tempo 
+##             0.57             0.51             0.43             0.65 
+##      duration_ms        followers   total_releases         mstreams 
+##             0.58             0.54             0.60             0.54 
+##     adv_spending 
+##             0.53</code></pre>
 <p>You can see that the statistic is calculated for the entire matrix and for each variable individually. In our example, the values for all variables as well as the overall matrix is above 0.5, suggesting that factor analysis is appropriate.</p>
 </div>
 <div id="deriving-factors" class="section level3">
@@ -600,52 +650,62 @@ pc1</code></pre>
 ## Call: principal(r = spotify_data, nfactors = 12, rotate = &quot;none&quot;)
 ## Standardized loadings (pattern matrix) based upon correlation matrix
 ##                    PC1   PC2   PC3   PC4   PC5   PC6   PC7   PC8   PC9
-## danceability      0.49 -0.58 -0.19 -0.21  0.04 -0.07 -0.04  0.25  0.03
-## energy            0.87  0.27  0.06 -0.02  0.08 -0.03 -0.04 -0.03  0.05
-## key               0.05 -0.19  0.74 -0.02 -0.12  0.17  0.39  0.04  0.47
-## loudness          0.79  0.31  0.01 -0.10 -0.14  0.00 -0.02 -0.16  0.03
-## mode             -0.21  0.34 -0.63 -0.01 -0.02  0.01  0.23  0.13  0.61
-## speechiness       0.21 -0.51 -0.03  0.53 -0.01  0.02 -0.46  0.22  0.28
-## acousticness     -0.71 -0.19 -0.07  0.02 -0.11  0.19  0.23  0.17 -0.20
-## instrumentalness -0.22  0.08  0.18 -0.08  0.84 -0.39  0.02  0.12  0.08
-## liveness          0.16  0.29 -0.01  0.42  0.38  0.70  0.04  0.10 -0.11
-## valence           0.57 -0.21 -0.17 -0.16  0.08  0.07  0.46  0.43 -0.22
-## tempo             0.12  0.21  0.05  0.68 -0.19 -0.51  0.33  0.12 -0.15
-## duration_ms      -0.17  0.52  0.26 -0.21 -0.23 -0.03 -0.34  0.65 -0.02
-##                   PC10  PC11  PC12 h2                   u2 com
-## danceability     -0.44  0.29  0.05  1  0.00000000000000067 4.6
-## energy            0.20  0.02  0.33  1  0.00000000000000178 1.7
-## key              -0.04  0.02  0.00  1  0.00000000000000067 2.7
-## loudness          0.20  0.37 -0.23  1  0.00000000000000056 2.4
-## mode             -0.01  0.02  0.01  1  0.00000000000000000 3.2
-## speechiness       0.28 -0.03 -0.04  1  0.00000000000000056 4.9
-## acousticness      0.33  0.39  0.11  1  0.00000000000000067 3.3
-## instrumentalness  0.10  0.11 -0.04  1  0.00000000000000511 1.9
-## liveness         -0.21  0.06 -0.02  1 -0.00000000000000311 3.3
-## valence           0.22 -0.26 -0.09  1  0.00000000000000144 5.1
-## tempo            -0.16  0.07  0.01  1 -0.00000000000000222 3.3
-## duration_ms      -0.06  0.01 -0.01  1 -0.00000000000000022 3.7
+## trackPopularity  -0.01 -0.03 -0.25  0.23  0.00 -0.22  0.14  0.75 -0.42
+## danceability      0.31  0.49 -0.49  0.07  0.12 -0.29  0.03 -0.01  0.09
+## energy            0.86 -0.22  0.14  0.07 -0.01  0.10  0.01  0.06  0.08
+## key               0.01  0.04 -0.13  0.28 -0.64  0.29  0.04 -0.24 -0.12
+## loudness          0.84 -0.15  0.13  0.10  0.00 -0.09  0.05  0.03 -0.04
+## mode             -0.09 -0.13  0.17 -0.27  0.60 -0.12 -0.32 -0.03  0.02
+## speechiness       0.05  0.55 -0.32 -0.37 -0.04  0.25 -0.03  0.14 -0.05
+## acousticness     -0.74 -0.12 -0.07  0.13 -0.08  0.10 -0.18  0.04  0.00
+## instrumentalness -0.22 -0.14  0.16  0.05 -0.03  0.05  0.52  0.33  0.66
+## liveness          0.13  0.04  0.22 -0.22 -0.08  0.61 -0.37  0.46  0.05
+## valence           0.40 -0.09 -0.32  0.34  0.06  0.14 -0.35 -0.01  0.29
+## tempo             0.19  0.11 -0.02 -0.33  0.21  0.33  0.54 -0.15 -0.16
+## duration_ms       0.12  0.00  0.55 -0.24 -0.32 -0.25 -0.01  0.03 -0.25
+## followers         0.01  0.45  0.45  0.19 -0.17 -0.28 -0.12  0.08  0.16
+## total_releases    0.09  0.61  0.06 -0.32 -0.20 -0.13 -0.09  0.02  0.20
+## mstreams         -0.08  0.53  0.26  0.46  0.26  0.10  0.04  0.00  0.00
+## adv_spending     -0.03  0.31  0.30  0.42  0.32  0.32  0.12 -0.07 -0.23
+##                   PC10  PC11  PC12   h2    u2 com
+## trackPopularity   0.23 -0.02  0.12 0.99 0.013 2.7
+## danceability     -0.11  0.16  0.03 0.74 0.264 4.0
+## energy            0.05  0.01 -0.04 0.84 0.162 1.3
+## key               0.28  0.12  0.44 0.95 0.054 4.0
+## loudness         -0.06 -0.05  0.07 0.78 0.221 1.2
+## mode              0.39  0.17  0.39 0.94 0.059 4.5
+## speechiness       0.02  0.15 -0.24 0.71 0.289 4.0
+## acousticness      0.25 -0.02 -0.23 0.75 0.251 1.8
+## instrumentalness  0.07  0.25  0.05 0.98 0.015 3.4
+## liveness         -0.19 -0.10  0.10 0.90 0.102 3.9
+## valence           0.45  0.10 -0.31 0.93 0.071 7.0
+## tempo             0.42 -0.31 -0.09 0.95 0.051 5.6
+## duration_ms       0.20  0.41 -0.35 0.92 0.076 5.6
+## followers         0.21 -0.44 -0.01 0.83 0.173 5.3
+## total_releases    0.12  0.11  0.24 0.67 0.328 3.0
+## mstreams         -0.03 -0.14 -0.08 0.66 0.335 3.4
+## adv_spending     -0.08  0.42  0.03 0.82 0.175 6.6
 ## 
 ##                        PC1  PC2  PC3  PC4  PC5  PC6  PC7  PC8  PC9 PC10
-## SS loadings           2.65 1.39 1.13 1.06 1.00 0.98 0.90 0.83 0.80 0.60
-## Proportion Var        0.22 0.12 0.09 0.09 0.08 0.08 0.08 0.07 0.07 0.05
-## Cumulative Var        0.22 0.34 0.43 0.52 0.60 0.68 0.76 0.83 0.90 0.95
-## Proportion Explained  0.22 0.12 0.09 0.09 0.08 0.08 0.08 0.07 0.07 0.05
-## Cumulative Proportion 0.22 0.34 0.43 0.52 0.60 0.68 0.76 0.83 0.90 0.95
+## SS loadings           2.40 1.63 1.34 1.24 1.18 1.10 1.03 1.00 0.94 0.89
+## Proportion Var        0.14 0.10 0.08 0.07 0.07 0.06 0.06 0.06 0.06 0.05
+## Cumulative Var        0.14 0.24 0.32 0.39 0.46 0.52 0.58 0.64 0.70 0.75
+## Proportion Explained  0.17 0.11 0.09 0.09 0.08 0.08 0.07 0.07 0.07 0.06
+## Cumulative Proportion 0.17 0.28 0.37 0.46 0.54 0.62 0.69 0.76 0.83 0.89
 ##                       PC11 PC12
-## SS loadings           0.47 0.19
-## Proportion Var        0.04 0.02
-## Cumulative Var        0.98 1.00
-## Proportion Explained  0.04 0.02
-## Cumulative Proportion 0.98 1.00
+## SS loadings           0.84 0.78
+## Proportion Var        0.05 0.05
+## Cumulative Var        0.80 0.84
+## Proportion Explained  0.06 0.05
+## Cumulative Proportion 0.95 1.00
 ## 
-## Mean item complexity =  3.3
+## Mean item complexity =  4
 ## Test of the hypothesis that 12 components are sufficient.
 ## 
-## The root mean square of the residuals (RMSR) is  0 
-##  with the empirical chi square  0  with prob &lt;  NA 
+## The root mean square of the residuals (RMSR) is  0.06 
+##  with the empirical chi square  4100.02  with prob &lt;  NA 
 ## 
-## Fit based upon off diagonal values = 1</code></pre>
+## Fit based upon off diagonal values = 0.76</code></pre>
 <p>The output is quite complex, but we will focus only on the <code>SS loadings</code> for now, which are the Eigenvalues (a.k.a. sum of squared loadings). One common rule is to retain factors with eigenvalues greater than 1.0. So based on this rule, we would extract four factors (i.e., the SS loadings for the fifth factor is &lt; 1).</p>
 <p>You can also plot the eigenvalues against the number of factors in order of extraction using a so-called <strong>Scree plot</strong>:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(pc1<span class="op">$</span>values, <span class="dt">type=</span><span class="st">&quot;b&quot;</span>)
@@ -664,137 +724,208 @@ pc2</code></pre>
 ## Call: principal(r = spotify_data, nfactors = 4, rotate = &quot;none&quot;)
 ## Standardized loadings (pattern matrix) based upon correlation matrix
 ##                    PC1   PC2   PC3   PC4    h2   u2 com
-## danceability      0.49 -0.58 -0.19 -0.21 0.652 0.35 2.5
-## energy            0.87  0.27  0.06 -0.02 0.835 0.16 1.2
-## key               0.05 -0.19  0.74 -0.02 0.585 0.41 1.1
-## loudness          0.79  0.31  0.01 -0.10 0.726 0.27 1.3
-## mode             -0.21  0.34 -0.63 -0.01 0.558 0.44 1.8
-## speechiness       0.21 -0.51 -0.03  0.53 0.583 0.42 2.3
-## acousticness     -0.71 -0.19 -0.07  0.02 0.547 0.45 1.2
-## instrumentalness -0.22  0.08  0.18 -0.08 0.093 0.91 2.6
-## liveness          0.16  0.29 -0.01  0.42 0.290 0.71 2.1
-## valence           0.57 -0.21 -0.17 -0.16 0.425 0.58 1.6
-## tempo             0.12  0.21  0.05  0.68 0.530 0.47 1.3
-## duration_ms      -0.17  0.52  0.26 -0.21 0.406 0.59 2.1
+## trackPopularity  -0.01 -0.03 -0.25  0.23 0.113 0.89 2.0
+## danceability      0.31  0.49 -0.49  0.07 0.586 0.41 2.7
+## energy            0.86 -0.22  0.14  0.07 0.814 0.19 1.2
+## key               0.01  0.04 -0.13  0.28 0.098 0.90 1.4
+## loudness          0.84 -0.15  0.13  0.10 0.755 0.25 1.1
+## mode             -0.09 -0.13  0.17 -0.27 0.125 0.87 2.5
+## speechiness       0.05  0.55 -0.32 -0.37 0.544 0.46 2.5
+## acousticness     -0.74 -0.12 -0.07  0.13 0.584 0.42 1.1
+## instrumentalness -0.22 -0.14  0.16  0.05 0.095 0.91 2.7
+## liveness          0.13  0.04  0.22 -0.22 0.116 0.88 2.7
+## valence           0.40 -0.09 -0.32  0.34 0.392 0.61 3.0
+## tempo             0.19  0.11 -0.02 -0.33 0.161 0.84 1.9
+## duration_ms       0.12  0.00  0.55 -0.24 0.371 0.63 1.5
+## followers         0.01  0.45  0.45  0.19 0.437 0.56 2.3
+## total_releases    0.09  0.61  0.06 -0.32 0.485 0.52 1.6
+## mstreams         -0.08  0.53  0.26  0.46 0.562 0.44 2.5
+## adv_spending     -0.03  0.31  0.30  0.42 0.367 0.63 2.7
 ## 
 ##                        PC1  PC2  PC3  PC4
-## SS loadings           2.65 1.39 1.13 1.06
-## Proportion Var        0.22 0.12 0.09 0.09
-## Cumulative Var        0.22 0.34 0.43 0.52
-## Proportion Explained  0.42 0.22 0.18 0.17
-## Cumulative Proportion 0.42 0.65 0.83 1.00
+## SS loadings           2.40 1.63 1.34 1.24
+## Proportion Var        0.14 0.10 0.08 0.07
+## Cumulative Var        0.14 0.24 0.32 0.39
+## Proportion Explained  0.36 0.25 0.20 0.19
+## Cumulative Proportion 0.36 0.61 0.81 1.00
 ## 
-## Mean item complexity =  1.8
+## Mean item complexity =  2.1
 ## Test of the hypothesis that 4 components are sufficient.
 ## 
-## The root mean square of the residuals (RMSR) is  0.11 
-##  with the empirical chi square  74090.56  with prob &lt;  0 
+## The root mean square of the residuals (RMSR) is  0.08 
+##  with the empirical chi square  8333.96  with prob &lt;  0 
 ## 
-## Fit based upon off diagonal values = 0.63</code></pre>
+## Fit based upon off diagonal values = 0.5</code></pre>
 <p>Now that the output is less complex, we can inspect the remaining statistics. The first part of the output is the <strong>factor matrix</strong>, which contains the factor loadings of all the variables on the four extracted factors (i.e., PC1, PC2, PC3, PC4). As we have said before, the <strong>factor loadings</strong> are the correlations between the variables and the factors. The factor matrix also contains the columns “h2” and “u2”. “h2” refers to the <strong>communality</strong>, which is the proportion of variance a variable shares with all the other variables being considered. This is also the proportion of variance explained by the common factors. In contrast, “u2” refers to the unique variance, which is the proportion of the variance that is unique to a particular variable. In PCA, we are primarily interested in the common variance. When the communality is very low (say &lt;.30), a variable is “quite unique” and should be removed, as it is definitely measuring “something else”. In our example, all communalities (i.e., h2) are above 0.3 so that we retain all variables.</p>
 <p>Note that there is a difference between PCA and common factor analysis. PCA focuses on the variance and aims to reproduce the total variable variance. This means that the components reflect both common and unique variance of the variables. Factor analysis, in contrast, focuses on the correlation and aims to reproduce the correlations among variables. Here, the factors only represent the common variance that variable share and do not include the unique variance. In other words, while factor analysis focuses on explaining the off-diagonal terms in the correlation matrix (i.e., shared co-variance), PCA focuses on explaining the diagonal terms (i.e., the variances). However, although PCA aims to reproduce the on-diagonal terms in the correlation matrix, it also tends to fit the off-diagonal correlations quite well. Hence, the results are often comparable. See also <a href="https://en.wikipedia.org/wiki/Principal_component_analysis#Relation_between_PCA_and_factor_analysis" target="_blank">here</a>.</p>
 <p>You should also take a closer look at the residuals in order to check whether you have extracted the correct number of factors. The difference between the reproduced and the actual correlation matrices are the residuals. We can extract the residuals from our model using the <code>factor.residuals()</code> function from the <code>psych</code> package. It takes the original correlation matrix and the factor loadings as arguments:</p>
 <pre class="sourceCode r"><code class="sourceCode r">residuals &lt;-<span class="st"> </span><span class="kw">factor.residuals</span>(spotify_matrix, pc2<span class="op">$</span>loadings)
 <span class="kw">round</span>(residuals,<span class="dv">3</span>)</code></pre>
-<pre><code>##                  danceability energy    key loudness   mode speechiness
-## danceability            0.348 -0.063  0.013   -0.039  0.047      -0.058
-## energy                 -0.063  0.165 -0.017   -0.034  0.015       0.065
-## key                     0.013 -0.017  0.415    0.015  0.383      -0.049
-## loudness               -0.039 -0.034  0.015    0.274 -0.005       0.039
-## mode                    0.047  0.015  0.383   -0.005  0.442       0.090
-## speechiness            -0.058  0.065 -0.049    0.039  0.090       0.417
-## acousticness           -0.017  0.073  0.043    0.161 -0.036      -0.041
-## instrumentalness        0.084  0.088 -0.116   -0.064  0.048       0.058
-## liveness                0.094 -0.043  0.049   -0.085 -0.046      -0.075
-## valence                -0.099 -0.030  0.080   -0.127  0.021      -0.098
-## tempo                   0.133 -0.056  0.006   -0.012  0.001      -0.220
-## duration_ms             0.193 -0.041 -0.093   -0.072  0.002       0.276
-##                  acousticness instrumentalness liveness valence  tempo
-## danceability           -0.017            0.084    0.094  -0.099  0.133
-## energy                  0.073            0.088   -0.043  -0.030 -0.056
-## key                     0.043           -0.116    0.049   0.080  0.006
-## loudness                0.161           -0.064   -0.085  -0.127 -0.012
-## mode                   -0.036            0.048   -0.046   0.021  0.001
-## speechiness            -0.041            0.058   -0.075  -0.098 -0.220
-## acousticness            0.453           -0.087    0.090   0.190  0.031
-## instrumentalness       -0.087            0.907    0.035   0.072  0.036
-## liveness                0.090            0.035    0.710   0.097 -0.351
-## valence                 0.190            0.072    0.097   0.575  0.130
-## tempo                   0.031            0.036   -0.351   0.130  0.470
-## duration_ms             0.041           -0.118   -0.038   0.091  0.039
-##                  duration_ms
-## danceability           0.193
-## energy                -0.041
-## key                   -0.093
-## loudness              -0.072
-## mode                   0.002
-## speechiness            0.276
-## acousticness           0.041
-## instrumentalness      -0.118
-## liveness              -0.038
-## valence                0.091
-## tempo                  0.039
-## duration_ms            0.594</code></pre>
+<pre><code>##                  trackPopularity danceability energy    key loudness
+## trackPopularity            0.887       -0.048  0.001 -0.097    0.040
+## danceability              -0.048        0.414 -0.079 -0.123    0.017
+## energy                     0.001       -0.079  0.186  0.008   -0.056
+## key                       -0.097       -0.123  0.008  0.902   -0.021
+## loudness                   0.040        0.017 -0.056 -0.021    0.245
+## mode                       0.065        0.121  0.002 -0.069    0.006
+## speechiness                0.026       -0.195  0.120  0.052    0.014
+## acousticness              -0.010       -0.025  0.096  0.003    0.116
+## instrumentalness           0.040        0.108  0.076 -0.008    0.007
+## liveness                   0.085       -0.045  0.006  0.081   -0.064
+## valence                   -0.136       -0.089  0.004 -0.073   -0.145
+## tempo                      0.045       -0.090 -0.010  0.065   -0.029
+## duration_ms                0.158        0.143 -0.057  0.139   -0.049
+## followers                  0.070        0.014 -0.007 -0.003   -0.003
+## total_releases             0.055       -0.091  0.022  0.091    0.041
+## mstreams                  -0.031       -0.043  0.032 -0.126    0.014
+## adv_spending              -0.023       -0.016  0.003 -0.085   -0.031
+##                    mode speechiness acousticness instrumentalness liveness
+## trackPopularity   0.065       0.026       -0.010            0.040    0.085
+## danceability      0.121      -0.195       -0.025            0.108   -0.045
+## energy            0.002       0.120        0.096            0.076    0.006
+## key              -0.069       0.052        0.003           -0.008    0.081
+## loudness          0.006       0.014        0.116            0.007   -0.064
+## mode              0.875      -0.019       -0.007           -0.067   -0.073
+## speechiness      -0.019       0.456        0.076            0.080    0.061
+## acousticness     -0.007       0.076        0.416           -0.076    0.089
+## instrumentalness -0.067       0.080       -0.076            0.905   -0.005
+## liveness         -0.073       0.061        0.089           -0.005    0.884
+## valence           0.164       0.047        0.172            0.034    0.116
+## tempo            -0.031      -0.082        0.063            0.073   -0.091
+## duration_ms      -0.135       0.058        0.088           -0.056   -0.167
+## followers        -0.002      -0.025        0.043           -0.019   -0.067
+## total_releases   -0.031      -0.217        0.083            0.077   -0.066
+## mstreams          0.124       0.032       -0.017           -0.004    0.034
+## adv_spending      0.105       0.087       -0.024           -0.029    0.043
+##                  valence  tempo duration_ms followers total_releases
+## trackPopularity   -0.136  0.045       0.158     0.070          0.055
+## danceability      -0.089 -0.090       0.143     0.014         -0.091
+## energy             0.004 -0.010      -0.057    -0.007          0.022
+## key               -0.073  0.065       0.139    -0.003          0.091
+## loudness          -0.145 -0.029      -0.049    -0.003          0.041
+## mode               0.164 -0.031      -0.135    -0.002         -0.031
+## speechiness        0.047 -0.082       0.058    -0.025         -0.217
+## acousticness       0.172  0.063       0.088     0.043          0.083
+## instrumentalness   0.034  0.073      -0.056    -0.019          0.077
+## liveness           0.116 -0.091      -0.167    -0.067         -0.066
+## valence            0.608  0.031       0.118     0.081          0.108
+## tempo              0.031  0.839      -0.100    -0.019         -0.144
+## duration_ms        0.118 -0.100       0.629    -0.082         -0.036
+## followers          0.081 -0.019      -0.082     0.563         -0.045
+## total_releases     0.108 -0.144      -0.036    -0.045          0.515
+## mstreams          -0.017  0.113      -0.059    -0.210         -0.112
+## adv_spending      -0.017  0.142      -0.060    -0.292         -0.051
+##                  mstreams adv_spending
+## trackPopularity    -0.031       -0.023
+## danceability       -0.043       -0.016
+## energy              0.032        0.003
+## key                -0.126       -0.085
+## loudness            0.014       -0.031
+## mode                0.124        0.105
+## speechiness         0.032        0.087
+## acousticness       -0.017       -0.024
+## instrumentalness   -0.004       -0.029
+## liveness            0.034        0.043
+## valence            -0.017       -0.017
+## tempo               0.113        0.142
+## duration_ms        -0.059       -0.060
+## followers          -0.210       -0.292
+## total_releases     -0.112       -0.051
+## mstreams            0.438       -0.174
+## adv_spending       -0.174        0.633</code></pre>
 <p>Note that the diagonal elements in the residual matrix correspond to the unique variance in each variable that cannot be explained by the factors (i.e., “u2” in the output above). For example, the proportion of unique variance for question 1 is 0.57, which is reflected in the first cell in the residual matrix. The off-diagonal elements represent the difference between the actual correlations and the correlation based on the reproduced correlation matrix for all variable pairs. To see this, the reproduced correlation matrix could be generated by using the <code>factor.model()</code> function:</p>
 <pre class="sourceCode r"><code class="sourceCode r">reproduced_matrix &lt;-<span class="st"> </span><span class="kw">factor.model</span>(pc2<span class="op">$</span>loadings)
 <span class="kw">round</span>(reproduced_matrix,<span class="dv">3</span>)</code></pre>
-<pre><code>##                  danceability energy    key loudness   mode speechiness
-## danceability            0.652  0.261 -0.002    0.226 -0.171       0.285
-## energy                  0.261  0.835  0.039    0.772 -0.125       0.027
-## key                    -0.002  0.039  0.585   -0.011 -0.544       0.072
-## loudness                0.226  0.772 -0.011    0.726 -0.060      -0.051
-## mode                   -0.171 -0.125 -0.544   -0.060  0.558      -0.196
-## speechiness             0.285  0.027  0.072   -0.051 -0.196       0.583
-## acousticness           -0.229 -0.675 -0.050   -0.622  0.122      -0.035
-## instrumentalness       -0.173 -0.151  0.109   -0.134 -0.042      -0.134
-## liveness               -0.179  0.210 -0.059    0.173  0.066       0.109
-## valence                 0.468  0.432 -0.049    0.398 -0.082       0.147
-## tempo                  -0.217  0.150 -0.011    0.089  0.010       0.281
-## duration_ms            -0.386  0.015  0.092    0.051  0.043      -0.414
-##                  acousticness instrumentalness liveness valence  tempo
-## danceability           -0.229           -0.173   -0.179   0.468 -0.217
-## energy                 -0.675           -0.151    0.210   0.432  0.150
-## key                    -0.050            0.109   -0.059  -0.049 -0.011
-## loudness               -0.622           -0.134    0.173   0.398  0.089
-## mode                    0.122           -0.042    0.066  -0.082  0.010
-## speechiness            -0.035           -0.134    0.109   0.147  0.281
-## acousticness            0.547            0.123   -0.160  -0.358 -0.114
-## instrumentalness        0.123            0.093   -0.043  -0.159 -0.052
-## liveness               -0.160           -0.043    0.290  -0.037  0.370
-## valence                -0.358           -0.159   -0.037   0.425 -0.093
-## tempo                  -0.114           -0.052    0.370  -0.093  0.530
-## duration_ms            -0.001            0.144    0.036  -0.218 -0.040
-##                  duration_ms
-## danceability          -0.386
-## energy                 0.015
-## key                    0.092
-## loudness               0.051
-## mode                   0.043
-## speechiness           -0.414
-## acousticness          -0.001
-## instrumentalness       0.144
-## liveness               0.036
-## valence               -0.218
-## tempo                 -0.040
-## duration_ms            0.406</code></pre>
+<pre><code>##                  trackPopularity danceability energy    key loudness
+## trackPopularity            0.113        0.119 -0.017  0.093   -0.009
+## danceability               0.119        0.586  0.095  0.105    0.126
+## energy                    -0.017        0.095  0.814  0.000    0.782
+## key                        0.093        0.105  0.000  0.098    0.014
+## loudness                  -0.009        0.126  0.782  0.014    0.755
+## mode                      -0.098       -0.193 -0.046 -0.103   -0.063
+## speechiness               -0.022        0.421 -0.143 -0.039   -0.119
+## acousticness               0.054       -0.246 -0.612  0.033   -0.598
+## instrumentalness          -0.022       -0.211 -0.135 -0.015   -0.139
+## liveness                  -0.106       -0.059  0.122 -0.086    0.112
+## valence                    0.158        0.263  0.343  0.138    0.344
+## tempo                     -0.074        0.104  0.116 -0.084    0.108
+## duration_ms               -0.190       -0.249  0.163 -0.137    0.147
+## followers                 -0.083        0.010 -0.017  0.016    0.014
+## total_releases            -0.109        0.276 -0.064 -0.072   -0.040
+## mstreams                   0.024        0.136 -0.115  0.120   -0.066
+## adv_spending               0.009        0.022 -0.020  0.093    0.013
+##                    mode speechiness acousticness instrumentalness liveness
+## trackPopularity  -0.098      -0.022        0.054           -0.022   -0.106
+## danceability     -0.193       0.421       -0.246           -0.211   -0.059
+## energy           -0.046      -0.143       -0.612           -0.135    0.122
+## key              -0.103      -0.039        0.033           -0.015   -0.086
+## loudness         -0.063      -0.119       -0.598           -0.139    0.112
+## mode              0.125      -0.030        0.038            0.053    0.078
+## speechiness      -0.030       0.544       -0.132           -0.156    0.042
+## acousticness      0.038      -0.132        0.584            0.176   -0.149
+## instrumentalness  0.053      -0.156        0.176            0.095   -0.012
+## liveness          0.078       0.042       -0.149           -0.012    0.116
+## valence          -0.173      -0.049       -0.220           -0.111   -0.096
+## tempo             0.053       0.202       -0.198           -0.077    0.099
+## duration_ms       0.148      -0.080       -0.157            0.047    0.189
+## followers        -0.030       0.027       -0.064            0.015    0.077
+## total_releases    0.012       0.437       -0.190           -0.112    0.124
+## mstreams         -0.138       0.028        0.037            0.005   -0.032
+## adv_spending     -0.097      -0.085        0.015            0.029   -0.015
+##                  valence  tempo duration_ms followers total_releases
+## trackPopularity    0.158 -0.074      -0.190    -0.083         -0.109
+## danceability       0.263  0.104      -0.249     0.010          0.276
+## energy             0.343  0.116       0.163    -0.017         -0.064
+## key                0.138 -0.084      -0.137     0.016         -0.072
+## loudness           0.344  0.108       0.147     0.014         -0.040
+## mode              -0.173  0.053       0.148    -0.030          0.012
+## speechiness       -0.049  0.202      -0.080     0.027          0.437
+## acousticness      -0.220 -0.198      -0.157    -0.064         -0.190
+## instrumentalness  -0.111 -0.077       0.047     0.015         -0.112
+## liveness          -0.096  0.099       0.189     0.077          0.124
+## valence            0.392 -0.039      -0.212    -0.118         -0.146
+## tempo             -0.039  0.161       0.092    -0.023          0.193
+## duration_ms       -0.212  0.092       0.371     0.199          0.123
+## followers         -0.118 -0.023       0.199     0.437          0.236
+## total_releases    -0.146  0.193       0.123     0.236          0.485
+## mstreams          -0.003 -0.116       0.018     0.438          0.176
+## adv_spending       0.007 -0.117       0.060     0.356          0.069
+##                  mstreams adv_spending
+## trackPopularity     0.024        0.009
+## danceability        0.136        0.022
+## energy             -0.115       -0.020
+## key                 0.120        0.093
+## loudness           -0.066        0.013
+## mode               -0.138       -0.097
+## speechiness         0.028       -0.085
+## acousticness        0.037        0.015
+## instrumentalness    0.005        0.029
+## liveness           -0.032       -0.015
+## valence            -0.003        0.007
+## tempo              -0.116       -0.117
+## duration_ms         0.018        0.060
+## followers           0.438        0.356
+## total_releases      0.176        0.069
+## mstreams            0.562        0.439
+## adv_spending        0.439        0.367</code></pre>
 <p>You can see that the reproduced correlation between the first and second variable is -0.112. From the correlation table from the beginning we know, however, that the observed correlation was -0.099. Hence, the difference between the observed and reproduced correlation is: (-0.099)-(-0.112) = 0.013, which corresponds to the residual of this variable pair in the residual matrix. Note that the diagonal elements in the reproduced matrix correspond to the communalities in the model summary above (i.e., “h2”).</p>
 <p>A measure of fit can now be computed based on the size of the residuals. In the worst case, the residuals would be as large as the correlations in the original matrix, which would be the case if we extracted no factors at all. A measure of fit could therefore be the sum of the squared residuals divided by the sum of the squared correlations. We square the residuals to account for positive and negative deviations. <strong>Values &gt;0.90 are considered indicators of good fit.</strong> From the output above, you can see that: “Fit based upon off diagonal values = 0.96”. Thus, we conclude that the model fit is sufficient.</p>
 <p>You could also manually compute this statistic by summing over the squared residuals and correlations, take their ratio and subtract it from one (note that we use the <code>upper.tri()</code> function to use the upper triangle of the matrix only; this has the effect of discarding the diagonal elements and the elements below the diagonal).</p>
 <pre class="sourceCode r"><code class="sourceCode r">ssr &lt;-<span class="st"> </span>(<span class="kw">sum</span>(residuals[<span class="kw">upper.tri</span>((residuals))]<span class="op">^</span><span class="dv">2</span>)) <span class="co">#sum of squared residuals </span>
 ssc &lt;-<span class="st"> </span>(<span class="kw">sum</span>(spotify_matrix[<span class="kw">upper.tri</span>((spotify_matrix))]<span class="op">^</span><span class="dv">2</span>)) <span class="co">#sum of squared correlations</span>
 <span class="dv">1</span><span class="op">-</span>(ssr<span class="op">/</span>ssc) <span class="co">#model fit</span></code></pre>
-<pre><code>## [1] 0.6276921</code></pre>
+<pre><code>## [1] 0.5043709</code></pre>
 <p>In a next step, we check the size of the residuals. <strong>If fewer residuals than 50% have absolute values greater than 0.05 the model is a good fit.</strong> This can be tested using the following code. We first convert the residuals to a matrix and select the upper triangular again to avoid duplicates. Finally, we count all occurrences where the absolute value is larger than 0.05 and divide it by the number of total observations to get the proportion.</p>
 <pre class="sourceCode r"><code class="sourceCode r">residuals &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(residuals[<span class="kw">upper.tri</span>((residuals))])
 large_res &lt;-<span class="st"> </span><span class="kw">abs</span>(residuals) <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.05</span>
 <span class="kw">sum</span>(large_res)</code></pre>
-<pre><code>## [1] 35</code></pre>
+<pre><code>## [1] 75</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(large_res)<span class="op">/</span><span class="kw">nrow</span>(residuals)</code></pre>
-<pre><code>## [1] 0.530303</code></pre>
+<pre><code>## [1] 0.5514706</code></pre>
 <p>In our example, we can confirm that the proportion of residuals &gt; 0.05 is less than 50%.</p>
 <p>Another way to evaluate the residuals is by looking at their mean value (rather, we square the residuals first to account for positive and negative values, compute the mean and then take the square root).</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sqrt</span>(<span class="kw">mean</span>(residuals<span class="op">^</span><span class="dv">2</span>))</code></pre>
-<pre><code>## [1] 0.1071163</code></pre>
+<pre><code>## [1] 0.08464911</code></pre>
 <p>This means that our mean residual is 0.055 and this value should be as low as possible.</p>
 <p>Finally, we need to validate if the residuals are approximately normally distributed, which we do by using a histogram, a Q-Q plot and the Shapiro test.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(residuals)</code></pre>
@@ -817,7 +948,7 @@ Figure 7.5: Q-Q plot
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  residuals
-## W = 0.9472, p-value = 0.007121</code></pre>
+## W = 0.98502, p-value = 0.1437</code></pre>
 <p>All of the tests suggest that the distribution of the residuals is approximately normal.</p>
 </div>
 <div id="factor-interpretation" class="section level3">
@@ -833,67 +964,77 @@ pc3</code></pre>
 <pre><code>## Principal Components Analysis
 ## Call: principal(r = spotify_data, nfactors = 4, rotate = &quot;varimax&quot;)
 ## Standardized loadings (pattern matrix) based upon correlation matrix
-##                    RC1   RC2   RC3   RC4    h2   u2 com
-## danceability      0.32  0.62  0.07 -0.40 0.652 0.35 2.3
-## energy            0.90  0.04  0.06  0.15 0.835 0.16 1.1
-## key               0.00 -0.10  0.76 -0.02 0.585 0.41 1.0
-## loudness          0.85 -0.02 -0.01  0.08 0.726 0.27 1.0
-## mode             -0.09 -0.11 -0.73  0.05 0.558 0.44 1.1
-## speechiness      -0.07  0.67  0.19  0.31 0.583 0.42 1.6
-## acousticness     -0.73 -0.05 -0.08 -0.11 0.547 0.45 1.1
-## instrumentalness -0.16 -0.23  0.11 -0.04 0.093 0.91 2.3
-## liveness          0.15 -0.03 -0.07  0.51 0.290 0.71 1.2
-## valence           0.50  0.37 -0.02 -0.20 0.425 0.58 2.2
-## tempo             0.04  0.09  0.01  0.72 0.530 0.47 1.0
-## duration_ms       0.04 -0.63  0.04  0.02 0.406 0.59 1.0
+##                    RC1   RC2   RC4   RC3    h2   u2 com
+## trackPopularity   0.00 -0.02 -0.03 -0.33 0.113 0.89 1.0
+## danceability      0.17  0.62  0.07 -0.41 0.586 0.41 1.9
+## energy            0.90 -0.05 -0.05  0.05 0.814 0.19 1.0
+## key               0.02 -0.04  0.11 -0.29 0.098 0.90 1.3
+## loudness          0.87 -0.02  0.01  0.02 0.755 0.25 1.0
+## mode             -0.08 -0.07 -0.13  0.31 0.125 0.87 1.6
+## speechiness      -0.12  0.73 -0.04  0.02 0.544 0.46 1.1
+## acousticness     -0.69 -0.29 -0.02 -0.13 0.584 0.42 1.4
+## instrumentalness -0.17 -0.24  0.03  0.08 0.095 0.91 2.1
+## liveness          0.13  0.07  0.02  0.31 0.116 0.88 1.5
+## valence           0.40  0.01 -0.06 -0.47 0.392 0.61 2.0
+## tempo             0.13  0.29 -0.13  0.21 0.161 0.84 2.8
+## duration_ms       0.16 -0.09  0.16  0.56 0.371 0.63 1.4
+## followers         0.01  0.07  0.63  0.18 0.437 0.56 1.2
+## total_releases   -0.04  0.60  0.23  0.26 0.485 0.52 1.7
+## mstreams         -0.08  0.07  0.73 -0.15 0.562 0.44 1.1
+## adv_spending      0.01 -0.08  0.59 -0.08 0.367 0.63 1.1
 ## 
-##                        RC1  RC2  RC3  RC4
-## SS loadings           2.47 1.46 1.18 1.12
-## Proportion Var        0.21 0.12 0.10 0.09
-## Cumulative Var        0.21 0.33 0.43 0.52
-## Proportion Explained  0.40 0.23 0.19 0.18
-## Cumulative Proportion 0.40 0.63 0.82 1.00
+##                        RC1  RC2  RC4  RC3
+## SS loadings           2.35 1.54 1.43 1.29
+## Proportion Var        0.14 0.09 0.08 0.08
+## Cumulative Var        0.14 0.23 0.31 0.39
+## Proportion Explained  0.36 0.23 0.22 0.20
+## Cumulative Proportion 0.36 0.59 0.80 1.00
 ## 
-## Mean item complexity =  1.4
+## Mean item complexity =  1.5
 ## Test of the hypothesis that 4 components are sufficient.
 ## 
-## The root mean square of the residuals (RMSR) is  0.11 
-##  with the empirical chi square  74090.56  with prob &lt;  0 
+## The root mean square of the residuals (RMSR) is  0.08 
+##  with the empirical chi square  8333.96  with prob &lt;  0 
 ## 
-## Fit based upon off diagonal values = 0.63</code></pre>
+## Fit based upon off diagonal values = 0.5</code></pre>
 <p>Interpreting the factor loading matrix is a little complex, so we can make it easier by using the <code>print.psych()</code> function, which we can use to exclude loading below a cutoff from the display and order the variables by their loading within each factor. In the following, we will only display loadings that exceed the value 0.3.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print.psych</span>(pc3, <span class="dt">cut =</span> <span class="fl">0.3</span>, <span class="dt">sort =</span> <span class="ot">TRUE</span>)</code></pre>
 <pre><code>## Principal Components Analysis
 ## Call: principal(r = spotify_data, nfactors = 4, rotate = &quot;varimax&quot;)
 ## Standardized loadings (pattern matrix) based upon correlation matrix
-##                  item   RC1   RC2   RC3   RC4    h2   u2 com
-## energy              2  0.90                   0.835 0.16 1.1
-## loudness            4  0.85                   0.726 0.27 1.0
-## acousticness        7 -0.73                   0.547 0.45 1.1
-## valence            10  0.50  0.37             0.425 0.58 2.2
-## speechiness         6        0.67        0.31 0.583 0.42 1.6
-## duration_ms        12       -0.63             0.406 0.59 1.0
-## danceability        1  0.32  0.62       -0.40 0.652 0.35 2.3
-## instrumentalness    8                         0.093 0.91 2.3
-## key                 3              0.76       0.585 0.41 1.0
-## mode                5             -0.73       0.558 0.44 1.1
-## tempo              11                    0.72 0.530 0.47 1.0
-## liveness            9                    0.51 0.290 0.71 1.2
+##                  item   RC1   RC2   RC4   RC3    h2   u2 com
+## energy              3  0.90                   0.814 0.19 1.0
+## loudness            5  0.87                   0.755 0.25 1.0
+## acousticness        8 -0.69                   0.584 0.42 1.4
+## speechiness         7        0.73             0.544 0.46 1.1
+## danceability        2        0.62       -0.41 0.586 0.41 1.9
+## total_releases     15        0.60             0.485 0.52 1.7
+## tempo              12                         0.161 0.84 2.8
+## instrumentalness    9                         0.095 0.91 2.1
+## mstreams           16              0.73       0.562 0.44 1.1
+## followers          14              0.63       0.437 0.56 1.2
+## adv_spending       17              0.59       0.367 0.63 1.1
+## duration_ms        13                    0.56 0.371 0.63 1.4
+## valence            11  0.40             -0.47 0.392 0.61 2.0
+## trackPopularity     1                   -0.33 0.113 0.89 1.0
+## mode                6                    0.31 0.125 0.87 1.6
+## liveness           10                    0.31 0.116 0.88 1.5
+## key                 4                         0.098 0.90 1.3
 ## 
-##                        RC1  RC2  RC3  RC4
-## SS loadings           2.47 1.46 1.18 1.12
-## Proportion Var        0.21 0.12 0.10 0.09
-## Cumulative Var        0.21 0.33 0.43 0.52
-## Proportion Explained  0.40 0.23 0.19 0.18
-## Cumulative Proportion 0.40 0.63 0.82 1.00
+##                        RC1  RC2  RC4  RC3
+## SS loadings           2.35 1.54 1.43 1.29
+## Proportion Var        0.14 0.09 0.08 0.08
+## Cumulative Var        0.14 0.23 0.31 0.39
+## Proportion Explained  0.36 0.23 0.22 0.20
+## Cumulative Proportion 0.36 0.59 0.80 1.00
 ## 
-## Mean item complexity =  1.4
+## Mean item complexity =  1.5
 ## Test of the hypothesis that 4 components are sufficient.
 ## 
-## The root mean square of the residuals (RMSR) is  0.11 
-##  with the empirical chi square  74090.56  with prob &lt;  0 
+## The root mean square of the residuals (RMSR) is  0.08 
+##  with the empirical chi square  8333.96  with prob &lt;  0 
 ## 
-## Fit based upon off diagonal values = 0.63</code></pre>
+## Fit based upon off diagonal values = 0.5</code></pre>
 <p>After obtaining the rotated matrix, variables with high loading are used for interpreting (=naming) the factor. Note that factor loading can be positive or negative (depends on scaling of the variable), thus take care when interpreting! Look for simple structure: each variable (hopefully) loads high on 1 factor and low on other factors.</p>
 <p>As an example, we could name our factors as follows:</p>
 <ul>
@@ -909,54 +1050,59 @@ pc3</code></pre>
 ## Call: principal(r = spotify_data, nfactors = 4, rotate = &quot;oblimin&quot;, 
 ##     scores = TRUE)
 ## Standardized loadings (pattern matrix) based upon correlation matrix
-##                  item   TC1   TC2   TC3   TC4    h2   u2 com
-## energy              2  0.91                   0.835 0.16 1.0
-## loudness            4  0.86                   0.726 0.27 1.0
-## acousticness        7 -0.73                   0.547 0.45 1.0
-## valence            10  0.44  0.34             0.425 0.58 2.5
-## speechiness         6        0.69        0.34 0.583 0.42 1.6
-## duration_ms        12       -0.65             0.406 0.59 1.1
-## danceability        1        0.61       -0.40 0.652 0.35 2.0
-## instrumentalness    8                         0.093 0.91 2.5
-## key                 3              0.77       0.585 0.41 1.0
-## mode                5             -0.72       0.558 0.44 1.1
-## tempo              11                    0.72 0.530 0.47 1.1
-## liveness            9                    0.49 0.290 0.71 1.5
+##                  item   TC1   TC2   TC4   TC3    h2   u2 com
+## energy              3  0.90                   0.814 0.19 1.0
+## loudness            5  0.87                   0.755 0.25 1.0
+## acousticness        8 -0.71                   0.584 0.42 1.3
+## speechiness         7        0.73             0.544 0.46 1.1
+## total_releases     15        0.63             0.485 0.52 1.4
+## danceability        2        0.54       -0.48 0.586 0.41 2.1
+## tempo              12        0.32             0.161 0.84 2.6
+## instrumentalness    9                         0.095 0.91 2.5
+## mstreams           16              0.74       0.562 0.44 1.1
+## adv_spending       17              0.61       0.367 0.63 1.1
+## followers          14              0.60       0.437 0.56 1.3
+## duration_ms        13                    0.57 0.371 0.63 1.4
+## valence            11  0.35             -0.50 0.392 0.61 1.9
+## trackPopularity     1                   -0.33 0.113 0.89 1.2
+## mode                6                    0.31 0.125 0.87 1.6
+## liveness           10                         0.116 0.88 1.9
+## key                 4                         0.098 0.90 1.8
 ## 
-##                        TC1  TC2  TC3  TC4
-## SS loadings           2.47 1.49 1.17 1.10
-## Proportion Var        0.21 0.12 0.10 0.09
-## Cumulative Var        0.21 0.33 0.43 0.52
-## Proportion Explained  0.40 0.24 0.19 0.18
-## Cumulative Proportion 0.40 0.64 0.82 1.00
+##                        TC1  TC2  TC4  TC3
+## SS loadings           2.35 1.52 1.41 1.32
+## Proportion Var        0.14 0.09 0.08 0.08
+## Cumulative Var        0.14 0.23 0.31 0.39
+## Proportion Explained  0.36 0.23 0.21 0.20
+## Cumulative Proportion 0.36 0.59 0.80 1.00
 ## 
 ##  With component correlations of 
-##       TC1   TC2  TC3   TC4
-## TC1  1.00  0.16 0.06 -0.04
-## TC2  0.16  1.00 0.10 -0.05
-## TC3  0.06  0.10 1.00  0.02
-## TC4 -0.04 -0.05 0.02  1.00
+##       TC1   TC2   TC4   TC3
+## TC1  1.00  0.03 -0.02 -0.06
+## TC2  0.03  1.00  0.12 -0.06
+## TC4 -0.02  0.12  1.00  0.04
+## TC3 -0.06 -0.06  0.04  1.00
 ## 
 ## Mean item complexity =  1.5
 ## Test of the hypothesis that 4 components are sufficient.
 ## 
-## The root mean square of the residuals (RMSR) is  0.11 
-##  with the empirical chi square  74090.56  with prob &lt;  0 
+## The root mean square of the residuals (RMSR) is  0.08 
+##  with the empirical chi square  8333.96  with prob &lt;  0 
 ## 
-## Fit based upon off diagonal values = 0.63</code></pre>
+## Fit based upon off diagonal values = 0.5</code></pre>
 <p>The component correlations indicate that the factors might indeed be correlated, so oblique rotation might actually be more appropriate in this case.</p>
 </div>
 <div id="creating-new-variables" class="section level3">
 <h3><span class="header-section-number">7.2.4</span> Creating new variables</h3>
 <p>Once we have decided on the final model, we can calculate the new variables as the weighted sum of the variables that form a factor. This means, we estimate a person’s score on a factor based on their scores on the items that constitute the measurement scales. These scores are also referred to as the <strong>factor scores</strong>. Because we have used the <code>scores = TRUE</code> argument in the previous command, the factor scores have already been created for us. By default, R uses the regression method to compute the factor scores, which controls for differences in the units of measurement. You can access the residuals as follows:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(pc4<span class="op">$</span>scores)</code></pre>
-<pre><code>##           TC1        TC2          TC3        TC4
-## 1 -0.02343085  0.8219611 -0.003667404  1.7608512
-## 2 -0.05241935 -0.3266619 -0.181896926 -1.4817128
-## 3  0.26159274 -0.9114431  0.025088956  2.2937034
-## 4  0.75276688 -0.2247913  1.249910133 -1.0414758
-## 5  0.41532061  0.2019564 -1.453984076 -0.2645705
-## 6 -0.38945878  2.3331325  1.698809299  0.5022276</code></pre>
+<pre><code>##           TC1        TC2        TC4        TC3
+## 1  0.13564760  0.9472885  0.2220550  0.7002312
+## 2 -0.07060837 -0.8657027  0.4734423 -0.6851978
+## 3  0.51879870 -0.3912066 -0.6860076  1.4470033
+## 4  0.81038866 -1.0083237  0.1049618 -1.2558020
+## 5  0.47142882  0.8399665  1.4816583  1.3976008
+## 6 -0.40878772  2.4821871  2.1721264 -0.7798777</code></pre>
 <p>We can also use the <code>cbind()</code> function to add the computed factor scores to the existing data set:</p>
 <pre class="sourceCode r"><code class="sourceCode r">spotify_data &lt;-<span class="st"> </span><span class="kw">cbind</span>(spotify_data, pc4<span class="op">$</span>scores)</code></pre>
 <p>This way, it is easier to use the new variables in subsequent analysis (e.g., t-tests, regression, ANOVA, cluster analysis).</p>
