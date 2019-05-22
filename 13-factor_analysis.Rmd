@@ -156,12 +156,12 @@ where the variable names are replaced by the values that were observed for respo
 
 ## Steps in factor analysis
 
-Now that we have a broad understanding of how factor analysis works, let's use another example to go through the process of deriving factors step by step. In this section, we will use spotify data ... comment
+Now that we have a broad understanding of how factor analysis works, let's use another example to go through the process of deriving factors step by step. In this section, we will use spotify data.
 
-![The R anxiety questionnaire (source: Field, A. et al. (2012): Discovering Statistics Using R, p. 768)](https://github.com/IMSMWU/Teaching/raw/master/MRDA2017/ra_anx_quest.JPG)
+![Spotify Data (c)spotify.com](/home/felix/Documents/e-Assistant IMSM/course_daniel/Spotify_logo_with_text.svg.png)
 
 
-Let's assume, we have collected data from 2,571 respondents and stored the results in the data set "spotify_data".
+We have collected data for 4.276 songs and stored the results in the data set "spotify_data".
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
 spotify_data <- read.csv("/home/felix/Documents/e-Assistant IMSM/course_daniel/music_data.csv", 
