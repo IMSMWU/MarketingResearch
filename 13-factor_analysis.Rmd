@@ -156,19 +156,29 @@ where the variable names are replaced by the values that were observed for respo
 
 ## Steps in factor analysis
 
-Now that we have a broad understanding of how factor analysis works, let's use another example to go through the process of deriving factors step by step. In this section, we will use spotify data.
+```{r message=FALSE, warning=FALSE, eval=TRUE, echo=FALSE}
+spotify_data <- read.csv("/home/felix/Documents/e-Assistant IMSM/course_daniel/music_data.csv", 
+                          sep = ",", 
+                          header = TRUE) #read in data
+#spotify_data <- na.omit(spotify_data[16:27])
+spotify_data <- na.omit(spotify_data[,c(1,16:26)])
+nsongs <- length(unique(spotify_data$id))
+nsongs <- formatC(nsongs, big.mark=".")
+```
 
-![Spotify Data (c)spotify.com](/home/felix/Documents/e-Assistant IMSM/course_daniel/Spotify_logo_with_text.svg.png)
+Now that we have a broad understanding of how factor analysis works, let's use another example to go through the process of deriving factors step by step. In this section, we will use Spotify data.
+
+![Spotify Data &copy; spotify.com](/home/felix/Documents/e-Assistant IMSM/course_daniel/Spotify_logo_with_text.svg.png)
 
 
-We have collected data for 4.276 songs and stored the results in the data set "spotify_data".
+We have collected data for `r nsongs` songs and stored the results in the data set "spotify_data".
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
 spotify_data <- read.csv("/home/felix/Documents/e-Assistant IMSM/course_daniel/music_data.csv", 
                           sep = ",", 
                           header = TRUE) #read in data
 #spotify_data <- na.omit(spotify_data[16:27])
-spotify_data <- na.omit(spotify_data[,c(5,16:27,31,33,37,42,44)])
+spotify_data <- na.omit(spotify_data[,c(16:26)])
 ```
 
 ### Are the assumptions satisfied?
@@ -272,8 +282,12 @@ By extracting as many factors as there are variables we can inspect their eigenv
 pc1 <- principal(spotify_data, nfactors = ncol(spotify_data), rotate = "none")
 pc1
 ```
+```{r message=FALSE, warning=FALSE, eval=TRUE, echo=FALSE}
+nfac <- sum(pc1$values>1)
+```
 
-The output is quite complex, but we will focus only on the ```SS loadings``` for now, which are the Eigenvalues (a.k.a. sum of squared loadings). One common rule is to retain factors with eigenvalues greater than 1.0. So based on this rule, we would extract eight factors (i.e., the SS loadings for the nineth factor is < 1).
+
+The output is quite complex, but we will focus only on the ```SS loadings``` for now, which are the Eigenvalues (a.k.a. sum of squared loadings). One common rule is to retain factors with eigenvalues greater than 1.0. So based on this rule, we would extract `r nfac` factors (i.e., the SS loadings for the <p>`r nfac+1`<sup>th</sup> factor is < 1).</p>
 
 You can also plot the eigenvalues against the number of factors in order of extraction using a so-called **Scree plot**: 
 
@@ -281,19 +295,19 @@ You can also plot the eigenvalues against the number of factors in order of extr
 plot(pc1$values, type="b")
 axis(side=1,c(1:ncol(spotify_data)))
 abline(h=1, lty=2)
-abline(v=8, lty=2)
+abline(v=nfac, lty=2)
 ```
 
-The dashed line is simply a visualization of the rule that we will retain factors with Eigenvalues > 1 (suggesting eight factors). Another criterion based on this plot would be to find the point where the curve flattens (point of inflection). If the largest few eigenvalues in the covariance matrix dominate in magnitude, then the scree plot will exhibit an “elbow”. From that point onwards, the incremental gain in explained variance is rather low. Also according to this criterion, we would extract eight factors. Taken together, the results suggest that we should extract eight factors.   
+The dashed line is simply a visualization of the rule that we will retain factors with Eigenvalues > 1 (suggesting `r nfac` factors). Another criterion based on this plot would be to find the point where the curve flattens (point of inflection). If the largest few eigenvalues in the covariance matrix dominate in magnitude, then the scree plot will exhibit an “elbow”. From that point onwards, the incremental gain in explained variance is rather low. Also according to this criterion, we would extract `r nfac` factors. Taken together, the results suggest that we should extract `r nfac` factors.   
 
 Now that we know how many components we want to extract, we can rerun the analysis, specifying that number:
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
-pc2 <- principal(spotify_data, nfactors = 8, rotate = "none")
+pc2 <- principal(spotify_data, nfactors = nfac, rotate = "none")
 pc2
 ```
 
-Now that the output is less complex, we can inspect the remaining statistics. The first part of the output is the **factor matrix**, which contains the factor loadings of all the variables on the eight extracted factors (i.e., PC1, PC2, PC3, PC4, PC5, PC6, PC7, PC8). As we have said before, the **factor loadings** are the correlations between the variables and the factors. The factor matrix also contains the columns "h2" and "u2". "h2" refers to the **communality**, which is the proportion of variance a variable shares with all the other variables being considered. This is also the proportion of variance explained by the common factors. In contrast, "u2" refers to the unique variance, which is the proportion of the variance that is unique to a particular variable. In PCA, we are primarily interested in the common variance. When the communality is very low (say <.30), a variable is “quite unique” and  should be removed, as it is definitely measuring “something else”. In our example, all communalities (i.e., h2) are above 0.3 so that we retain all variables.
+Now that the output is less complex, we can inspect the remaining statistics. The first part of the output is the **factor matrix**, which contains the factor loadings of all the variables on the `r nfac` extracted factors (i.e., `r paste0("PC",seq(nfac))`). As we have said before, the **factor loadings** are the correlations between the variables and the factors. The factor matrix also contains the columns "h2" and "u2". "h2" refers to the **communality**, which is the proportion of variance a variable shares with all the other variables being considered. This is also the proportion of variance explained by the common factors. In contrast, "u2" refers to the unique variance, which is the proportion of the variance that is unique to a particular variable. In PCA, we are primarily interested in the common variance. When the communality is very low (say <.30), a variable is “quite unique” and  should be removed, as it is definitely measuring “something else”. In our example, all communalities (i.e., h2) are above 0.3 so that we retain all variables.
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
 #pc2$communality < 0.3
@@ -316,11 +330,15 @@ reproduced_matrix <- factor.model(pc2$loadings)
 round(reproduced_matrix,3)
 ```
 
-You can see that the reproduced correlation between the first and second variable is 0.115. From the correlation table from the beginning we know, however, that the observed correlation was 0.071. Hence, the difference between the observed and reproduced correlation is: `r round(spotify_matrix[1,2],3)` - `r round(reproduced_matrix[1,2],3)` = `r round(residuals[1,2],3)`, which corresponds to the residual of this variable pair in the residual matrix. Note that the diagonal elements in the reproduced matrix correspond to the communalities in the model summary above (i.e., "h2"). 
+You can see that the reproduced correlation between the first and second variable is `r round(reproduced_matrix[1,2],3)`. From the correlation table from the beginning we know, however, that the observed correlation was `r round(spotify_matrix[1,2],3)`. Hence, the difference between the observed and reproduced correlation is: `r round(spotify_matrix[1,2],3)` - `r round(reproduced_matrix[1,2],3)` = `r round(residuals[1,2],3)`, which corresponds to the residual of this variable pair in the residual matrix. Note that the diagonal elements in the reproduced matrix correspond to the communalities in the model summary above (i.e., "h2"). 
   
 [//]: # (Hence, the difference between the observed and reproduced correlation is:  (0.071)-(0.115) = -0.044,...)
 
-A measure of fit can now be computed based on the size of the residuals. In the worst case, the residuals would be as large as the correlations in the original matrix, which would be the case if we extracted no factors at all. A measure of fit could therefore be the sum of the squared residuals divided by the sum of the squared correlations. We square the residuals to account for positive and negative deviations. **Values >0.90 are considered indicators of good fit.** From the output above, you can see that: "Fit based upon off diagonal values = 0.56". Thus, we conclude that the model does not have a good fit. 
+```{r message=FALSE, warning=FALSE, eval=TRUE, echo=FALSE}
+goodness <- ifelse(pc2$fit.off>0.9,"the model has a good fit. ","the model does not have a good fit. ")
+```
+
+A measure of fit can now be computed based on the size of the residuals. In the worst case, the residuals would be as large as the correlations in the original matrix, which would be the case if we extracted no factors at all. A measure of fit could therefore be the sum of the squared residuals divided by the sum of the squared correlations. We square the residuals to account for positive and negative deviations. **Values >0.90 are considered indicators of good fit.** From the output above, you can see that: "Fit based upon off diagonal values = `r round(pc2$fit.off,2)`". Thus, we conclude that `r goodness`
 
 You could also manually compute this statistic by summing over the squared residuals and correlations, take their ratio and subtract it from one (note that we use the ```upper.tri()``` function to use the upper triangle of the matrix only; this has the effect of discarding the diagonal elements and the elements below the diagonal).  
 
@@ -338,8 +356,10 @@ large_res <- abs(residuals) > 0.05
 sum(large_res)
 sum(large_res)/nrow(residuals)
 ```
-
-In our example, we can confirm that the proportion of residuals > 0.05 is less than 50%.
+```{r message=FALSE, warning=FALSE, eval=TRUE, echo=FALSE}
+propres <- ifelse(sum(large_res)/nrow(residuals)<0.5,"can","cannot")
+```
+In our example, we `r propres` confirm that the proportion of residuals > 0.05 is less than 50%.
 
 Another way to evaluate the residuals is by looking at their mean value (rather, we square the residuals first to account for positive and negative values, compute the mean and then take the square root). 
 
@@ -347,7 +367,7 @@ Another way to evaluate the residuals is by looking at their mean value (rather,
 sqrt(mean(residuals^2))
 ```
 
-This means that our mean residual is 0.085 and this value should be as low as possible. 
+This means that our mean residual is `r round(sqrt(mean(residuals^2)),4)` and this value should be as low as possible. 
 
 Finally, we need to validate if the residuals are approximately normally distributed, which we do by using a histogram, a Q-Q plot and the Shapiro test. 
 
@@ -373,7 +393,7 @@ To aid interpretation, it is possible to maximize the loading of a variable on o
 To carry out a orthogonal rotation, we change the rotate option in the ```principal()``` function from “none” to “varimax” (we could also exclude it altogether because varimax is the default if the option is not specified):
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
-pc3 <- principal(spotify_data, nfactors = 8, rotate = "varimax")
+pc3 <- principal(spotify_data, nfactors = nfac, rotate = "varimax")
 pc3
 ```
 
@@ -382,29 +402,40 @@ Interpreting the factor loading matrix is a little complex, so we can make it ea
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
 print.psych(pc3, cut = 0.3, sort = TRUE)
 ```
+```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
+rc1 <- pc3$loadings[,1]>0.3
+rc1 <- rc1[rc1>0]
+rc1
+names(rc1)
+pc3cut
+```
+```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
+for (i in 1:nfac){
+  rci <- pc3$loadings[,i]>0.3
+  rci <- rci[rci>0]
+  names(rci)
+}
+```
 
 After obtaining the rotated matrix, variables with high loading are used for interpreting (=naming) the factor. Note that factor loading can be positive or negative (depends on scaling of the variable), thus take care when interpreting! Look for simple structure: each variable (hopefully) loads high on 1 factor and low on other factors.
 
 As an example, we could name our factors as follows:
 
-* **Factor 1:** loud
-* **Factor 2:** trending
-* **Factor 3:** dancefloor
-* **Factor 4:** shortness
-* **Factor 5:** affluent
-* **Factor 6:** key
-* **Factor 7:** fast_instrumental
-* **Factor 8:** livemusic
+* **Factor 1:** energetic
+* **Factor 2:** fast
+* **Factor 3:** pitch
+* **Factor 4:** dancefloor
+
 
 
 The previous type of rotation (i.e., "varimax") assumed that the factors are independent. Oblique rotation is another type of rotation that can handle correlation between the factors. The command for an oblique rotation is very similar to that for an orthogonal rotation – we just change the rotate option from “varimax” to “oblimin”.
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
-pc4 <- principal(spotify_data, nfactors = 8, rotate = "oblimin", scores = TRUE)
+pc4 <- principal(spotify_data, nfactors = nfac, rotate = "oblimin", scores = TRUE)
 print.psych(pc4, cut = 0.3, sort = TRUE)
 ```
 
-The component correlations indicate that the factors might indeed be correlated, so oblique rotation might actually be more appropriate in this case. 
+The component correlations indicate that the factors are not correlated, therefore orthogonal rotation is appropriate.
 
 ### Creating new variables
 
@@ -440,7 +471,7 @@ The share of the items common variance (inter-correlation) in the total variance
 To see if the subscales that were derived from the previous PCA exhibit a sufficient degree of reliability, we first create subsets of our data set that contain the respective items for each of the factors (we use the results from the oblimin rotation here):  
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
-#loud <- spotify_data[,c(6,7,10,13,14,15,18)]
+energetic <- spotify_data[,c(names(rc1))]
 #trending <- spotify_data[,c(1,3,4,5,12,16,20,21)]
 #dancefloor <- spotify_data[,c(8,11,17)]
 #affluent <- spotify_data[,c(2,9,19,22,23)]
@@ -452,7 +483,7 @@ Now we can use the ```alpha()``` function from the ```psych``` package to test t
 
 
 ```{r message=FALSE, warning=FALSE, eval=TRUE, echo=TRUE}
-#psych::alpha(computer_fear)
+psych::alpha(energetic)
 #psych::alpha(statistics_fear, keys=c(1,-1,1,1,1,1,1,1))
 #psych::alpha(math_fear)
 #psych::alpha(peer_evaluation)
