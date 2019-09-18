@@ -22,14 +22,14 @@ online_store_promo <- read.table("https://raw.githubusercontent.com/IMSMWU/Teach
 online_store_promo$Promotion <- factor(online_store_promo$Promotion, levels = c(1:3), labels = c("high", "medium","low")) #convert grouping variable to factor
 ```
 
-## Comparing several means
+# ANOVA
 
 This chapter is primarily based on Field, A., Miles J., & Field, Z. (2012): Discovering Statistics Using R. Sage Publications, **chapters 10 & 12**.
 
 [You can download the corresponding R-Code here](./Code/08-anova (1).R)
 
 
-### Introduction
+## Introduction
 In the previous section we learned how to compare means using a t-test. The t-test has some limitations since it only lets you compare 2 means and you can only use it with one independent variable. However, often we would like to compare means from 3 or more groups. In addition, there may be instances in which you manipulate more than one independent variable. For these applications, ANOVA (ANalysis Of VAriance) can be used. Hence, to conduct ANOVA you need: 
 
 * A metric dependent variable (i.e., measured using an interval or ratio scale)
@@ -110,7 +110,7 @@ So why don’t we then just conduct a series of t-tests for all combinations of 
 
 This means that the overall probability of making a Type I error is 1-(0.95<sup>3</sup>) = 0.143, since the probability of no Type I error is 0.95 for each of the three tests. Consequently, the Type I error probability would be 14.3%, which is above the conventional standard of 5%. This is also known as the family-wise or experiment-wise error.
 
-### Decomposing variance
+## Decomposing variance
 
 The basic concept underlying ANOVA is the decomposition of the variance in the data. There are three variance components which we need to consider:
 
@@ -170,7 +170,7 @@ ggplot(d, aes(x=index,y=hours,color=group)) +
    # coord_flip()
 ```
 
-#### Total sum of squares
+### Total sum of squares
 
 To compute the total variation in the data, we consider the difference between each observation and the grand mean. The grand mean is the mean over all observations in the data set. The vertical lines in the following plot measure how far each observation is away from the grand mean:
 
@@ -221,7 +221,7 @@ df_T = N-1=300-1=299
 (\#eq:dfT)
 \end{equation} 
 
-#### Model sum of squares
+### Model sum of squares
 
 Now we know that there are 26646.33 units of total variation in our data. Next, we compute how much of the total variation can be explained by the differences between groups (i.e., our experimental manipulation). To compute the explained variation in the data, we consider the difference between the values predicted by our model for each observation (i.e., the group mean) and the grand mean. The group mean refers to the mean value within the experimental group. The vertical lines in the following plot measure how far the predicted value for each observation (i.e., the group mean) is away from the grand mean:
 
@@ -266,7 +266,7 @@ $$
 df_M= c-1=3-1=2
 $$
 
-#### Residual sum of squares
+### Residual sum of squares
 
 Lastly, we calculate the amount of variation that cannot be explained by our model. In ANOVA, this is the sum of squared distances between what the model predicts for each data point (i.e., the group means) and the observed values. In other words, this refers to the amount of variation that is caused by extraneous factors, such as differences between product characteristics of the products in the different experimental groups. The vertical lines in the following plot measure how far each observation is away from the group mean:
 
@@ -315,7 +315,7 @@ df_R=& (n_1-1)+(n_2-1)+(n_3-1) \\
 \end{align}
 $$
 
-#### Effect strength
+### Effect strength
 
 Once you have computed the different sum of squares, you can investigate the effect strength. $\eta^2$ is a measure of the variation in Y that is explained by X:
 
@@ -332,7 +332,7 @@ eta
 
 The statistic can only take values between 0 and 1. It is equal to 0 when all the category means are equal, indicating that X has no effect on Y. In contrast, it has a value of 1 when there is no variability within each category of X but there is some variability between categories.
 
-#### Test of significance
+### Test of significance
 
 How can we determine whether the effect of X on Y is significant?
 
@@ -447,17 +447,17 @@ Remember: This doesn’t tell us where the differences between groups lie. To fi
 
 *You don't have to compute these statistics manually!* Luckily, there is a function for ANOVA in R, which does the above calculations for you as we will see in the next section.
 
-### One-way ANOVA
+## One-way ANOVA
 
-#### Basic ANOVA
+### Basic ANOVA
 
 As already indicated, one-way ANOVA is used when there is only one categorical variable (factor). Before conducting ANOVA, you need to check if the assumptions of the test are fulfilled. The assumptions of ANOVA are discussed in the following sections.
 
-##### Independence of observations {-}
+#### Independence of observations {-}
 
 The observations in the groups should be independent. Because we randomly assigned the listeners to the experimental conditions, this assumption can be assumed to be met. 
 
-##### Distributional assumptions {-}
+#### Distributional assumptions {-}
 
 ANOVA is relatively immune to violations to the normality assumption when sample sizes are large due to the Central Limit Theorem. However, if your sample is small (i.e., n < 30 per group) you may nevertheless want to check the normality of your data, e.g., by using the Shapiro-Wilk test or QQ-Plot. In our example, we have 100 observations in each group which is plenty but let's create another example with only 10 observations in each group. In the latter case we cannot rely on the Central Limit Theorem and we should test the normality of our data. This can be done using the Shapiro-Wilk Test, which has the Null Hypothesis that the data is normally distributed. Hence, an insignificant test results means that the data can be assumed to be approximately normally distributed:
 
@@ -485,7 +485,7 @@ qqline(hours_fewobs[hours_fewobs$group=="C",]$hours)
 
 The Q-Q plots suggest an approximately Normal distribution. If the assumption had been violated, you might consider transforming your data or resort to a non-parametric test. 
 
-##### Homogeneity of variance {-}
+#### Homogeneity of variance {-}
 
 Let's return to our original dataset with 100 observations in each group for the rest of the analysis.
 
@@ -545,7 +545,7 @@ oneway.test(hours ~ group, hours_abc)
 
 You can see that the results are fairly similar, since the variances turned out to be fairly equal across groups.
 
-#### Post-hoc tests
+### Post-hoc tests
 
 Provided that significant differences were detected by the overall ANOVA you can find out which group means are different using post hoc procedures. Post hoc procedures are designed to conduct pairwise comparisons of all different combinations of the treatment groups by correcting the level of significance for each test such that the overall Type I error rate (&alpha;) across all comparisons remains at 0.05.
 
@@ -565,7 +565,7 @@ $$H_0: \mu_2 = \mu_3$$
 
 There are several post hoc procedures available to choose from. In this tutorial, we will cover Bonferroni and Tukey's HSD ("honest significant differences"). Both tests control for family-wise error. Bonferroni tends to have more power when the number of comparisons is small, whereas Tukey’ HSDs is better when testing large numbers of means. 
 
-##### Bonferroni
+#### Bonferroni
 
 One of the most popular (and easiest) methods to correct for the family-wise error rate is to conduct the individual t-tests and divide &alpha; by the number of comparisons („k“):
 
@@ -597,7 +597,7 @@ ttest
 
 Usually the p-value is lower in the t-test, reflecting the fact that the family-wise error is not corrected (i.e., the test is less conservative). In this case the p-value is extremely small in both cases and thus indistinguishable. 
 
-##### Tukey's HSD
+#### Tukey's HSD
 
 Tukey's HSD also compares all possible pairs of means (two-by-two combinations; i.e., like a t-test, except that it corrects for family-wise error rate).
 

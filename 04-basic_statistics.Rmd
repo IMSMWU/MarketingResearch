@@ -8,9 +8,9 @@ output:
     toc: yes
 
 ---
-# Summarizing data
+## Summarizing data
 
-## Summary statistics
+### Summary statistics
 
 ```{r echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
 library(knitr)

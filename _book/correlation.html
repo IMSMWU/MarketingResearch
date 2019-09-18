@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Correlation | Marketing Research Design &amp; Analysis 2019</title>
+  <meta name="description" content="An Introduction to Statistics Using R" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Correlation | Marketing Research Design &amp; Analysis 2019" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="An Introduction to Statistics Using R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Correlation | Marketing Research Design &amp; Analysis 2019" />
+  
+  <meta name="twitter:description" content="An Introduction to Statistics Using R" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="prev" href="hypothesis-testing.html"/>
+<link rel="next" href="t-test.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="./">MRDA 2019</a></strong></li>
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a></li>
+<li class="chapter" data-level="" data-path="course-materials.html"><a href="course-materials.html"><i class="fa fa-check"></i>Course materials</a><ul>
+<li class="chapter" data-level="" data-path="course-materials.html"><a href="course-materials.html#main-reference"><i class="fa fa-check"></i>Main reference</a></li>
+<li class="chapter" data-level="" data-path="course-materials.html"><a href="course-materials.html#further-readings"><i class="fa fa-check"></i>Further readings</a></li>
+<li class="chapter" data-level="" data-path="course-materials.html"><a href="course-materials.html#datacamp"><i class="fa fa-check"></i>DataCamp</a></li>
+<li class="chapter" data-level="" data-path="course-materials.html"><a href="course-materials.html#other-web-resources"><i class="fa fa-check"></i>Other web-resources</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>1</b> Getting started</a><ul>
+<li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#how-to-download-and-install-r-and-rstudio"><i class="fa fa-check"></i><b>1.1</b> How to download and install R and RStudio</a></li>
+<li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#getting-help"><i class="fa fa-check"></i><b>1.2</b> Getting help</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started.html"><a href="getting-started.html#functions"><i class="fa fa-check"></i><b>1.3</b> Functions</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started.html"><a href="getting-started.html#packages"><i class="fa fa-check"></i><b>1.4</b> Packages</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started.html"><a href="getting-started.html#a-typical-r-session"><i class="fa fa-check"></i><b>1.5</b> A typical R session</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-handling.html"><a href="data-handling.html"><i class="fa fa-check"></i><b>2</b> Data handling</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-handling.html"><a href="data-handling.html#basic-data-handling"><i class="fa fa-check"></i><b>2.1</b> Basic data handling</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="data-handling.html"><a href="data-handling.html#creating-objects"><i class="fa fa-check"></i><b>2.1.1</b> Creating objects</a></li>
+<li class="chapter" data-level="2.1.2" data-path="data-handling.html"><a href="data-handling.html#data-types"><i class="fa fa-check"></i><b>2.1.2</b> Data types</a></li>
+<li class="chapter" data-level="2.1.3" data-path="data-handling.html"><a href="data-handling.html#data-structures"><i class="fa fa-check"></i><b>2.1.3</b> Data structures</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="data-handling.html"><a href="data-handling.html#data-import-and-export"><i class="fa fa-check"></i><b>2.2</b> Data import and export</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="data-handling.html"><a href="data-handling.html#getting-data-for-this-course"><i class="fa fa-check"></i><b>2.2.1</b> Getting data for this course</a></li>
+<li class="chapter" data-level="2.2.2" data-path="data-handling.html"><a href="data-handling.html#import-data-created-by-other-software-packages"><i class="fa fa-check"></i><b>2.2.2</b> Import data created by other software packages</a></li>
+<li class="chapter" data-level="2.2.3" data-path="data-handling.html"><a href="data-handling.html#export-data"><i class="fa fa-check"></i><b>2.2.3</b> Export data</a></li>
+<li class="chapter" data-level="2.2.4" data-path="data-handling.html"><a href="data-handling.html#import-data-from-the-web"><i class="fa fa-check"></i><b>2.2.4</b> Import data from the Web</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="data-handling.html"><a href="data-handling.html#summarizing-data"><i class="fa fa-check"></i><b>2.3</b> Summarizing data</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="data-handling.html"><a href="data-handling.html#summary-statistics"><i class="fa fa-check"></i><b>2.3.1</b> Summary statistics</a></li>
+<li class="chapter" data-level="2.3.2" data-path="data-handling.html"><a href="data-handling.html#categorical-variables"><i class="fa fa-check"></i><b>2.3.2</b> Categorical variables</a></li>
+<li class="chapter" data-level="2.3.3" data-path="data-handling.html"><a href="data-handling.html#continuous-variables"><i class="fa fa-check"></i><b>2.3.3</b> Continuous variables</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="data-handling.html"><a href="data-handling.html#data-visualization"><i class="fa fa-check"></i><b>2.4</b> Data visualization</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="data-handling.html"><a href="data-handling.html#categorical-variables-1"><i class="fa fa-check"></i><b>2.4.1</b> Categorical variables</a></li>
+<li class="chapter" data-level="2.4.2" data-path="data-handling.html"><a href="data-handling.html#continuous-variables-1"><i class="fa fa-check"></i><b>2.4.2</b> Continuous variables</a></li>
+<li class="chapter" data-level="2.4.3" data-path="data-handling.html"><a href="data-handling.html#saving-plots"><i class="fa fa-check"></i><b>2.4.3</b> Saving plots</a></li>
+<li class="chapter" data-level="2.4.4" data-path="data-handling.html"><a href="data-handling.html#additional-options"><i class="fa fa-check"></i><b>2.4.4</b> Additional options</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="data-handling.html"><a href="data-handling.html#writing-reports-using-r-markdown"><i class="fa fa-check"></i><b>2.5</b> Writing reports using R-Markdown</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="data-handling.html"><a href="data-handling.html#creating-a-new-r-markdown-document"><i class="fa fa-check"></i><b>2.5.1</b> Creating a new R-Markdown document</a></li>
+<li class="chapter" data-level="2.5.2" data-path="data-handling.html"><a href="data-handling.html#text-and-equations"><i class="fa fa-check"></i><b>2.5.2</b> Text and Equations</a></li>
+<li class="chapter" data-level="2.5.3" data-path="data-handling.html"><a href="data-handling.html#r-code"><i class="fa fa-check"></i><b>2.5.3</b> R-Code</a></li>
+<li class="chapter" data-level="2.5.4" data-path="data-handling.html"><a href="data-handling.html#latex-math"><i class="fa fa-check"></i><b>2.5.4</b> LaTeX Math</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="introduction-to-statistical-inference.html"><a href="introduction-to-statistical-inference.html"><i class="fa fa-check"></i><b>3</b> Introduction to Statistical Inference</a><ul>
+<li class="chapter" data-level="3.1" data-path="introduction-to-statistical-inference.html"><a href="introduction-to-statistical-inference.html#if-we-knew-it-all"><i class="fa fa-check"></i><b>3.1</b> If we knew it all</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="introduction-to-statistical-inference.html"><a href="introduction-to-statistical-inference.html#sampling-from-a-known-population"><i class="fa fa-check"></i><b>3.1.1</b> Sampling from a known population</a></li>
+<li class="chapter" data-level="3.1.2" data-path="introduction-to-statistical-inference.html"><a href="introduction-to-statistical-inference.html#standard-error-of-the-mean"><i class="fa fa-check"></i><b>3.1.2</b> Standard error of the mean</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="introduction-to-statistical-inference.html"><a href="introduction-to-statistical-inference.html#the-central-limit-theorem"><i class="fa fa-check"></i><b>3.2</b> The Central Limit Theorem</a></li>
+<li class="chapter" data-level="3.3" data-path="introduction-to-statistical-inference.html"><a href="introduction-to-statistical-inference.html#using-what-we-actually-know"><i class="fa fa-check"></i><b>3.3</b> Using what we actually know</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="introduction-to-statistical-inference.html"><a href="introduction-to-statistical-inference.html#confidence-intervals-for-the-sample-mean"><i class="fa fa-check"></i><b>3.3.1</b> Confidence Intervals for the Sample Mean</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="introduction-to-statistical-inference.html"><a href="introduction-to-statistical-inference.html#summary"><i class="fa fa-check"></i><b>3.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>4</b> Hypothesis testing</a><ul>
+<li class="chapter" data-level="4.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#the-null-hypothesis"><i class="fa fa-check"></i><b>4.1.1</b> The null hypothesis</a></li>
+<li class="chapter" data-level="4.1.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#statistical-inference-on-a-sample"><i class="fa fa-check"></i><b>4.1.2</b> Statistical inference on a sample</a></li>
+<li class="chapter" data-level="4.1.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#choosing-the-right-test"><i class="fa fa-check"></i><b>4.1.3</b> Choosing the right test</a></li>
+<li class="chapter" data-level="4.1.4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#summary-1"><i class="fa fa-check"></i><b>4.1.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#categorical-data"><i class="fa fa-check"></i><b>4.2</b> Categorical data</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>5</b> Correlation</a><ul>
+<li class="chapter" data-level="5.1" data-path="correlation.html"><a href="correlation.html#correlation-coefficient"><i class="fa fa-check"></i><b>5.1</b> Correlation coefficient</a></li>
+<li class="chapter" data-level="5.2" data-path="correlation.html"><a href="correlation.html#significance-testing"><i class="fa fa-check"></i><b>5.2</b> Significance testing</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="t-test.html"><a href="t-test.html"><i class="fa fa-check"></i><b>6</b> T-Test</a><ul>
+<li class="chapter" data-level="6.1" data-path="t-test.html"><a href="t-test.html#one-sample-t-test"><i class="fa fa-check"></i><b>6.1</b> One sample t-test</a></li>
+<li class="chapter" data-level="6.2" data-path="t-test.html"><a href="t-test.html#comparing-two-means"><i class="fa fa-check"></i><b>6.2</b> Comparing two means</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="t-test.html"><a href="t-test.html#independent-means-t-test"><i class="fa fa-check"></i><b>6.2.1</b> Independent-means t-test</a></li>
+<li class="chapter" data-level="6.2.2" data-path="t-test.html"><a href="t-test.html#dependent-means-t-test"><i class="fa fa-check"></i><b>6.2.2</b> Dependent-means t-test</a></li>
+<li class="chapter" data-level="6.2.3" data-path="t-test.html"><a href="t-test.html#further-considerations"><i class="fa fa-check"></i><b>6.2.3</b> Further considerations</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>7</b> ANOVA</a><ul>
+<li class="chapter" data-level="7.1" data-path="anova.html"><a href="anova.html#introduction-1"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="anova.html"><a href="anova.html#decomposing-variance"><i class="fa fa-check"></i><b>7.2</b> Decomposing variance</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="anova.html"><a href="anova.html#total-sum-of-squares"><i class="fa fa-check"></i><b>7.2.1</b> Total sum of squares</a></li>
+<li class="chapter" data-level="7.2.2" data-path="anova.html"><a href="anova.html#model-sum-of-squares"><i class="fa fa-check"></i><b>7.2.2</b> Model sum of squares</a></li>
+<li class="chapter" data-level="7.2.3" data-path="anova.html"><a href="anova.html#residual-sum-of-squares"><i class="fa fa-check"></i><b>7.2.3</b> Residual sum of squares</a></li>
+<li class="chapter" data-level="7.2.4" data-path="anova.html"><a href="anova.html#effect-strength"><i class="fa fa-check"></i><b>7.2.4</b> Effect strength</a></li>
+<li class="chapter" data-level="7.2.5" data-path="anova.html"><a href="anova.html#test-of-significance"><i class="fa fa-check"></i><b>7.2.5</b> Test of significance</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="anova.html"><a href="anova.html#one-way-anova"><i class="fa fa-check"></i><b>7.3</b> One-way ANOVA</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="anova.html"><a href="anova.html#basic-anova"><i class="fa fa-check"></i><b>7.3.1</b> Basic ANOVA</a></li>
+<li class="chapter" data-level="7.3.2" data-path="anova.html"><a href="anova.html#post-hoc-tests"><i class="fa fa-check"></i><b>7.3.2</b> Post-hoc tests</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>8</b> Regression</a><ul>
+<li class="chapter" data-level="8.1" data-path="regression.html"><a href="regression.html#regression-1"><i class="fa fa-check"></i><b>8.1</b> Regression</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="regression.html"><a href="regression.html#simple-linear-regression"><i class="fa fa-check"></i><b>8.1.1</b> Simple linear regression</a></li>
+<li class="chapter" data-level="8.1.2" data-path="regression.html"><a href="regression.html#multiple-linear-regression"><i class="fa fa-check"></i><b>8.1.2</b> Multiple linear regression</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="regression.html"><a href="regression.html#potential-problems"><i class="fa fa-check"></i><b>8.2</b> Potential problems</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="regression.html"><a href="regression.html#outliers"><i class="fa fa-check"></i><b>8.2.1</b> Outliers</a></li>
+<li class="chapter" data-level="8.2.2" data-path="regression.html"><a href="regression.html#influential-observations"><i class="fa fa-check"></i><b>8.2.2</b> Influential observations</a></li>
+<li class="chapter" data-level="8.2.3" data-path="regression.html"><a href="regression.html#non-linearity"><i class="fa fa-check"></i><b>8.2.3</b> Non-linearity</a></li>
+<li class="chapter" data-level="8.2.4" data-path="regression.html"><a href="regression.html#non-constant-error-variance"><i class="fa fa-check"></i><b>8.2.4</b> Non-constant error variance</a></li>
+<li class="chapter" data-level="8.2.5" data-path="regression.html"><a href="regression.html#non-normally-distributed-errors"><i class="fa fa-check"></i><b>8.2.5</b> Non-normally distributed errors</a></li>
+<li class="chapter" data-level="8.2.6" data-path="regression.html"><a href="regression.html#correlation-of-errors"><i class="fa fa-check"></i><b>8.2.6</b> Correlation of errors</a></li>
+<li class="chapter" data-level="8.2.7" data-path="regression.html"><a href="regression.html#collinearity"><i class="fa fa-check"></i><b>8.2.7</b> Collinearity</a></li>
+<li class="chapter" data-level="8.2.8" data-path="regression.html"><a href="regression.html#omitted-variables"><i class="fa fa-check"></i><b>8.2.8</b> Omitted Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="regression.html"><a href="regression.html#categorical-predictors"><i class="fa fa-check"></i><b>8.3</b> Categorical predictors</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="regression.html"><a href="regression.html#two-categories"><i class="fa fa-check"></i><b>8.3.1</b> Two categories</a></li>
+<li class="chapter" data-level="8.3.2" data-path="regression.html"><a href="regression.html#more-than-two-categories"><i class="fa fa-check"></i><b>8.3.2</b> More than two categories</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Marketing Research Design &amp; Analysis 2019</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="correlation" class="section level1">
+<h1><span class="header-section-number">5</span> Correlation</h1>
+<p>Before we start with regression analysis, we will review the basic concept of correlation first. Correlation helps us to determine the degree to which the variation in one variable, X, is related to the variation in another variable, Y.</p>
+<div id="correlation-coefficient" class="section level2">
+<h2><span class="header-section-number">5.1</span> Correlation coefficient</h2>
+<p>The correlation coefficient summarizes the strength of the linear relationship between two metric (interval or ratio scaled) variables. Let’s consider a simple example. Say you conduct a survey to investigate the relationship between the attitude towards a city and the duration of residency. The “Attitude” variable can take values between 1 (very unfavorable) and 12 (very favorable), and the “duration of residency” is measured in years. Let’s further assume for this example that the attitude measurement represents an interval scale (although it is usually not realistic to assume that the scale points on an itemized rating scale have the same distance). To keep it simple, let’s further assume that you only asked 12 people. We can create a short data set like this:</p>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" data-line-number="1"><span class="kw">readRDS</span>(<span class="st">&quot;music_data.rds&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" data-line-number="1">s.genre &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;pop&quot;</span>, <span class="st">&quot;hip hop&quot;</span>, <span class="st">&quot;rock&quot;</span>, <span class="st">&quot;rap&quot;</span>, <span class="st">&quot;indie&quot;</span>)</a>
+<a class="sourceLine" id="cb206-2" data-line-number="2">music_data &lt;-<span class="st"> </span><span class="kw">subset</span>(music_data, top.genre <span class="op">%in%</span><span class="st"> </span>s.genre)</a>
+<a class="sourceLine" id="cb206-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb206-4" data-line-number="4">music_data<span class="op">$</span>genre_cat &lt;-<span class="st"> </span><span class="kw">as.factor</span>(music_data<span class="op">$</span>top.genre)</a>
+<a class="sourceLine" id="cb206-5" data-line-number="5">music_data<span class="op">$</span>explicit_cat &lt;-<span class="st"> </span><span class="kw">factor</span>(music_data<span class="op">$</span>explicit, </a>
+<a class="sourceLine" id="cb206-6" data-line-number="6">    <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;not explicit&quot;</span>, <span class="st">&quot;explicit&quot;</span>))</a>
+<a class="sourceLine" id="cb206-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb206-8" data-line-number="8"><span class="kw">head</span>(music_data)</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["trackName"],"name":[2],"type":["chr"],"align":["left"]},{"label":["isrc"],"name":[3],"type":["chr"],"align":["left"]},{"label":["explicit"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["trackPopularity"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["primary_artistName"],"name":[6],"type":["chr"],"align":["left"]},{"label":["primary_artistID"],"name":[7],"type":["chr"],"align":["left"]},{"label":["artistName"],"name":[8],"type":["chr"],"align":["left"]},{"label":["artistIDs"],"name":[9],"type":["chr"],"align":["left"]},{"label":["albumName"],"name":[10],"type":["chr"],"align":["left"]},{"label":["albumID"],"name":[11],"type":["chr"],"align":["left"]},{"label":["available_markets"],"name":[12],"type":["chr"],"align":["left"]},{"label":["n_available_markets"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["releaseDate"],"name":[14],"type":["date"],"align":["right"]},{"label":["releaseDate_precision"],"name":[15],"type":["chr"],"align":["left"]},{"label":["danceability"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["energy"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["key"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["loudness"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["mode"],"name":[20],"type":["dbl"],"align":["right"]},{"label":["speechiness"],"name":[21],"type":["dbl"],"align":["right"]},{"label":["acousticness"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["instrumentalness"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["liveness"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["valence"],"name":[25],"type":["dbl"],"align":["right"]},{"label":["tempo"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["duration_ms"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["time_signature"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["uri"],"name":[29],"type":["chr"],"align":["left"]},{"label":["analysis_url"],"name":[30],"type":["chr"],"align":["left"]},{"label":["followers"],"name":[31],"type":["dbl"],"align":["right"]},{"label":["type"],"name":[32],"type":["chr"],"align":["left"]},{"label":["popularity"],"name":[33],"type":["dbl"],"align":["right"]},{"label":["primary_genre"],"name":[34],"type":["chr"],"align":["left"]},{"label":["genres"],"name":[35],"type":["chr"],"align":["left"]},{"label":["n_genres"],"name":[36],"type":["dbl"],"align":["right"]},{"label":["total_releases"],"name":[37],"type":["dbl"],"align":["right"]},{"label":["n_album"],"name":[38],"type":["dbl"],"align":["right"]},{"label":["n_single"],"name":[39],"type":["dbl"],"align":["right"]},{"label":["n_appears_on"],"name":[40],"type":["dbl"],"align":["right"]},{"label":["n_compilation"],"name":[41],"type":["dbl"],"align":["right"]},{"label":["mstreams"],"name":[42],"type":["dbl"],"align":["right"]},{"label":["region"],"name":[43],"type":["chr"],"align":["left"]},{"label":["adv_spending"],"name":[44],"type":["dbl"],"align":["right"]},{"label":["top.genre"],"name":[45],"type":["chr"],"align":["left"]},{"label":["genre_cat"],"name":[46],"type":["fctr"],"align":["left"]},{"label":["explicit_cat"],"name":[47],"type":["fctr"],"align":["left"]}],"data":[{"1":"5aAx2yezTd8zXrkmtKl66Z","2":"Starboy","3":"USUG11600976","4":"1","5":"22","6":"The Weeknd","7":"1Xyo4u8uXC1ZmMpatF05PJ","8":"The Weeknd feat. Daft Punk","9":"1Xyo4u8uXC1ZmMpatF05PJ,4tZwfgrHOc3mvqYlEYSvVi","10":"Starboy","11":"09fggMHib4YkOtwQNXEBII","12":"NA","13":"0","14":"2016-11-25","15":"day","16":"0.681","17":"0.594","18":"7","19":"-7.028","20":"1","21":"0.2820","22":"0.1650","23":"0.00000349","24":"0.134","25":"0.535","26":"186.054","27":"230453","28":"4","29":"spotify:track:5aAx2yezTd8zXrkmtKl66Z","30":"https://api.spotify.com/v1/audio-analysis/5aAx2yezTd8zXrkmtKl66Z","31":"15222808","32":"artist","33":"91","34":"canadian contemporary r&b","35":"canadian contemporary r&b, canadian pop, pop, rap","36":"4","37":"124","38":"13","39":"20","40":"91","41":"0","42":"357336.0","43":"us","44":"4538745582809720084335652681802192354751872961846816542356290991840842800362708869311675467455586767281244340224","45":"pop","46":"pop","47":"explicit"},{"1":"7BKLCZ1jbUBVqRi2FVlTVw","2":"Closer","3":"USQX91601347","4":"0","5":"86","6":"The Chainsmokers","7":"69GGBxA162lTqCwzJG5jLp","8":"The Chainsmokers feat. Halsey","9":"69GGBxA162lTqCwzJG5jLp,26VFTg2z8YR0cCuwLzESi2","10":"Closer","11":"0rSLgV8p5FzfnqlEk4GzxE","12":"AD, AE, AR, AT, AU, BE, BG, BH, BO, BR, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, LB, LI, LT, LU, LV, MA, MC, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, SA, SE, SG, SK, SV, TH, TN, TR, TW, US, UY, VN, ZA","13":"79","14":"2016-07-29","15":"day","16":"0.748","17":"0.524","18":"8","19":"-5.599","20":"1","21":"0.0338","22":"0.4140","23":"0.00000000","24":"0.111","25":"0.661","26":"95.010","27":"244960","28":"4","29":"spotify:track:7BKLCZ1jbUBVqRi2FVlTVw","30":"https://api.spotify.com/v1/audio-analysis/7BKLCZ1jbUBVqRi2FVlTVw","31":"11565104","32":"artist","33":"90","34":"dance pop","35":"dance pop, electropop, pop, tropical house","36":"4","37":"96","38":"2","39":"59","40":"35","41":"0","42":"323081.4","43":"us","44":"87296125002616694828879835742568772595201488756664067891719260959953504690764846096364552367775131489311653888","45":"pop","46":"pop","47":"not explicit"},{"1":"4pdPtRcBmOSQDlJ3Fk945m","2":"Let Me Love You","3":"QMZSY1600015","4":"0","5":"27","6":"DJ Snake","7":"540vIaP2JwjQb9dm3aArA4","8":"DJ Snake feat. Justin Bieber","9":"540vIaP2JwjQb9dm3aArA4,1uNFoZAHBGtllmzznpCI3s","10":"Encore","11":"55bbXORm6ZrVq52zfZnxBf","12":"NA","13":"0","14":"2016-08-05","15":"day","16":"0.476","17":"0.718","18":"8","19":"-5.309","20":"1","21":"0.0576","22":"0.0784","23":"0.00000000","24":"0.122","25":"0.142","26":"199.864","27":"205947","28":"4","29":"spotify:track:4pdPtRcBmOSQDlJ3Fk945m","30":"https://api.spotify.com/v1/audio-analysis/4pdPtRcBmOSQDlJ3Fk945m","31":"4345960","32":"artist","33":"86","34":"dance pop","35":"dance pop, edm, electronic trap, pop, tropical house","36":"5","37":"85","38":"2","39":"38","40":"45","41":"0","42":"264546.4","43":"us","44":"4052673829394860012092441543505898027168278466357604061531255984953722983872577825913849720641449881585582080","45":"pop","46":"pop","47":"not explicit"},{"1":"5knuzwU65gJK7IF5yJsuaW","2":"Rockabye (feat. Sean Paul & Anne-Marie)","3":"GBAHS1600363","4":"0","5":"81","6":"Clean Bandit","7":"6MDME20pz9RveH9rEXvrOM","8":"Clean Bandit feat. Sean Paul feat. Anne-Marie","9":"6MDME20pz9RveH9rEXvrOM,3Isy6kedDrgPYoTS1dazA9,1zNqDE7qDGCsyzJwohVaoX","10":"Rockabye (feat. Sean Paul & Anne-Marie)","11":"3meZFplbMmji648oWUNEfQ","12":"AD, AE, AR, AT, AU, BE, BG, BH, BO, BR, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HU, ID, IE, IL, IS, IT, JO, JP, KW, LB, LI, LT, LU, LV, MA, MC, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, SA, SE, SG, SK, SV, TH, TN, TR, TW, US, UY, VN, ZA","13":"78","14":"2016-10-21","15":"day","16":"0.720","17":"0.763","18":"9","19":"-4.068","20":"0","21":"0.0523","22":"0.4060","23":"0.00000000","24":"0.180","25":"0.742","26":"101.965","27":"251088","28":"4","29":"spotify:track:5knuzwU65gJK7IF5yJsuaW","30":"https://api.spotify.com/v1/audio-analysis/5knuzwU65gJK7IF5yJsuaW","31":"2504254","32":"artist","33":"84","34":"dance pop","35":"dance pop, edm, pop, tropical house, uk funky","36":"5","37":"97","38":"2","39":"73","40":"22","41":"0","42":"299399.5","43":"us","44":"63076779883569398413334987328546550614768141860947245086927001088783215597781844192705652165114862194747506688","45":"pop","46":"pop","47":"not explicit"},{"1":"1xznGGDReH1oQq0xzbwXa3","2":"One Dance","3":"USCM51600028","4":"0","5":"25","6":"Drake","7":"3TVXtAsR1Inumwj472S9r4","8":"Drake feat. WizKid feat. Kyla","9":"3TVXtAsR1Inumwj472S9r4,3tVQdUvClmAT7URs9V3rsp,77DAFfvm3O9zT5dIoG0eIO","10":"Views","11":"3hARKC8cinq3mZLLAEaBh9","12":"NA","13":"0","14":"2016-05-06","15":"day","16":"0.791","17":"0.619","18":"1","19":"-5.886","20":"1","21":"0.0532","22":"0.0078","23":"0.00420000","24":"0.351","25":"0.371","26":"103.989","27":"173987","28":"4","29":"spotify:track:1xznGGDReH1oQq0xzbwXa3","30":"https://api.spotify.com/v1/audio-analysis/1xznGGDReH1oQq0xzbwXa3","31":"35200192","32":"artist","33":"98","34":"canadian hip hop","35":"canadian hip hop, canadian pop, hip hop, pop rap, rap","36":"5","37":"403","38":"27","39":"37","40":"339","41":"0","42":"265877.0","43":"us","44":"4668617894331640150713528913482931563888378169191399287770456451298974376421383853327796314422734196333084672","45":"pop","46":"pop","47":"not explicit"},{"1":"343YBumqHu19cGoGARUTsd","2":"Fake Love","3":"USCM51700084","4":"1","5":"76","6":"Drake","7":"3TVXtAsR1Inumwj472S9r4","8":"Drake","9":"3TVXtAsR1Inumwj472S9r4","10":"More Life","11":"1lXY618HWkwYKJWBRYR4MK","12":"AD, AE, AR, AT, AU, BE, BG, BH, BO, BR, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, LB, LI, LT, LU, LV, MA, MC, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, SA, SE, SG, SK, SV, TH, TN, TR, TW, US, UY, VN, ZA","13":"79","14":"2017-03-18","15":"day","16":"0.927","17":"0.488","18":"9","19":"-9.433","20":"0","21":"0.4200","22":"0.1080","23":"0.00000000","24":"0.196","25":"0.605","26":"133.987","27":"210937","28":"4","29":"spotify:track:343YBumqHu19cGoGARUTsd","30":"https://api.spotify.com/v1/audio-analysis/343YBumqHu19cGoGARUTsd","31":"35200192","32":"artist","33":"98","34":"canadian hip hop","35":"canadian hip hop, canadian pop, hip hop, pop rap, rap","36":"5","37":"403","38":"27","39":"37","40":"339","41":"0","42":"425740.1","43":"us","44":"34419285169424099063603169706763167298974920345850885001633591652364254906722960776146634654951625345242828374016","45":"pop","46":"pop","47":"explicit"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Let’s look at the data. The following graph shows the individual data points for the “duration of residency”&quot; variable, where the blue horizontal line represents the mean of the variable (0.65) and the vertical lines show the distance of the individual data points from the mean.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-138"></span>
+<img src="_main_files/figure-html/unnamed-chunk-138-1.png" alt="Scores for duration of residency variable" width="672" />
+<p class="caption">
+Figure 5.1: Scores for duration of residency variable
+</p>
+</div>
+<p>You can see that there are some respondents that have been living in the city longer than average and some respondents that have been living in the city shorter than average. Let’s do the same for the second variable (“Attitude”):</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-139"></span>
+<img src="_main_files/figure-html/unnamed-chunk-139-1.png" alt="Scores for attitude variable" width="672" />
+<p class="caption">
+Figure 5.2: Scores for attitude variable
+</p>
+</div>
+<p>Again, we can see that some respondents have an above average attitude towards the city (more favorable) and some respondents have a below average attitude towards the city. Let’s plot the data in one graph now to see if there is some co-movement:</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-140"></span>
+<img src="_main_files/figure-html/unnamed-chunk-140-1.png" alt="Scores for attitude and duration of residency variables" width="672" />
+<p class="caption">
+Figure 5.3: Scores for attitude and duration of residency variables
+</p>
+</div>
+<p>We can see that there is indeed some co-movement here. The variables <b>covary</b> because respondents who have an above (below) average attitude towards the city also appear to have been living in the city for an above (below) average amount of time and vice versa. Correlation helps us to quantify this relationship. Before you proceed to compute the correlation coefficient, you should first look at the data. We usually use a scatterplot to visualize the relationship between two metric variables:</p>
+<p>How can we compute the correlation coefficient? Remember that the variance measures the average deviation from the mean of a variable:</p>
+<p><span class="math display" id="eq:variance">\[\begin{equation} 
+\begin{split}
+s_x^2&amp;=\frac{\sum_{i=1}^{N} (X_i-\overline{X})^2}{N-1} \\
+     &amp;= \frac{\sum_{i=1}^{N} (X_i-\overline{X})*(X_i-\overline{X})}{N-1}
+\end{split}
+\tag{5.1}
+\end{equation}\]</span></p>
+<p>When we consider two variables, we multiply the deviation for one variable by the respective deviation for the second variable:</p>
+<p style="text-align:center;">
+<span class="math inline">\((X_i-\overline{X})*(Y_i-\overline{Y})\)</span>
+</p>
+<p>This is called the cross-product deviation. Then we sum the cross-product deviations:</p>
+<p style="text-align:center;">
+<span class="math inline">\(\sum_{i=1}^{N}(X_i-\overline{X})*(Y_i-\overline{Y})\)</span>
+</p>
+<p>… and compute the average of the sum of all cross-product deviations to get the <b>covariance</b>:</p>
+<p><span class="math display" id="eq:covariance">\[\begin{equation} 
+Cov(x, y) =\frac{\sum_{i=1}^{N}(X_i-\overline{X})*(Y_i-\overline{Y})}{N-1}
+\tag{5.2}
+\end{equation}\]</span></p>
+<p>You can easily compute the covariance manually as follows</p>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" data-line-number="1">x &lt;-<span class="st"> </span>music_data<span class="op">$</span>energy[<span class="op">!</span><span class="kw">is.na</span>(music_data<span class="op">$</span>energy)]</a>
+<a class="sourceLine" id="cb207-2" data-line-number="2">x_bar &lt;-<span class="st"> </span><span class="kw">mean</span>(music_data<span class="op">$</span>energy, <span class="dt">na.rm =</span> T)</a>
+<a class="sourceLine" id="cb207-3" data-line-number="3">y &lt;-<span class="st"> </span>music_data<span class="op">$</span>loudness[<span class="op">!</span><span class="kw">is.na</span>(music_data<span class="op">$</span>loudness)]</a>
+<a class="sourceLine" id="cb207-4" data-line-number="4">y_bar &lt;-<span class="st"> </span><span class="kw">mean</span>(music_data<span class="op">$</span>loudness, <span class="dt">na.rm =</span> T)</a>
+<a class="sourceLine" id="cb207-5" data-line-number="5">N &lt;-<span class="st"> </span><span class="kw">nrow</span>(music_data)</a>
+<a class="sourceLine" id="cb207-6" data-line-number="6">cov &lt;-<span class="st"> </span>(<span class="kw">sum</span>((x <span class="op">-</span><span class="st"> </span>x_bar) <span class="op">*</span><span class="st"> </span>(y <span class="op">-</span><span class="st"> </span>y_bar)))<span class="op">/</span>(N <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb207-7" data-line-number="7">cov</a></code></pre></div>
+<pre><code>## [1] 0.3475062</code></pre>
+<p>Or you simply use the built-in <code>cov()</code> function:</p>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" data-line-number="1"><span class="kw">cov</span>(x, y)  <span class="co"># apply the cov function </span></a></code></pre></div>
+<pre><code>## [1] 0.3475891</code></pre>
+<p>A positive covariance indicates that as one variable deviates from the mean, the other variable deviates in the same direction. A negative covariance indicates that as one variable deviates from the mean (e.g., increases), the other variable deviates in the opposite direction (e.g., decreases).</p>
+<p>However, the size of the covariance depends on the scale of measurement. Larger scale units will lead to larger covariance. To overcome the problem of dependence on measurement scale, we need to convert covariance to a standard set of units through standardization by dividing the covariance by the standard deviation (i.e., similar to how we compute z-scores).</p>
+<p>With two variables, there are two standard deviations. We simply multiply the two standard deviations. We then divide the covariance by the product of the two standard deviations to get the standardized covariance, which is known as a correlation coefficient r:</p>
+<p><span class="math display" id="eq:corcoeff">\[\begin{equation} 
+r=\frac{Cov_{xy}}{s_x*s_y}
+\tag{5.3}
+\end{equation}\]</span></p>
+<p>This is known as the product moment correlation (r) and it is straight-forward to compute:</p>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" data-line-number="1">x_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(music_data<span class="op">$</span>energy, <span class="dt">na.rm =</span> T)</a>
+<a class="sourceLine" id="cb211-2" data-line-number="2">y_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(music_data<span class="op">$</span>loudness, <span class="dt">na.rm =</span> T)</a>
+<a class="sourceLine" id="cb211-3" data-line-number="3">r &lt;-<span class="st"> </span>cov<span class="op">/</span>(x_sd <span class="op">*</span><span class="st"> </span>y_sd)</a>
+<a class="sourceLine" id="cb211-4" data-line-number="4">r</a></code></pre></div>
+<pre><code>## [1] 0.7314902</code></pre>
+<p>Or you could just use the <code>cor()</code> function:</p>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" data-line-number="1"><span class="kw">cor</span>(music_data[, <span class="kw">c</span>(<span class="st">&quot;energy&quot;</span>, <span class="st">&quot;loudness&quot;</span>)], <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>, </a>
+<a class="sourceLine" id="cb213-2" data-line-number="2">    <span class="dt">use =</span> <span class="st">&quot;complete&quot;</span>)</a></code></pre></div>
+<pre><code>##             energy  loudness
+## energy   1.0000000 0.7316648
+## loudness 0.7316648 1.0000000</code></pre>
+<p>Properties of r:</p>
+<ul>
+<li>ranges from -1 to + 1</li>
+<li>+1 indicates perfect linear relationship</li>
+<li>-1 indicates perfect negative relationship</li>
+<li>0 indicates no linear relationship</li>
+<li>± .1 represents small effect</li>
+<li>± .3 represents medium effect</li>
+<li>± .5 represents large effect</li>
+</ul>
+</div>
+<div id="significance-testing" class="section level2">
+<h2><span class="header-section-number">5.2</span> Significance testing</h2>
+<p>How can we determine if our two variables are significantly related? To test this, we denote the population moment correlation ρ. Then we test the null of no relationship between variables:</p>
+<p><span class="math display">\[H_0:\rho=0\]</span>
+<span class="math display">\[H_1:\rho\ne0\]</span></p>
+<p>The test statistic is:</p>
+<p><span class="math display" id="eq:cortest">\[\begin{equation} 
+t=\frac{r*\sqrt{N-2}}{\sqrt{1-r^2}}
+\tag{5.4}
+\end{equation}\]</span></p>
+<p>It has a t distribution with n - 2 degrees of freedom. Then, we follow the usual procedure of calculating the test statistic and comparing the test statistic to the critical value of the underlying probability distribution. If the calculated test statistic is larger than the critical value, the null hypothesis of no relationship between X and Y is rejected.</p>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb215-1" data-line-number="1">t_calc &lt;-<span class="st"> </span>r <span class="op">*</span><span class="st"> </span><span class="kw">sqrt</span>(N <span class="op">-</span><span class="st"> </span><span class="dv">2</span>)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>r<span class="op">^</span><span class="dv">2</span>)  <span class="co">#calculated test statistic</span></a>
+<a class="sourceLine" id="cb215-2" data-line-number="2">t_calc</a></code></pre></div>
+<pre><code>## [1] 219.5965</code></pre>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" data-line-number="1">df &lt;-<span class="st"> </span>(N <span class="op">-</span><span class="st"> </span><span class="dv">2</span>)  <span class="co">#degrees of freedom</span></a>
+<a class="sourceLine" id="cb217-2" data-line-number="2">t_crit &lt;-<span class="st"> </span><span class="kw">qt</span>(<span class="fl">0.975</span>, df)  <span class="co">#critical value</span></a>
+<a class="sourceLine" id="cb217-3" data-line-number="3">t_crit</a></code></pre></div>
+<pre><code>## [1] 1.960021</code></pre>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" data-line-number="1"><span class="kw">pt</span>(<span class="dt">q =</span> t_calc, <span class="dt">df =</span> df, <span class="dt">lower.tail =</span> F) <span class="op">*</span><span class="st"> </span><span class="dv">2</span>  <span class="co">#p-value </span></a></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<p>Or you can simply use the <code>cor.test()</code> function, which also produces the 95% confidence interval:</p>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" data-line-number="1"><span class="kw">cor.test</span>(music_data<span class="op">$</span>energy, music_data<span class="op">$</span>loudness, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, </a>
+<a class="sourceLine" id="cb221-2" data-line-number="2">    <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  music_data$energy and music_data$loudness
+## t = 219.68, df = 41890, p-value &lt; 0.00000000000000022
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.7271838 0.7360835
+## sample estimates:
+##       cor 
+## 0.7316648</code></pre>
+<p>To determine the linear relationship between variables, the data only needs to be measured using interval scales. If you want to test the significance of the association, the sampling distribution needs to be normally distributed (we usually assume this when our data are normally distributed or when N is large). If parametric assumptions are violated, you should use non-parametric tests:</p>
+<ul>
+<li>Spearman’s correlation coefficient: requires ordinal data and ranks the data before applying Pearson’s equation.</li>
+<li>Kendall’s tau: use when N is small or the number of tied ranks is large.</li>
+</ul>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" data-line-number="1"><span class="kw">cor.test</span>(music_data<span class="op">$</span>energy, music_data<span class="op">$</span>loudness, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, </a>
+<a class="sourceLine" id="cb223-2" data-line-number="2">    <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<pre><code>## 
+##  Spearman&#39;s rank correlation rho
+## 
+## data:  music_data$energy and music_data$loudness
+## S = 3504156947897, p-value &lt; 0.00000000000000022
+## alternative hypothesis: true rho is not equal to 0
+## sample estimates:
+##       rho 
+## 0.7140161</code></pre>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" data-line-number="1"><span class="kw">cor.test</span>(music_data<span class="op">$</span>energy, music_data<span class="op">$</span>loudness, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, </a>
+<a class="sourceLine" id="cb225-2" data-line-number="2">    <span class="dt">method =</span> <span class="st">&quot;kendall&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<pre><code>## 
+##  Kendall&#39;s rank correlation tau
+## 
+## data:  music_data$energy and music_data$loudness
+## z = 161.31, p-value &lt; 0.00000000000000022
+## alternative hypothesis: true tau is not equal to 0
+## sample estimates:
+##       tau 
+## 0.5258973</code></pre>
+<p>Report the results:</p>
+<p>A Pearson product-moment correlation coefficient was computed to assess the relationship between the duration of residence in a city and the attitude toward the city. There was a positive correlation between the two variables, r = 0.936, n = 12, p &lt; 0.05. A scatterplot summarizes the results (Figure XY).</p>
+<p><strong>A note on the interpretation of correlation coefficients:</strong></p>
+<p>Correlation coefficients give no indication of the direction of causality. In our example, we can conclude that the attitude toward the city is more positive as the years of residence increases. However, we cannot say that the years of residence cause the attitudes to be more positive. There are two main reasons for caution when interpreting correlations:</p>
+<ul>
+<li>Third-variable problem: there may be other unobserved factors that affect the results.</li>
+<li>Direction of causality: Correlations say nothing about which variable causes the other to change (reverse causality: attitudes may just as well cause the years of residence variable).</li>
+</ul>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="hypothesis-testing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="t-test.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
