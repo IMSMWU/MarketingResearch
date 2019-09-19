@@ -35,10 +35,13 @@ vignettes/*.pdf
 # OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
 .httr-oauth
 
-# knitr and R markdown default cache directories
+# knitr and R markdown default cache directories (1-3 not working)
 /*_cache/
 /cache/
 /*_main_cache/
+cache/**
+cache/
+
 
 # Temporary files created by R markdown
 *.utf8.md
