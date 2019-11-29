@@ -51,7 +51,7 @@ Let us assume that we were planning to take a random sample of 50 students from 
 $$
 H_0: \mu = \mu_0
 $$
-When conducting research, we are usually interested in providing evidence against the null hypothesis. If we then observe sufficient evidence against it and our estimate is said to be significant. If the null hypothesis is rejected, this is taken as support for the **alternative hypothesis**. The alternative hypothesis assumes that some difference exists, which can be expressed as follows: 
+When conducting research, we are usually interested in providing evidence against the null hypothesis. If we then observe sufficient evidence against it, our estimate is said to be significant. If the null hypothesis is rejected, this is taken as support for the **alternative hypothesis**. The alternative hypothesis assumes that some difference exists, which can be expressed as follows: 
 
 $$
 H_1: \mu \neq \mu_0

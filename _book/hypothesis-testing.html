@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Hypothesis testing | Marketing Research 2019</title>
   <meta name="description" content="An Introduction to Statistics Using R" />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Hypothesis testing | Marketing Research 2019" />
   <meta property="og:type" content="book" />
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="prev" href="introduction-to-statistical-inference.html"/>
-<link rel="next" href="chi-square-test.html"/>
+<link rel="prev" href="introduction-to-statistical-inference.html">
+<link rel="next" href="chi-square-test.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -278,12 +278,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb180-3" data-line-number="3"><span class="kw">library</span>(latex2exp)</a>
 <a class="sourceLine" id="cb180-4" data-line-number="4"><span class="kw">set.seed</span>(<span class="dv">321</span>)</a>
 <a class="sourceLine" id="cb180-5" data-line-number="5">hours &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dv">25000</span>, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb180-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(hours)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> hours), </a>
-<a class="sourceLine" id="cb180-7" data-line-number="7">    <span class="dt">bins =</span> <span class="dv">30</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(hours), </a>
-<a class="sourceLine" id="cb180-8" data-line-number="8">    <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram of listening times&quot;</span>, </a>
-<a class="sourceLine" id="cb180-9" data-line-number="9">    <span class="dt">subtitle =</span> <span class="kw">TeX</span>(<span class="kw">sprintf</span>(<span class="st">&quot;Population mean ($</span><span class="ch">\\</span><span class="st">mu$) = %.2f; population standard deviation ($</span><span class="ch">\\</span><span class="st">sigma$) = %.2f&quot;</span>, </a>
-<a class="sourceLine" id="cb180-10" data-line-number="10">        <span class="kw">round</span>(<span class="kw">mean</span>(hours), <span class="dv">2</span>), <span class="kw">round</span>(<span class="kw">sd</span>(hours), <span class="dv">2</span>))), </a>
-<a class="sourceLine" id="cb180-11" data-line-number="11">    <span class="dt">y =</span> <span class="st">&quot;Number of students&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Hours&quot;</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb180-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(hours)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb180-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> hours), <span class="dt">bins =</span> <span class="dv">30</span>, <span class="dt">fill=</span><span class="st">&#39;white&#39;</span>, <span class="dt">color=</span><span class="st">&#39;black&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb180-8" data-line-number="8"><span class="st">    </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(hours), <span class="dt">size =</span> <span class="dv">1</span>)  <span class="op">+</span><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb180-9" data-line-number="9"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram of listening times&quot;</span>,</a>
+<a class="sourceLine" id="cb180-10" data-line-number="10">       <span class="dt">subtitle =</span> <span class="kw">TeX</span>(<span class="kw">sprintf</span>(<span class="st">&quot;Population mean ($</span><span class="ch">\\</span><span class="st">mu$) = %.2f; population standard deviation ($</span><span class="ch">\\</span><span class="st">sigma$) = %.2f&quot;</span>,<span class="kw">round</span>(<span class="kw">mean</span>(hours),<span class="dv">2</span>),<span class="kw">round</span>(<span class="kw">sd</span>(hours),<span class="dv">2</span>))),</a>
+<a class="sourceLine" id="cb180-11" data-line-number="11">       <span class="dt">y =</span> <span class="st">&#39;Number of students&#39;</span>, </a>
+<a class="sourceLine" id="cb180-12" data-line-number="12">       <span class="dt">x =</span> <span class="st">&#39;Hours&#39;</span>) </a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-117-1.png" width="672" /></p>
 <p>In this example, the population mean (<span class="math inline">\(\mu\)</span>) is equal to 19.98, and the population standard deviation <span class="math inline">\(\sigma\)</span> is equal to 14.15.</p>
 <div id="the-null-hypothesis" class="section level3">
@@ -299,9 +300,9 @@ H_1: \mu \neq \mu_0
 Accepting the alternative hypothesis in turn will often lead to changes in opinions or actions. Note that while the null hypothesis may be rejected, it can never be accepted based on a single test. If we fail to reject the null hypothesis, it means that we simply haven’t collected enough evidence against the null hypothesis to disprove it. In classical hypothesis testing, there is no way to determine whether the null hypothesis is true. <strong>Hypothesis testing</strong> provides a means to quantify to what extent the data from our sample is in line with the null hypothesis.</p>
 <p>In order to quantify the concept of “sufficient evidence” we look at the theoretical distribution of the sample means given our null hypothesis and the sample standard error. Using the available information we can infer the sampling distribution for our null hypothesis. Recall that the standard deviation of the sampling distribution (i.e., the standard error of the mean) is given by <span class="math inline">\(\sigma_{\bar x}={\sigma \over \sqrt{n}}\)</span>, and thus can be computed as follows:</p>
 <div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" data-line-number="1">mean_pop &lt;-<span class="st"> </span><span class="kw">mean</span>(hours)</a>
-<a class="sourceLine" id="cb181-2" data-line-number="2">sigma &lt;-<span class="st"> </span><span class="kw">sd</span>(hours)  <span class="co">#population standard deviation</span></a>
-<a class="sourceLine" id="cb181-3" data-line-number="3">n &lt;-<span class="st"> </span><span class="dv">50</span>  <span class="co">#sample size</span></a>
-<a class="sourceLine" id="cb181-4" data-line-number="4">standard_error &lt;-<span class="st"> </span>sigma<span class="op">/</span><span class="kw">sqrt</span>(n)  <span class="co">#standard error</span></a>
+<a class="sourceLine" id="cb181-2" data-line-number="2">sigma &lt;-<span class="st"> </span><span class="kw">sd</span>(hours) <span class="co">#population standard deviation</span></a>
+<a class="sourceLine" id="cb181-3" data-line-number="3">n &lt;-<span class="st"> </span><span class="dv">50</span> <span class="co">#sample size</span></a>
+<a class="sourceLine" id="cb181-4" data-line-number="4">standard_error &lt;-<span class="st"> </span>sigma<span class="op">/</span><span class="kw">sqrt</span>(n) <span class="co">#standard error</span></a>
 <a class="sourceLine" id="cb181-5" data-line-number="5">standard_error</a></code></pre></div>
 <pre><code>## [1] 2.001639</code></pre>
 <p>Since we know from the central limit theorem that the sampling distribution is normal for large enough samples, we can now visualize the expected sampling distribution <strong>if our null hypothesis was in fact true</strong> (i.e., if the was no difference between the true population mean and the hypothesized mean of 10).</p>
@@ -312,12 +313,10 @@ Accepting the alternative hypothesis in turn will often lead to changes in opini
 <a class="sourceLine" id="cb183-3" data-line-number="3">student_sample &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25000</span>, <span class="dt">size =</span> <span class="dv">50</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb183-4" data-line-number="4">student_sample &lt;-<span class="st"> </span>hours[student_sample]</a>
 <a class="sourceLine" id="cb183-5" data-line-number="5">mean_sample &lt;-<span class="st"> </span><span class="kw">mean</span>(student_sample)</a>
-<a class="sourceLine" id="cb183-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(student_sample)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> student_sample), </a>
-<a class="sourceLine" id="cb183-7" data-line-number="7">    <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb183-8" data-line-number="8"><span class="st">    </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(student_sample), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, </a>
-<a class="sourceLine" id="cb183-9" data-line-number="9">        <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">TeX</span>(<span class="kw">sprintf</span>(<span class="st">&quot;Distribution of values in the sample ($n =$ %.0f, $</span><span class="ch">\\</span><span class="st">bar{x] = $ %.2f, s = %.2f)&quot;</span>, </a>
-<a class="sourceLine" id="cb183-10" data-line-number="10">    n, <span class="kw">mean</span>(student_sample), <span class="kw">sd</span>(student_sample))), </a>
-<a class="sourceLine" id="cb183-11" data-line-number="11">    <span class="dt">x =</span> <span class="st">&quot;Hours&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb183-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(student_sample)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb183-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> student_sample), <span class="dt">fill =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">color =</span> <span class="st">&#39;black&#39;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb183-8" data-line-number="8"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(student_sample), <span class="dt">color =</span> <span class="st">&#39;black&#39;</span>, <span class="dt">size=</span><span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb183-9" data-line-number="9"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">TeX</span>(<span class="kw">sprintf</span>(<span class="st">&quot;Distribution of values in the sample ($n =$ %.0f, $</span><span class="ch">\\</span><span class="st">bar{x] = $ %.2f, s = %.2f)&quot;</span>,n,<span class="kw">mean</span>(student_sample),<span class="kw">sd</span>(student_sample))),<span class="dt">x =</span> <span class="st">&quot;Hours&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>) </a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-120-1.png" width="672" /></p>
 <p>The mean listening time in the sample (black line) <span class="math inline">\(\bar x\)</span> is 18.59. We can already see from the graphic above that such a value is rather unlikely under the hypothesis that the population mean is <span class="math inline">\(10\)</span>. Intuitively, such a result would therefore provide evidence against our null hypothesis. But how could we quantify specifically how unlikely it is to obtain such a value and decide whether or not to reject the null hypothesis? Significance tests can be used to provide answers to these questions.</p>
 </div>
@@ -378,7 +377,7 @@ t = {\bar x-  \mu_0 \over SE_{\bar x}}={\bar x-  \mu_0 \over s / \sqrt{n}}
 <div id="p-values" class="section level4">
 <h4><span class="header-section-number">4.1.2.2</span> P-values</h4>
 <p>In the previous section, we computed the test statistic, which tells us how close our sample is to the null hypothesis. The p-value corresponds to the probability that the test statistic would take a value as extreme or more extreme than the one that we actually observed, <strong>assuming that the null hypothesis is true</strong>. It is important to note that this is a <strong>conditional probability</strong>: we compute the probability of observing a sample mean (or a more extreme value) conditional on the assumption that the null hypothesis is true. The <code>pnorm()</code>function can be used to compute this probability. It is the cumulative probability distribution function of the `normal distribution. Cumulative probability means that the function returns the probability that the test statistic will take a value <strong>less than or equal to</strong> the calculated test statistic given the degrees of freedom. However, we are interested in obtaining the probability of observing a test statistic <strong>larger than or equal to</strong> the calculated test statistic under the null hypothesis (i.e., the p-value). Thus, we need to subtract the cumulative probability from 1. In addition, since we are running a two-sided test, we need to multiply the probability by 2 to account for the rejection region at the other side of the distribution.</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" data-line-number="1">p_value &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pt</span>(<span class="kw">abs</span>(t_score), <span class="dt">df =</span> df))</a>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" data-line-number="1">p_value &lt;-<span class="st"> </span><span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">pt</span>(<span class="kw">abs</span>(t_score), <span class="dt">df =</span> df))</a>
 <a class="sourceLine" id="cb196-2" data-line-number="2">p_value</a></code></pre></div>
 <pre><code>## [1] 0.00001326885</code></pre>
 <p>This value corresponds to the probability of observing a mean equal to or larger than the one we obtained from our sample, if the null hypothesis was true. As you can see, this probability is very low. A small p-value signals that it is unlikely to observe the calculated test statistic under the null hypothesis. To decide whether or not to reject the null hypothesis, we would now compare this value to the level of significance (<span class="math inline">\(\alpha\)</span>) that we chose for our test. For this example, we adopt the widely accepted significance level of 5%, so any test results with a p-value &lt; 0.05 would be deemed statistically significant. Note that the p-value is directly related to the value of the test statistic. The relationship is such that the higher (lower) the value of the test statistic, the lower (higher) the p-value.</p>
@@ -392,8 +391,8 @@ CI_{lower} = {\bar x} - t_{1-{\alpha \over 2}} * SE_{\bar x} \\
 CI_{upper} = {\bar x} + t_{1-{\alpha \over 2}} * SE_{\bar x}
 \]</span></p>
 <p>It is easy to compute this interval manually:</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" data-line-number="1">ci_lower &lt;-<span class="st"> </span>(mean_sample) <span class="op">-</span><span class="st"> </span><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dt">df =</span> df) <span class="op">*</span><span class="st"> </span>SE</a>
-<a class="sourceLine" id="cb198-2" data-line-number="2">ci_upper &lt;-<span class="st"> </span>(mean_sample) <span class="op">+</span><span class="st"> </span><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dt">df =</span> df) <span class="op">*</span><span class="st"> </span>SE</a>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" data-line-number="1">ci_lower &lt;-<span class="st"> </span>(mean_sample)<span class="op">-</span><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dt">df =</span> df)<span class="op">*</span>SE</a>
+<a class="sourceLine" id="cb198-2" data-line-number="2">ci_upper &lt;-<span class="st"> </span>(mean_sample)<span class="op">+</span><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dt">df =</span> df)<span class="op">*</span>SE</a>
 <a class="sourceLine" id="cb198-3" data-line-number="3">ci_lower</a></code></pre></div>
 <pre><code>## [1] 15.02606</code></pre>
 <div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" data-line-number="1">ci_upper</a></code></pre></div>
@@ -512,9 +511,8 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
