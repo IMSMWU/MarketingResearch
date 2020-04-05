@@ -51,7 +51,7 @@ Let us assume that we were planning to take a random sample of 50 students from 
 $$
 H_0: \mu = \mu_0
 $$
-When conducting research, we are usually interested in providing evidence against the null hypothesis. If we then observe sufficient evidence against it and our estimate is said to be significant. If the null hypothesis is rejected, this is taken as support for the **alternative hypothesis**. The alternative hypothesis assumes that some difference exists, which can be expressed as follows: 
+When conducting research, we are usually interested in providing evidence against the null hypothesis. If we then observe sufficient evidence against it, our estimate is said to be significant. If the null hypothesis is rejected, this is taken as support for the **alternative hypothesis**. The alternative hypothesis assumes that some difference exists, which can be expressed as follows: 
 
 $$
 H_1: \mu \neq \mu_0
@@ -104,6 +104,8 @@ ggplot(data.frame(student_sample)) +
 ```
 
 The mean listening time in the sample (black line) $\bar x$ is `r round(mean(student_sample),2)`. We can already see from the graphic above that such a value is rather unlikely under the hypothesis that the population mean is $10$. Intuitively, such a result would therefore provide evidence against our null hypothesis. But how could we quantify specifically how unlikely it is to obtain such a value and decide whether or not to reject the null hypothesis? Significance tests can be used to provide answers to these questions. 
+
+
 
 ### Statistical inference on a sample
 
@@ -744,6 +746,16 @@ power.prop.test(p1=0.02,p2=0.025,sig.level=0.05,power=0.8)
 ```
 
 The output tells us that we need `r round(power.prop.test(p1=0.02,p2=0.025,sig.level=0.05,power=0.8)$n,0)` observations per group to detect a difference of the desired size.
+
+### Summary
+
+- Application of the Chi-square test: when you have 2 categorical variables (ordinal or nominal). In our example: conversion (yes or     no) and agent (1 or 2).
+- Hypothesis: Is there an association between categorical variable X (e.g. conversion) and categorical variable Y (e.g. agent)?
+- H0: There is no association between the two variables.
+- H1: There is an association between the two variables.
+- Interpretation: If we find an association between two variables (p < 0.05), we can conclude that the propotion of conversions to proportion of non-conversions between agent 1 and agent 2 significantly differ. 
+- Example of application in marketing: Marketing department of a firm producing toilet paper is interested in studying the consumer behavior in the context of purchase decision. The company is planing to launch a high quality, super soft toilet paper, but beforehand they decided to conduct a research. They are interested in knowing whether the income level of their consumers influence their choice of the toilet paper quality or not. Currently there are 4 income categories the comapany's consumers are assigned to, and  4 different levels of toilet paper quality. (4x4 table)
+
 
 # Correlation
 
