@@ -748,7 +748,7 @@ power.prop.test(p1=0.02,p2=0.025,sig.level=0.05,power=0.8)
 The output tells us that we need `r round(power.prop.test(p1=0.02,p2=0.025,sig.level=0.05,power=0.8)$n,0)` observations per group to detect a difference of the desired size.
 
 ### Summary
-
+- Confidence interval for proportions:  the interval that shows the range of plausible values for the difference between the two population proportions. If the interval does not cross zero, then zero is not a plausible value for the difference between two proportions, and we reject the null hypothesis that the population proportions are the same.
 - Application of the Chi-square test: when you have 2 categorical variables (ordinal or nominal). In our example: conversion (yes or     no) and agent (1 or 2).
 - Hypothesis: Is there an association between categorical variable X (e.g. conversion) and categorical variable Y (e.g. agent)?
 - H0: There is no association between the two variables.
