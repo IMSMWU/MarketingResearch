@@ -1031,6 +1031,26 @@ Correlation coefficients give no indication of the direction of causality. In ou
 * Third-variable problem: there may be other unobserved factors that affect the results.
 * Direction of causality: Correlations say nothing about which variable causes the other to change (reverse causality: attitudes may just as well cause the years of residence variable).
 
+### Summary
+
+* Correlation (Pearson’s) can be observed between 2 or more continuous variables (interval or ratio). If we apply Pearson’s equation on ordinal data, which we ranked beforehand, we will obtain Spearman’s correlation coefficient.
+
+* Correlation helps us to determine the degree to which the variation in one variable, X, is related to the variation in another variable, Y.
+
+* A raw measure of the relationship between variables is the covariance.
+
+* If we standardize the covariance (divide by the product of the two standard deviations) we get Pearson’s correlation coefficient, r.
+
+* The correlation coefficient can be between −1 and +1.
+
+* +1 indicates a perfect positive relationship; −1 indicates a perfect negative relationship; 0 indicates no linear relationship at all.
+
+*	The correlation coefficient is a commonly used measure of the size of an effect: values of +/-0.1 are considered a small effect, +/-0.3 a medium effect and +/-0.5 a large effect. However, an interpretation of the size of correlation should be made based on the context of the research rather than on following these benchmarks.
+
+*	Correlation coefficients give no indication of the direction of causality.
+
+*	Consideration of the third-variable problem necessary when interpreting correlation as there might be other unobserved variables that influence the results
+
 # T-Test
 This chapter is primarily based on Field, A., Miles J., & Field, Z. (2012): Discovering Statistics Using R. Sage Publications, **chapter 9**.
 
