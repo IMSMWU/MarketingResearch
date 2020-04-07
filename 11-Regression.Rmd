@@ -1025,3 +1025,4 @@ Note that while your choice of the baseline category impacts the coefficients an
 *	Check that the error terms have a constant variance (homoscedasticity).
 *	Check that the error term is normally distributed.
 *	Check for the “third-variables” that are left out the model, but influence the outcome, and therefore introduce a bias in other         variables’ coefficients.
+* Example of application in marketing: digital marketers usally have to assess how Euros put into online advertising contributes to sales. Most of times companies are running advertising on different channels. If you have run Google ads, Facebook ads and newspaper ads, the question that you as a digital marketer could wonder about is ads performance. Given that you collected enough data, you can apply multiple regression and calucate how much an additional Euro put in each of those channels drives additional sales.
