@@ -749,7 +749,7 @@ The output tells us that we need `r round(power.prop.test(p1=0.02,p2=0.025,sig.l
 
 ### Summary
 
-- Application of the Chi-square test: when you have 2 categorical variables (ordinal or nominal). In our example: conversion (yes or     no) and agent (1 or 2).
+- Application of the Chi-square test: when there are 2 categorical variables (ordinal or nominal). In our example: conversion (yes or     no) and agent (1 or 2).
 - Hypothesis: Is there an association between categorical variable X (e.g. conversion) and categorical variable Y (e.g. agent)?
 - H0: There is no association between the two variables.
 - H1: There is an association between the two variables.
