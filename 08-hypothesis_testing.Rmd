@@ -748,23 +748,16 @@ power.prop.test(p1=0.02,p2=0.025,sig.level=0.05,power=0.8)
 The output tells us that we need `r round(power.prop.test(p1=0.02,p2=0.025,sig.level=0.05,power=0.8)$n,0)` observations per group to detect a difference of the desired size.
 
 ### Summary
-<<<<<<< HEAD
 
-- Application of the Chi-square test: when there are 2 categorical variables (ordinal or nominal). In our example: conversion (yes or     no) and agent (1 or 2).
-- Hypothesis: Is there an association between categorical variable X (e.g. conversion) and categorical variable Y (e.g. agent)?
-- H0: There is no association between the two variables.
-- H1: There is an association between the two variables.
-- Interpretation: If we find an association between two variables (p < 0.05), we can conclude that the propotion of conversions to proportion of non-conversions between agent 1 and agent 2 significantly differ. 
-- Example of application in marketing: Marketing department of a firm producing toilet paper is interested in studying the consumer behavior in the context of purchase decision. The company is planing to launch a high quality, super soft toilet paper, but beforehand they decided to conduct a research. They are interested in knowing whether the income level of their consumers influence their choice of the toilet paper quality or not. Currently there are 4 income categories the comapany's consumers are assigned to, and  4 different levels of toilet paper quality. (4x4 table)
-=======
-* Confidence interval for proportions:  the interval that shows the range of plausible values for the difference between the two population proportions. If the interval does not cross zero, then zero is not a plausible value for the difference between two proportions, and we reject the null hypothesis that the population proportions are the same.
-* Application of the Chi-square test: when you have 2 categorical variables (ordinal or nominal). In our example: conversion (yes or     no) and agent (1 or 2).
+* Confidence interval for proportions: the interval that shows the range of plausible values for the difference between the two population proportions. If the interval does not cross zero, then zero is not a plausible value for the difference between two proportions, and we reject the null hypothesis that the population proportions are the same.
+
+* Application of the Chi-square test: when there are 2 categorical variables (ordinal or nominal). In our example: conversion (yes or no) and agent (1 or 2).
 * Hypothesis: Is there an association between categorical variable X (e.g. conversion) and categorical variable Y (e.g. agent)?
-* H0: There is no association between the two variables.
-* H1: There is an association between the two variables.
+ H0: There is no association between the two variables.
+ H1: There is an association between the two variables.
 * Interpretation: If we find an association between two variables (p < 0.05), we can conclude that the propotion of conversions to proportion of non-conversions between agent 1 and agent 2 significantly differ. 
+
 * Example of application in marketing: Marketing department of a firm producing toilet paper is interested in studying the consumer behavior in the context of purchase decision. The company is planing to launch a high quality, super soft toilet paper, but beforehand they decided to conduct a research. They are interested in knowing whether the income level of their consumers influence their choice of the toilet paper quality or not. Currently there are 4 income categories the comapany's consumers are assigned to, and  4 different levels of toilet paper quality. (4x4 table)
->>>>>>> 0d4757bbf29b60cf35adaa55b99696672ce57e51
 
 
 # Correlation
