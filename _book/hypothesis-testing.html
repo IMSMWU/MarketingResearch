@@ -50,14 +50,6 @@
 
 <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.9.2/plotly.js"></script>
-<script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -137,12 +129,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul class="summary">
 <li><strong><a href="./">MR 2019</a></strong></li>
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a></li>
-<li class="chapter" data-level="" data-path="course-materials.html"><a href="course-materials.html"><i class="fa fa-check"></i>Course materials</a><ul>
-<li class="chapter" data-level="" data-path="course-materials.html"><a href="course-materials.html#main-reference"><i class="fa fa-check"></i>Main reference</a></li>
-<li class="chapter" data-level="" data-path="course-materials.html"><a href="course-materials.html#further-readings"><i class="fa fa-check"></i>Further readings</a></li>
-<li class="chapter" data-level="" data-path="course-materials.html"><a href="course-materials.html#datacamp"><i class="fa fa-check"></i>DataCamp</a></li>
-<li class="chapter" data-level="" data-path="course-materials.html"><a href="course-materials.html#other-web-resources"><i class="fa fa-check"></i>Other web-resources</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#main-reference"><i class="fa fa-check"></i>Main reference</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#further-readings"><i class="fa fa-check"></i>Further readings</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#datacamp"><i class="fa fa-check"></i>DataCamp</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#other-web-resources"><i class="fa fa-check"></i>Other web-resources</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>1</b> Getting started</a><ul>
 <li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#how-to-download-and-install-r-and-rstudio"><i class="fa fa-check"></i><b>1.1</b> How to download and install R and RStudio</a></li>
@@ -217,8 +208,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.1" data-path="t-test.html"><a href="t-test.html#independent-means-t-test"><i class="fa fa-check"></i><b>7.2.1</b> Independent-means t-test</a></li>
 <li class="chapter" data-level="7.2.2" data-path="t-test.html"><a href="t-test.html#dependent-means-t-test"><i class="fa fa-check"></i><b>7.2.2</b> Dependent-means t-test</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="t-test.html"><a href="t-test.html#summary-4"><i class="fa fa-check"></i><b>7.3</b> Summary</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="t-test.html"><a href="t-test.html#further-considerations"><i class="fa fa-check"></i><b>7.3.1</b> Further considerations</a></li>
+<li class="chapter" data-level="7.3" data-path="t-test.html"><a href="t-test.html#summary-4"><i class="fa fa-check"></i><b>7.3</b> Summary</a></li>
+<li class="chapter" data-level="7.4" data-path="t-test.html"><a href="t-test.html#further-considerations"><i class="fa fa-check"></i><b>7.4</b> Further considerations</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="t-test.html"><a href="t-test.html#type-i-and-type-ii-errors"><i class="fa fa-check"></i><b>7.4.1</b> Type I and Type II Errors</a></li>
+<li class="chapter" data-level="7.4.2" data-path="t-test.html"><a href="t-test.html#significance-level-sample-size-power-and-effect-size"><i class="fa fa-check"></i><b>7.4.2</b> Significance level, sample size, power, and effect size</a></li>
+<li class="chapter" data-level="7.4.3" data-path="t-test.html"><a href="t-test.html#p-values-stopping-rules-and-p-hacking"><i class="fa fa-check"></i><b>7.4.3</b> P-values, stopping rules and p-hacking</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>8</b> ANOVA</a><ul>
@@ -282,18 +276,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">4.1</span> Introduction</h2>
 <p>We test hypotheses because we are confined to taking samples – we rarely work with the entire population. In the previous chapter, we introduced the standard error (i.e., the standard deviation of a large number of hypothetical samples) as an estimate of how well a particular sample represents the population. We also saw how we can construct confidence intervals around the sample mean <span class="math inline">\(\bar x\)</span> by computing <span class="math inline">\(SE_{\bar x}\)</span> as an estimate of <span class="math inline">\(\sigma_{\bar x}\)</span> using <span class="math inline">\(s\)</span> as an estimate of <span class="math inline">\(\sigma\)</span> and calculating the 95% CI as <span class="math inline">\(\bar x \pm 1.96 * SE_{\bar x}\)</span>. Although we do not know the true population mean (<span class="math inline">\(\mu\)</span>), we might have an hypothesis about it and this would tell us how the corresponding sampling distribution looks like. Based on the sampling distribution of the hypothesized population mean, we could then determine the probability of a given sample <strong>assuming that the hypothesis is true</strong>.</p>
 <p>Let us again begin by assuming we know the entire population using the example of music listening times among students from the previous example. As a reminder, the following plot shows the distribution of music listening times in the population of WU students.</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" title="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb180-2" title="2"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb180-3" title="3"><span class="kw">library</span>(latex2exp)</a>
-<a class="sourceLine" id="cb180-4" title="4"><span class="kw">set.seed</span>(<span class="dv">321</span>)</a>
-<a class="sourceLine" id="cb180-5" title="5">hours &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dv">25000</span>, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb180-6" title="6"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(hours)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> hours), </a>
-<a class="sourceLine" id="cb180-7" title="7">    <span class="dt">bins =</span> <span class="dv">30</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(hours), </a>
-<a class="sourceLine" id="cb180-8" title="8">    <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram of listening times&quot;</span>, </a>
-<a class="sourceLine" id="cb180-9" title="9">    <span class="dt">subtitle =</span> <span class="kw">TeX</span>(<span class="kw">sprintf</span>(<span class="st">&quot;Population mean ($</span><span class="ch">\\</span><span class="st">mu$) = %.2f; population standard deviation ($</span><span class="ch">\\</span><span class="st">sigma$) = %.2f&quot;</span>, </a>
-<a class="sourceLine" id="cb180-10" title="10">        <span class="kw">round</span>(<span class="kw">mean</span>(hours), <span class="dv">2</span>), <span class="kw">round</span>(<span class="kw">sd</span>(hours), <span class="dv">2</span>))), </a>
-<a class="sourceLine" id="cb180-11" title="11">    <span class="dt">y =</span> <span class="st">&quot;Number of students&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Hours&quot;</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-117-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">library</span>(latex2exp)</a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">set.seed</span>(<span class="dv">321</span>)</a>
+<a class="sourceLine" id="cb1-5" title="5">hours &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dv">25000</span>, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(hours)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> hours), </a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="dt">bins =</span> <span class="dv">30</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(hours), </a>
+<a class="sourceLine" id="cb1-8" title="8">    <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram of listening times&quot;</span>, </a>
+<a class="sourceLine" id="cb1-9" title="9">    <span class="dt">subtitle =</span> <span class="kw">TeX</span>(<span class="kw">sprintf</span>(<span class="st">&quot;Population mean ($</span><span class="ch">\\</span><span class="st">mu$) = %.2f; population standard deviation ($</span><span class="ch">\\</span><span class="st">sigma$) = %.2f&quot;</span>, </a>
+<a class="sourceLine" id="cb1-10" title="10">        <span class="kw">round</span>(<span class="kw">mean</span>(hours), <span class="dv">2</span>), <span class="kw">round</span>(<span class="kw">sd</span>(hours), <span class="dv">2</span>))), </a>
+<a class="sourceLine" id="cb1-11" title="11">    <span class="dt">y =</span> <span class="st">&quot;Number of students&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Hours&quot;</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>In this example, the population mean (<span class="math inline">\(\mu\)</span>) is equal to 19.98, and the population standard deviation <span class="math inline">\(\sigma\)</span> is equal to 14.15.</p>
 <div id="the-null-hypothesis" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> The null hypothesis</h3>
@@ -307,27 +301,27 @@ H_1: \mu \neq \mu_0
 \]</span>
 Accepting the alternative hypothesis in turn will often lead to changes in opinions or actions. Note that while the null hypothesis may be rejected, it can never be accepted based on a single test. If we fail to reject the null hypothesis, it means that we simply haven’t collected enough evidence against the null hypothesis to disprove it. In classical hypothesis testing, there is no way to determine whether the null hypothesis is true. <strong>Hypothesis testing</strong> provides a means to quantify to what extent the data from our sample is in line with the null hypothesis.</p>
 <p>In order to quantify the concept of “sufficient evidence” we look at the theoretical distribution of the sample means given our null hypothesis and the sample standard error. Using the available information we can infer the sampling distribution for our null hypothesis. Recall that the standard deviation of the sampling distribution (i.e., the standard error of the mean) is given by <span class="math inline">\(\sigma_{\bar x}={\sigma \over \sqrt{n}}\)</span>, and thus can be computed as follows:</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" title="1">mean_pop &lt;-<span class="st"> </span><span class="kw">mean</span>(hours)</a>
-<a class="sourceLine" id="cb181-2" title="2">sigma &lt;-<span class="st"> </span><span class="kw">sd</span>(hours)  <span class="co">#population standard deviation</span></a>
-<a class="sourceLine" id="cb181-3" title="3">n &lt;-<span class="st"> </span><span class="dv">50</span>  <span class="co">#sample size</span></a>
-<a class="sourceLine" id="cb181-4" title="4">standard_error &lt;-<span class="st"> </span>sigma<span class="op">/</span><span class="kw">sqrt</span>(n)  <span class="co">#standard error</span></a>
-<a class="sourceLine" id="cb181-5" title="5">standard_error</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">mean_pop &lt;-<span class="st"> </span><span class="kw">mean</span>(hours)</a>
+<a class="sourceLine" id="cb2-2" title="2">sigma &lt;-<span class="st"> </span><span class="kw">sd</span>(hours)  <span class="co">#population standard deviation</span></a>
+<a class="sourceLine" id="cb2-3" title="3">n &lt;-<span class="st"> </span><span class="dv">50</span>  <span class="co">#sample size</span></a>
+<a class="sourceLine" id="cb2-4" title="4">standard_error &lt;-<span class="st"> </span>sigma<span class="op">/</span><span class="kw">sqrt</span>(n)  <span class="co">#standard error</span></a>
+<a class="sourceLine" id="cb2-5" title="5">standard_error</a></code></pre></div>
 <pre><code>## [1] 2.001639</code></pre>
 <p>Since we know from the central limit theorem that the sampling distribution is normal for large enough samples, we can now visualize the expected sampling distribution <strong>if our null hypothesis was in fact true</strong> (i.e., if the was no difference between the true population mean and the hypothesized mean of 10).</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-119-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-4-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>We also know that 95% of the probability is within 1.96 standard deviations from the mean. Values higher than that are rather unlikely, if our hypothesis about the population mean was indeed true. This is shown by the shaded area, also known as the “rejection region”. To test our hypothesis that the population mean is equal to <span class="math inline">\(10\)</span>, let us take a random sample from the population.</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" title="1"><span class="kw">set.seed</span>(<span class="dv">12567</span>)</a>
-<a class="sourceLine" id="cb183-2" title="2">H_<span class="dv">0</span> &lt;-<span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb183-3" title="3">student_sample &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25000</span>, <span class="dt">size =</span> <span class="dv">50</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb183-4" title="4">student_sample &lt;-<span class="st"> </span>hours[student_sample]</a>
-<a class="sourceLine" id="cb183-5" title="5">mean_sample &lt;-<span class="st"> </span><span class="kw">mean</span>(student_sample)</a>
-<a class="sourceLine" id="cb183-6" title="6"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(student_sample)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> student_sample), </a>
-<a class="sourceLine" id="cb183-7" title="7">    <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb183-8" title="8"><span class="st">    </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(student_sample), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, </a>
-<a class="sourceLine" id="cb183-9" title="9">        <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">TeX</span>(<span class="kw">sprintf</span>(<span class="st">&quot;Distribution of values in the sample ($n =$ %.0f, $</span><span class="ch">\\</span><span class="st">bar{x] = $ %.2f, s = %.2f)&quot;</span>, </a>
-<a class="sourceLine" id="cb183-10" title="10">    n, <span class="kw">mean</span>(student_sample), <span class="kw">sd</span>(student_sample))), </a>
-<a class="sourceLine" id="cb183-11" title="11">    <span class="dt">x =</span> <span class="st">&quot;Hours&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-120-1.png" width="672" /></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">set.seed</span>(<span class="dv">12567</span>)</a>
+<a class="sourceLine" id="cb4-2" title="2">H_<span class="dv">0</span> &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb4-3" title="3">student_sample &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25000</span>, <span class="dt">size =</span> <span class="dv">50</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb4-4" title="4">student_sample &lt;-<span class="st"> </span>hours[student_sample]</a>
+<a class="sourceLine" id="cb4-5" title="5">mean_sample &lt;-<span class="st"> </span><span class="kw">mean</span>(student_sample)</a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(student_sample)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> student_sample), </a>
+<a class="sourceLine" id="cb4-7" title="7">    <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="st">    </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(student_sample), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, </a>
+<a class="sourceLine" id="cb4-9" title="9">        <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">TeX</span>(<span class="kw">sprintf</span>(<span class="st">&quot;Distribution of values in the sample ($n =$ %.0f, $</span><span class="ch">\\</span><span class="st">bar{x] = $ %.2f, s = %.2f)&quot;</span>, </a>
+<a class="sourceLine" id="cb4-10" title="10">    n, <span class="kw">mean</span>(student_sample), <span class="kw">sd</span>(student_sample))), </a>
+<a class="sourceLine" id="cb4-11" title="11">    <span class="dt">x =</span> <span class="st">&quot;Hours&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>The mean listening time in the sample (black line) <span class="math inline">\(\bar x\)</span> is 18.59. We can already see from the graphic above that such a value is rather unlikely under the hypothesis that the population mean is <span class="math inline">\(10\)</span>. Intuitively, such a result would therefore provide evidence against our null hypothesis. But how could we quantify specifically how unlikely it is to obtain such a value and decide whether or not to reject the null hypothesis? Significance tests can be used to provide answers to these questions.</p>
 </div>
 <div id="statistical-inference-on-a-sample" class="section level3">
@@ -345,15 +339,15 @@ Accepting the alternative hypothesis in turn will often lead to changes in opini
 z = {\bar x-  \mu_0 \over \sigma_{\bar x}}={\bar x-  \mu_0 \over \sigma / \sqrt{n}}
 \]</span></p>
 <p>This standardized value (or “z-score”) is also referred to as a <strong>test statistic</strong>. Let’s compute the test statistic for our example above:</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb184-1" title="1">z_score &lt;-<span class="st"> </span>(mean_sample <span class="op">-</span><span class="st"> </span>H_<span class="dv">0</span>)<span class="op">/</span>(sigma<span class="op">/</span><span class="kw">sqrt</span>(n))</a>
-<a class="sourceLine" id="cb184-2" title="2">z_score</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">z_score &lt;-<span class="st"> </span>(mean_sample <span class="op">-</span><span class="st"> </span>H_<span class="dv">0</span>)<span class="op">/</span>(sigma<span class="op">/</span><span class="kw">sqrt</span>(n))</a>
+<a class="sourceLine" id="cb5-2" title="2">z_score</a></code></pre></div>
 <pre><code>## [1] 4.292454</code></pre>
 <p>To make a decision on whether the difference can be deemed statistically significant, we now need to compare this calculated test statistic to a meaningful threshold. In order to do so, we need to decide on a significance level <span class="math inline">\(\alpha\)</span>, which expresses the probability of finding an effect that does not actually exist (i.e., Type I Error). You can find a detailed discussion of this point at the end of this chapter. For now, we will adopt the widely accepted significance level of 5% and set <span class="math inline">\(\alpha\)</span> to 0.05. The critical value for the normal distribution and <span class="math inline">\(\alpha\)</span> = 0.05 can be computed using the <code>qnorm()</code> function as follows:</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb186-1" title="1">z_crit &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)</a>
-<a class="sourceLine" id="cb186-2" title="2">z_crit</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">z_crit &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)</a>
+<a class="sourceLine" id="cb7-2" title="2">z_crit</a></code></pre></div>
 <pre><code>## [1] 1.959964</code></pre>
 <p>We use <code>0.975</code> and not <code>0.95</code> since we are running a two-sided test and need to account for the rejection region at the other end of the distribution. Recall that for the normal distribution, 95% of the total probability falls within 1.96 standard deviations of the mean, so that higher (absolute) values provide evidence against the null hypothesis. Generally, we speak of a statistically significant effect if the (absolute) calculated test statistic is larger than the (absolute) critical value. We can easily check if this is the case in our example:</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" title="1"><span class="kw">abs</span>(z_score) <span class="op">&gt;</span><span class="st"> </span><span class="kw">abs</span>(z_crit)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">abs</span>(z_score) <span class="op">&gt;</span><span class="st"> </span><span class="kw">abs</span>(z_crit)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>Since the absolute value of the calculated test statistic is larger than the critical value, we would reject <span class="math inline">\(H_0\)</span> and conclude that the true population mean <span class="math inline">\(\mu\)</span> is significantly different from the hypothesized value <span class="math inline">\(\mu_0 = 10\)</span>.</p>
 </div>
@@ -364,22 +358,22 @@ z = {\bar x-  \mu_0 \over \sigma_{\bar x}}={\bar x-  \mu_0 \over \sigma / \sqrt{
 t = {\bar x-  \mu_0 \over SE_{\bar x}}={\bar x-  \mu_0 \over s / \sqrt{n}}
 \]</span></p>
 <p>Here, <span class="math inline">\(\bar X\)</span> denotes the sample mean and <span class="math inline">\(s\)</span> the sample standard deviation. The t-distribution has more probability in its “tails”, i.e. farther away from the mean. This reflects the higher uncertainty introduced by replacing the population standard deviation by its sample estimate. Intuitively, this is particularly relevant for small samples, since the uncertainty about the true population parameters decreases with increasing sample size. This is reflected by the fact that the exact shape of the t-distribution depends on the <strong>degrees of freedom</strong>, which is the sample size minus one (i.e., <span class="math inline">\(n-1\)</span>). To see this, the following graph shows the t-distribution with different degrees of freedom for a two-tailed test and <span class="math inline">\(\alpha = 0.05\)</span>. The grey curve shows the normal distribution.</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-124-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-9-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>Notice that as <span class="math inline">\(n\)</span> gets larger, the t-distribution gets closer and closer to the normal distribution, reflecting the fact that the uncertainty introduced by <span class="math inline">\(s\)</span> is reduced. To summarize, we now have an estimate for the standard deviation of the distribution of the sample mean (i.e., <span class="math inline">\(SE_{\bar x}\)</span>) and an appropriate distribution that takes into account the necessary uncertainty (i.e., the t-distribution). Let us now compute the t-statistic according to the formula above:</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" title="1">SE &lt;-<span class="st"> </span>(<span class="kw">sd</span>(student_sample)<span class="op">/</span><span class="kw">sqrt</span>(n))</a>
-<a class="sourceLine" id="cb190-2" title="2">t_score &lt;-<span class="st"> </span>(mean_sample <span class="op">-</span><span class="st"> </span>H_<span class="dv">0</span>)<span class="op">/</span>SE</a>
-<a class="sourceLine" id="cb190-3" title="3">t_score</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">SE &lt;-<span class="st"> </span>(<span class="kw">sd</span>(student_sample)<span class="op">/</span><span class="kw">sqrt</span>(n))</a>
+<a class="sourceLine" id="cb11-2" title="2">t_score &lt;-<span class="st"> </span>(mean_sample <span class="op">-</span><span class="st"> </span>H_<span class="dv">0</span>)<span class="op">/</span>SE</a>
+<a class="sourceLine" id="cb11-3" title="3">t_score</a></code></pre></div>
 <pre><code>## [1] 4.84204</code></pre>
 <p>Notice that the value of the t-statistic is higher compared to the z-score (4.29). This can be attributed to the fact that by using the <span class="math inline">\(s\)</span> as and estimate of <span class="math inline">\(\sigma\)</span>, we underestimate the true population standard deviation. Hence, the critical value would need to be larger to adjust for this. This is what the t-distribution does. Let us compute the critical value from the t-distribution with <code>n - 1</code>degrees of freedom.</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" title="1">df =<span class="st"> </span>n <span class="op">-</span><span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb192-2" title="2">t_crit &lt;-<span class="st"> </span><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dt">df =</span> df)</a>
-<a class="sourceLine" id="cb192-3" title="3">t_crit</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">df =<span class="st"> </span>n <span class="op">-</span><span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb13-2" title="2">t_crit &lt;-<span class="st"> </span><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dt">df =</span> df)</a>
+<a class="sourceLine" id="cb13-3" title="3">t_crit</a></code></pre></div>
 <pre><code>## [1] 2.009575</code></pre>
 <p>Again, we use <code>0.975</code> and not <code>0.95</code> since we are running a two-sided test and need to account for the rejection region at the other end of the distribution. Notice that the new critical value based on the t-distributionis larger, to reflect the uncertainty when estimating <span class="math inline">\(\sigma\)</span> from <span class="math inline">\(s\)</span>. Now we can see that the calculated test statistic is still larger than the critical value.</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" title="1"><span class="kw">abs</span>(t_score) <span class="op">&gt;</span><span class="st"> </span><span class="kw">abs</span>(t_crit)</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">abs</span>(t_score) <span class="op">&gt;</span><span class="st"> </span><span class="kw">abs</span>(t_crit)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>The following graphics shows that the calculated test statistic (red line) falls into the rejection region so that in our example, we would reject the null hypothesis that the true population mean is equal to <span class="math inline">\(10\)</span>.</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-128-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-13-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p><strong>Decision:</strong> Reject <span class="math inline">\(H_0\)</span>, given that the calculated test statistic is larger than critical value.</p>
 <p>Something to keep in mind here is the fact the test statistic is a function of the sample size. This, as <span class="math inline">\(n\)</span> gets large, the test statistic gets larger as well and we are more likely to find a significant effect. This reflects the decrease in uncertainty about the true population mean as our sample size increases.</p>
 </div>
@@ -387,8 +381,8 @@ t = {\bar x-  \mu_0 \over SE_{\bar x}}={\bar x-  \mu_0 \over s / \sqrt{n}}
 <div id="p-values" class="section level4">
 <h4><span class="header-section-number">4.1.2.2</span> P-values</h4>
 <p>In the previous section, we computed the test statistic, which tells us how close our sample is to the null hypothesis. The p-value corresponds to the probability that the test statistic would take a value as extreme or more extreme than the one that we actually observed, <strong>assuming that the null hypothesis is true</strong>. It is important to note that this is a <strong>conditional probability</strong>: we compute the probability of observing a sample mean (or a more extreme value) conditional on the assumption that the null hypothesis is true. The <code>pnorm()</code>function can be used to compute this probability. It is the cumulative probability distribution function of the `normal distribution. Cumulative probability means that the function returns the probability that the test statistic will take a value <strong>less than or equal to</strong> the calculated test statistic given the degrees of freedom. However, we are interested in obtaining the probability of observing a test statistic <strong>larger than or equal to</strong> the calculated test statistic under the null hypothesis (i.e., the p-value). Thus, we need to subtract the cumulative probability from 1. In addition, since we are running a two-sided test, we need to multiply the probability by 2 to account for the rejection region at the other side of the distribution.</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" title="1">p_value &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pt</span>(<span class="kw">abs</span>(t_score), <span class="dt">df =</span> df))</a>
-<a class="sourceLine" id="cb196-2" title="2">p_value</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1">p_value &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pt</span>(<span class="kw">abs</span>(t_score), <span class="dt">df =</span> df))</a>
+<a class="sourceLine" id="cb17-2" title="2">p_value</a></code></pre></div>
 <pre><code>## [1] 0.00001326885</code></pre>
 <p>This value corresponds to the probability of observing a mean equal to or larger than the one we obtained from our sample, if the null hypothesis was true. As you can see, this probability is very low. A small p-value signals that it is unlikely to observe the calculated test statistic under the null hypothesis. To decide whether or not to reject the null hypothesis, we would now compare this value to the level of significance (<span class="math inline">\(\alpha\)</span>) that we chose for our test. For this example, we adopt the widely accepted significance level of 5%, so any test results with a p-value &lt; 0.05 would be deemed statistically significant. Note that the p-value is directly related to the value of the test statistic. The relationship is such that the higher (lower) the value of the test statistic, the lower (higher) the p-value.</p>
 <p><strong>Decision:</strong> Reject <span class="math inline">\(H_0\)</span>, given that the p-value is smaller than 0.05.</p>
@@ -401,11 +395,11 @@ CI_{lower} = {\bar x} - t_{1-{\alpha \over 2}} * SE_{\bar x} \\
 CI_{upper} = {\bar x} + t_{1-{\alpha \over 2}} * SE_{\bar x}
 \]</span></p>
 <p>It is easy to compute this interval manually:</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" title="1">ci_lower &lt;-<span class="st"> </span>(mean_sample) <span class="op">-</span><span class="st"> </span><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dt">df =</span> df) <span class="op">*</span><span class="st"> </span>SE</a>
-<a class="sourceLine" id="cb198-2" title="2">ci_upper &lt;-<span class="st"> </span>(mean_sample) <span class="op">+</span><span class="st"> </span><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dt">df =</span> df) <span class="op">*</span><span class="st"> </span>SE</a>
-<a class="sourceLine" id="cb198-3" title="3">ci_lower</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1">ci_lower &lt;-<span class="st"> </span>(mean_sample) <span class="op">-</span><span class="st"> </span><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dt">df =</span> df) <span class="op">*</span><span class="st"> </span>SE</a>
+<a class="sourceLine" id="cb19-2" title="2">ci_upper &lt;-<span class="st"> </span>(mean_sample) <span class="op">+</span><span class="st"> </span><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dt">df =</span> df) <span class="op">*</span><span class="st"> </span>SE</a>
+<a class="sourceLine" id="cb19-3" title="3">ci_lower</a></code></pre></div>
 <pre><code>## [1] 15.02606</code></pre>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" title="1">ci_upper</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1">ci_upper</a></code></pre></div>
 <pre><code>## [1] 22.15783</code></pre>
 <p>The interpretation of this interval is as follows: if we would (hypothetically) take 100 samples and calculated the mean and confidence interval for each of them, then the true population mean would be included in 95% of these intervals. The CI is informative when reporting the result of your test, since it provides an estimate of the uncertainty associated with the test result. From the test statistic or the p-value alone, it is not easy to judge in which range the true population parameter is located. The CI provides an estimate of this range.</p>
 <p><strong>Decision:</strong> Reject <span class="math inline">\(H_0\)</span>, given that the parameter value from the null hypothesis (<span class="math inline">\(10\)</span>) is not included in the interval.</p>
