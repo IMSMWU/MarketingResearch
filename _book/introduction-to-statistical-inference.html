@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Introduction to Statistical Inference | Marketing Research 2019</title>
   <meta name="description" content="An Introduction to Statistics Using R" />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Introduction to Statistical Inference | Marketing Research 2019" />
   <meta property="og:type" content="book" />
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="prev" href="data-handling.html">
-<link rel="next" href="hypothesis-testing.html">
+<link rel="prev" href="data-handling.html"/>
+<link rel="next" href="hypothesis-testing.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -38,6 +38,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -48,13 +51,13 @@
 <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -74,7 +77,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -201,17 +204,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1" data-path="chi-square-test.html"><a href="chi-square-test.html#confidence-intervals-for-proportions"><i class="fa fa-check"></i><b>5.1</b> Confidence intervals for proportions</a></li>
 <li class="chapter" data-level="5.2" data-path="chi-square-test.html"><a href="chi-square-test.html#chi-square-test-1"><i class="fa fa-check"></i><b>5.2</b> Chi-square test</a></li>
 <li class="chapter" data-level="5.3" data-path="chi-square-test.html"><a href="chi-square-test.html#sample-size-1"><i class="fa fa-check"></i><b>5.3</b> Sample size</a></li>
+<li class="chapter" data-level="5.4" data-path="chi-square-test.html"><a href="chi-square-test.html#summary-2"><i class="fa fa-check"></i><b>5.4</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>6</b> Correlation</a><ul>
 <li class="chapter" data-level="6.1" data-path="correlation.html"><a href="correlation.html#correlation-coefficient"><i class="fa fa-check"></i><b>6.1</b> Correlation coefficient</a></li>
 <li class="chapter" data-level="6.2" data-path="correlation.html"><a href="correlation.html#significance-testing"><i class="fa fa-check"></i><b>6.2</b> Significance testing</a></li>
+<li class="chapter" data-level="6.3" data-path="correlation.html"><a href="correlation.html#summary-3"><i class="fa fa-check"></i><b>6.3</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="t-test.html"><a href="t-test.html"><i class="fa fa-check"></i><b>7</b> T-Test</a><ul>
 <li class="chapter" data-level="7.1" data-path="t-test.html"><a href="t-test.html#one-sample-t-test"><i class="fa fa-check"></i><b>7.1</b> One sample t-test</a></li>
 <li class="chapter" data-level="7.2" data-path="t-test.html"><a href="t-test.html#comparing-two-means"><i class="fa fa-check"></i><b>7.2</b> Comparing two means</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="t-test.html"><a href="t-test.html#independent-means-t-test"><i class="fa fa-check"></i><b>7.2.1</b> Independent-means t-test</a></li>
 <li class="chapter" data-level="7.2.2" data-path="t-test.html"><a href="t-test.html#dependent-means-t-test"><i class="fa fa-check"></i><b>7.2.2</b> Dependent-means t-test</a></li>
-<li class="chapter" data-level="7.2.3" data-path="t-test.html"><a href="t-test.html#further-considerations"><i class="fa fa-check"></i><b>7.2.3</b> Further considerations</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="t-test.html"><a href="t-test.html#summary-4"><i class="fa fa-check"></i><b>7.3</b> Summary</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="t-test.html"><a href="t-test.html#further-considerations"><i class="fa fa-check"></i><b>7.3.1</b> Further considerations</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>8</b> ANOVA</a><ul>
@@ -227,6 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3.1" data-path="anova.html"><a href="anova.html#basic-anova"><i class="fa fa-check"></i><b>8.3.1</b> Basic ANOVA</a></li>
 <li class="chapter" data-level="8.3.2" data-path="anova.html"><a href="anova.html#post-hoc-tests"><i class="fa fa-check"></i><b>8.3.2</b> Post-hoc tests</a></li>
 </ul></li>
+<li class="chapter" data-level="8.4" data-path="anova.html"><a href="anova.html#summary-5"><i class="fa fa-check"></i><b>8.4</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>9</b> Regression</a><ul>
 <li class="chapter" data-level="9.1" data-path="regression.html"><a href="regression.html#regression-1"><i class="fa fa-check"></i><b>9.1</b> Regression</a><ul>
@@ -247,6 +255,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3.1" data-path="regression.html"><a href="regression.html#two-categories"><i class="fa fa-check"></i><b>9.3.1</b> Two categories</a></li>
 <li class="chapter" data-level="9.3.2" data-path="regression.html"><a href="regression.html#more-than-two-categories"><i class="fa fa-check"></i><b>9.3.2</b> More than two categories</a></li>
 </ul></li>
+<li class="chapter" data-level="9.4" data-path="regression.html"><a href="regression.html#summary-6"><i class="fa fa-check"></i><b>9.4</b> Summary</a></li>
 </ul></li>
 </ul>
 
@@ -272,28 +281,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="if-we-knew-it-all" class="section level2">
 <h2><span class="header-section-number">3.1</span> If we knew it all</h2>
 <p>Assume there are <span class="math inline">\(25,000\)</span> students at WU and every single one has kindly provided us with the hours they listened to music in the past month. In this case, we know the true mean (<span class="math inline">\(49.93\)</span> hours) and the true standard deviation (SD = <span class="math inline">\(10.02\)</span>) and thus we can easily summarize the entire distribution. Since the data follows a normal distribution, roughly 95% of the values lie within 2 standard deviations from the mean, as the following plot shows:</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb170-2" data-line-number="2"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb170-3" data-line-number="3"><span class="kw">library</span>(latex2exp)</a>
-<a class="sourceLine" id="cb170-4" data-line-number="4"><span class="kw">set.seed</span>(<span class="dv">321</span>)</a>
-<a class="sourceLine" id="cb170-5" data-line-number="5">hours &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">25000</span>, <span class="dv">50</span>, <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb170-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb170-7" data-line-number="7"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(hours)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb170-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(hours), <span class="dt">bins =</span> <span class="dv">50</span>, <span class="dt">fill =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">color =</span> <span class="st">&#39;black&#39;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb170-9" data-line-number="9"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram of listening times&quot;</span>,</a>
-<a class="sourceLine" id="cb170-10" data-line-number="10">       <span class="dt">subtitle =</span> <span class="kw">TeX</span>(<span class="kw">sprintf</span>(<span class="st">&quot;Population mean ($</span><span class="ch">\\</span><span class="st">mu$) = %.2f; population standard deviation ($</span><span class="ch">\\</span><span class="st">sigma$) = %.2f&quot;</span>,<span class="kw">round</span>(<span class="kw">mean</span>(hours),<span class="dv">2</span>),<span class="kw">round</span>(<span class="kw">sd</span>(hours),<span class="dv">2</span>))),</a>
-<a class="sourceLine" id="cb170-11" data-line-number="11">       <span class="dt">y =</span> <span class="st">&#39;Number of students&#39;</span>, </a>
-<a class="sourceLine" id="cb170-12" data-line-number="12">       <span class="dt">x =</span> <span class="st">&#39;Hours&#39;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb170-13" data-line-number="13"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb170-14" data-line-number="14"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(hours), <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb170-15" data-line-number="15"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(hours)<span class="op">+</span><span class="dv">2</span><span class="op">*</span><span class="kw">sd</span>(hours), <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb170-16" data-line-number="16"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(hours)<span class="op">-</span><span class="dv">2</span><span class="op">*</span><span class="kw">sd</span>(hours), <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb170-17" data-line-number="17"><span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">mean</span>(hours), <span class="dt">y =</span> <span class="dv">1100</span>, <span class="dt">yend =</span> <span class="dv">1100</span>, <span class="dt">xend =</span> (<span class="kw">mean</span>(hours) <span class="op">-</span><span class="st"> </span><span class="dv">2</span><span class="op">*</span><span class="kw">sd</span>(hours))), <span class="dt">lineend =</span> <span class="st">&quot;butt&quot;</span>, <span class="dt">linejoin =</span> <span class="st">&quot;round&quot;</span>,</a>
-<a class="sourceLine" id="cb170-18" data-line-number="18">     <span class="dt">size =</span> <span class="fl">0.5</span>, <span class="dt">arrow =</span> <span class="kw">arrow</span>(<span class="dt">length =</span> <span class="kw">unit</span>(<span class="fl">0.2</span>, <span class="st">&quot;inches&quot;</span>))) <span class="op">+</span></a>
-<a class="sourceLine" id="cb170-19" data-line-number="19"><span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">mean</span>(hours), <span class="dt">y =</span> <span class="dv">1100</span>, <span class="dt">yend =</span> <span class="dv">1100</span>, <span class="dt">xend =</span> (<span class="kw">mean</span>(hours) <span class="op">+</span><span class="st"> </span><span class="dv">2</span><span class="op">*</span><span class="kw">sd</span>(hours))), <span class="dt">lineend =</span> <span class="st">&quot;butt&quot;</span>, <span class="dt">linejoin =</span> <span class="st">&quot;round&quot;</span>,</a>
-<a class="sourceLine" id="cb170-20" data-line-number="20">     <span class="dt">size =</span> <span class="fl">0.5</span>, <span class="dt">arrow =</span> <span class="kw">arrow</span>(<span class="dt">length =</span> <span class="kw">unit</span>(<span class="fl">0.2</span>, <span class="st">&quot;inches&quot;</span>))) <span class="op">+</span></a>
-<a class="sourceLine" id="cb170-21" data-line-number="21"><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">x =</span> <span class="kw">mean</span>(hours) <span class="op">+</span><span class="st"> </span><span class="dv">28</span>, <span class="dt">y =</span> <span class="dv">1100</span>, <span class="dt">label =</span> <span class="st">&quot;Mean + 2 * SD&quot;</span> )<span class="op">+</span></a>
-<a class="sourceLine" id="cb170-22" data-line-number="22"><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">x =</span> <span class="kw">mean</span>(hours) <span class="dv">-28</span>, <span class="dt">y =</span> <span class="dv">1100</span>, <span class="dt">label =</span> <span class="st">&quot;Mean - 2 * SD&quot;</span> )</a></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" title="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb170-2" title="2"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb170-3" title="3"><span class="kw">library</span>(latex2exp)</a>
+<a class="sourceLine" id="cb170-4" title="4"><span class="kw">set.seed</span>(<span class="dv">321</span>)</a>
+<a class="sourceLine" id="cb170-5" title="5">hours &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">25000</span>, <span class="dv">50</span>, <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb170-6" title="6"></a>
+<a class="sourceLine" id="cb170-7" title="7"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(hours)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(hours), </a>
+<a class="sourceLine" id="cb170-8" title="8">    <span class="dt">bins =</span> <span class="dv">50</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram of listening times&quot;</span>, </a>
+<a class="sourceLine" id="cb170-9" title="9">    <span class="dt">subtitle =</span> <span class="kw">TeX</span>(<span class="kw">sprintf</span>(<span class="st">&quot;Population mean ($</span><span class="ch">\\</span><span class="st">mu$) = %.2f; population standard deviation ($</span><span class="ch">\\</span><span class="st">sigma$) = %.2f&quot;</span>, </a>
+<a class="sourceLine" id="cb170-10" title="10">        <span class="kw">round</span>(<span class="kw">mean</span>(hours), <span class="dv">2</span>), <span class="kw">round</span>(<span class="kw">sd</span>(hours), <span class="dv">2</span>))), </a>
+<a class="sourceLine" id="cb170-11" title="11">    <span class="dt">y =</span> <span class="st">&quot;Number of students&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Hours&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb170-12" title="12"><span class="st">    </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(hours), <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb170-13" title="13"><span class="st">    </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(hours) <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(hours), </a>
+<a class="sourceLine" id="cb170-14" title="14">        <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(hours) <span class="op">-</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb170-15" title="15"><span class="st">    </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(hours), <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">mean</span>(hours), </a>
+<a class="sourceLine" id="cb170-16" title="16">    <span class="dt">y =</span> <span class="dv">1100</span>, <span class="dt">yend =</span> <span class="dv">1100</span>, <span class="dt">xend =</span> (<span class="kw">mean</span>(hours) <span class="op">-</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb170-17" title="17"><span class="st">        </span><span class="kw">sd</span>(hours))), <span class="dt">lineend =</span> <span class="st">&quot;butt&quot;</span>, <span class="dt">linejoin =</span> <span class="st">&quot;round&quot;</span>, </a>
+<a class="sourceLine" id="cb170-18" title="18">    <span class="dt">size =</span> <span class="fl">0.5</span>, <span class="dt">arrow =</span> <span class="kw">arrow</span>(<span class="dt">length =</span> <span class="kw">unit</span>(<span class="fl">0.2</span>, <span class="st">&quot;inches&quot;</span>))) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb170-19" title="19"><span class="st">    </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">mean</span>(hours), <span class="dt">y =</span> <span class="dv">1100</span>, <span class="dt">yend =</span> <span class="dv">1100</span>, </a>
+<a class="sourceLine" id="cb170-20" title="20">        <span class="dt">xend =</span> (<span class="kw">mean</span>(hours) <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(hours))), <span class="dt">lineend =</span> <span class="st">&quot;butt&quot;</span>, </a>
+<a class="sourceLine" id="cb170-21" title="21">        <span class="dt">linejoin =</span> <span class="st">&quot;round&quot;</span>, <span class="dt">size =</span> <span class="fl">0.5</span>, <span class="dt">arrow =</span> <span class="kw">arrow</span>(<span class="dt">length =</span> <span class="kw">unit</span>(<span class="fl">0.2</span>, </a>
+<a class="sourceLine" id="cb170-22" title="22">            <span class="st">&quot;inches&quot;</span>))) <span class="op">+</span><span class="st"> </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">x =</span> <span class="kw">mean</span>(hours) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb170-23" title="23"><span class="st">    </span><span class="dv">28</span>, <span class="dt">y =</span> <span class="dv">1100</span>, <span class="dt">label =</span> <span class="st">&quot;Mean + 2 * SD&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, </a>
+<a class="sourceLine" id="cb170-24" title="24">    <span class="dt">x =</span> <span class="kw">mean</span>(hours) <span class="op">-</span><span class="st"> </span><span class="dv">28</span>, <span class="dt">y =</span> <span class="dv">1100</span>, <span class="dt">label =</span> <span class="st">&quot;Mean - 2 * SD&quot;</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
 <p>In this case, we refere to all WU students as <strong>the population</strong>. In general, the population is the entire group we are interested in. This group does not have to necessarily consist of people, but could also be companies, stores, animals, etc.. The parameters of the distribution of population values (in hour case: “hours”) are called population parameters. As already mentioned, we do not usually know population parameters but use inferential statistics to infer them based on our sample from the population, i.e., we measure statistics from a sample (e.g., the sample mean <span class="math inline">\(\bar x\)</span>) to estimate population parameters (the population mean <span class="math inline">\(\mu\)</span>). Here, we will use the following notation to refer to either the population parameters or the sample statistic:</p>
 <table>
@@ -381,15 +392,14 @@ Figure 3.1: Relationship between the sample size and the standard error
 <p>The attentive reader might have noticed that the population above was generated using a normal distribution function. It would be very restrictive if we could only analyze populations whose values are normally distributed. Furthermore, we are unable in reality to check whether the population values are normally distributed since we do not know the entire population. However, it turns out that the results generalize to many other distributions. This is described by the <strong>Central Limit Theorem</strong>.</p>
 <p>The central limit theorem states that if <strong>(1)</strong> the population distribution has a mean (there are examples of distributions that don’t have a mean , but we will ignore these here), and <strong>(2)</strong> we take a large enough sample, then the sampling distribution of the sample mean is approximately normally distributed. What exactly “large enough” means depends on the setting, but the interactive element at the end of this chapter illustrates how the sample size influences how accurately we can estimate the population parameters from the sample statistics.</p>
 <p>To illustrate this, let’s repeat the analysis above with a population from a gamma distribution. In the previous example, we assumed a normal distribution so it was more likely for a given student to spend around 50 hours per week listening to music. The following example depicts the case in which most students spend a similar amount of time listening to music, but there are a few students who very rarely listen to music, and some music enthusiasts with a very high level of listening time. Here is a histogram of the listening times in the population:</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">321</span>)</a>
-<a class="sourceLine" id="cb171-2" data-line-number="2">hours &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dv">25000</span>, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb171-3" data-line-number="3"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(hours)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb171-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> hours), <span class="dt">bins =</span> <span class="dv">30</span>, <span class="dt">fill=</span><span class="st">&#39;white&#39;</span>, <span class="dt">color=</span><span class="st">&#39;black&#39;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb171-5" data-line-number="5"><span class="st">    </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(hours), <span class="dt">size =</span> <span class="dv">1</span>)  <span class="op">+</span><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb171-6" data-line-number="6"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram of listening times&quot;</span>,</a>
-<a class="sourceLine" id="cb171-7" data-line-number="7">       <span class="dt">subtitle =</span> <span class="kw">TeX</span>(<span class="kw">sprintf</span>(<span class="st">&quot;Population mean ($</span><span class="ch">\\</span><span class="st">mu$) = %.2f; population standard deviation ($</span><span class="ch">\\</span><span class="st">sigma$) = %.2f&quot;</span>,<span class="kw">round</span>(<span class="kw">mean</span>(hours),<span class="dv">2</span>),<span class="kw">round</span>(<span class="kw">sd</span>(hours),<span class="dv">2</span>))),</a>
-<a class="sourceLine" id="cb171-8" data-line-number="8">       <span class="dt">y =</span> <span class="st">&#39;Number of students&#39;</span>, </a>
-<a class="sourceLine" id="cb171-9" data-line-number="9">       <span class="dt">x =</span> <span class="st">&#39;Hours&#39;</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" title="1"><span class="kw">set.seed</span>(<span class="dv">321</span>)</a>
+<a class="sourceLine" id="cb171-2" title="2">hours &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dv">25000</span>, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb171-3" title="3"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(hours)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> hours), </a>
+<a class="sourceLine" id="cb171-4" title="4">    <span class="dt">bins =</span> <span class="dv">30</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(hours), </a>
+<a class="sourceLine" id="cb171-5" title="5">    <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram of listening times&quot;</span>, </a>
+<a class="sourceLine" id="cb171-6" title="6">    <span class="dt">subtitle =</span> <span class="kw">TeX</span>(<span class="kw">sprintf</span>(<span class="st">&quot;Population mean ($</span><span class="ch">\\</span><span class="st">mu$) = %.2f; population standard deviation ($</span><span class="ch">\\</span><span class="st">sigma$) = %.2f&quot;</span>, </a>
+<a class="sourceLine" id="cb171-7" title="7">        <span class="kw">round</span>(<span class="kw">mean</span>(hours), <span class="dv">2</span>), <span class="kw">round</span>(<span class="kw">sd</span>(hours), <span class="dv">2</span>))), </a>
+<a class="sourceLine" id="cb171-8" title="8">    <span class="dt">y =</span> <span class="st">&quot;Number of students&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Hours&quot;</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-109-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>The vertical black line represents the population mean (<span class="math inline">\(\mu\)</span>), which is 19.98 hours. The following plot depicts the histogram of listening times of four random samples from the population, each consisting of 100 students:</p>
 <p><img src="_main_files/figure-html/unnamed-chunk-110-1.png" width="768" style="display: block; margin: auto;" /></p>
@@ -413,23 +423,25 @@ Figure 3.1: Relationship between the sample size and the standard error
 <h3><span class="header-section-number">3.3.1</span> Confidence Intervals for the Sample Mean</h3>
 <p>When we try to estimate parameters of populations (e.g., the population mean <span class="math inline">\(\mu\)</span>) from a sample, the average value from a sample (e.g., the sample mean <span class="math inline">\(\bar x\)</span>) only provides an estimate of what the real population parameter is. The next time you collect a sample of the same size, you could get a different average. This is sampling variation and it is completely fine to get a slightly different sample mean every time we take a sample as we have seen above. However, this inherent uncertainty about the true population parameter means that coming up with an exact estimate (i.e., a <strong>point estimate</strong>) for a particular population parameter is really difficult. That is why it is often informative to construct a range around that statistic (i.e., an <strong>interval estimate</strong>) that likely contains the population parameter with a certain level of confidence. That is, we construct an interval such that for a large share (say 95%) of the sample means we could potentially get, the population mean is within that interval.</p>
 <p>Let us consider one random sample of 100 students from our population above.</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">321</span>)</a>
-<a class="sourceLine" id="cb172-2" data-line-number="2">hours &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dv">25000</span>, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb172-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb172-4" data-line-number="4"><span class="kw">set.seed</span>(<span class="dv">6789</span>)</a>
-<a class="sourceLine" id="cb172-5" data-line-number="5">sample_size &lt;-<span class="st"> </span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb172-6" data-line-number="6">student_sample &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25000</span>, <span class="dt">size =</span> sample_size, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb172-7" data-line-number="7">hours_s &lt;-<span class="st"> </span>hours[student_sample]</a>
-<a class="sourceLine" id="cb172-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb172-9" data-line-number="9">plot2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(hours_s)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb172-10" data-line-number="10"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> hours_s), <span class="dt">bins =</span> <span class="dv">30</span>, <span class="dt">fill=</span><span class="st">&#39;white&#39;</span>, <span class="dt">color=</span><span class="st">&#39;black&#39;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb172-11" data-line-number="11"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Hours&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb172-12" data-line-number="12"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(hours_s)), <span class="dt">size=</span><span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb172-13" data-line-number="13"><span class="st"> </span><span class="kw">ggtitle</span>(<span class="kw">TeX</span>(<span class="kw">sprintf</span>(<span class="st">&quot;Random sample; $n$ = %d; $</span><span class="ch">\\</span><span class="st">bar{x}$ = %.2f; $s$ = %.2f&quot;</span>,sample_size,<span class="kw">round</span>(<span class="kw">mean</span>(hours_s),<span class="dv">2</span>),<span class="kw">round</span>(<span class="kw">sd</span>(hours_s),<span class="dv">2</span>))))</a>
-<a class="sourceLine" id="cb172-14" data-line-number="14">plot2</a></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" title="1"><span class="kw">set.seed</span>(<span class="dv">321</span>)</a>
+<a class="sourceLine" id="cb172-2" title="2">hours &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dv">25000</span>, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb172-3" title="3"></a>
+<a class="sourceLine" id="cb172-4" title="4"><span class="kw">set.seed</span>(<span class="dv">6789</span>)</a>
+<a class="sourceLine" id="cb172-5" title="5">sample_size &lt;-<span class="st"> </span><span class="dv">100</span></a>
+<a class="sourceLine" id="cb172-6" title="6">student_sample &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25000</span>, <span class="dt">size =</span> sample_size, </a>
+<a class="sourceLine" id="cb172-7" title="7">    <span class="dt">replace =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb172-8" title="8">hours_s &lt;-<span class="st"> </span>hours[student_sample]</a>
+<a class="sourceLine" id="cb172-9" title="9"></a>
+<a class="sourceLine" id="cb172-10" title="10">plot2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(hours_s)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> hours_s), </a>
+<a class="sourceLine" id="cb172-11" title="11">    <span class="dt">bins =</span> <span class="dv">30</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb172-12" title="12"><span class="st">    </span><span class="kw">xlab</span>(<span class="st">&quot;Hours&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_vline</span>(<span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(hours_s)), </a>
+<a class="sourceLine" id="cb172-13" title="13">    <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ggtitle</span>(<span class="kw">TeX</span>(<span class="kw">sprintf</span>(<span class="st">&quot;Random sample; $n$ = %d; $</span><span class="ch">\\</span><span class="st">bar{x}$ = %.2f; $s$ = %.2f&quot;</span>, </a>
+<a class="sourceLine" id="cb172-14" title="14">    sample_size, <span class="kw">round</span>(<span class="kw">mean</span>(hours_s), <span class="dv">2</span>), <span class="kw">round</span>(<span class="kw">sd</span>(hours_s), </a>
+<a class="sourceLine" id="cb172-15" title="15">        <span class="dv">2</span>))))</a>
+<a class="sourceLine" id="cb172-16" title="16">plot2</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-112-1.png" width="576" /></p>
 <p>From the central limit theorem we know that the sampling distribution of the sample mean is approximately normal and we know that for the normal distribution, 95% of the values lie within about 2 standard deviations from the mean. Actually, it is not exactly 2 standard deviations from the mean. To get the exact number, we can use the quantile function for the normal distribution <code>qnorm()</code>:</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" data-line-number="1"><span class="kw">qnorm</span>(<span class="fl">0.975</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" title="1"><span class="kw">qnorm</span>(<span class="fl">0.975</span>)</a></code></pre></div>
 <pre><code>## [1] 1.959964</code></pre>
 <p>We use <code>0.975</code> (and not <code>0.95</code>) to account for the probability at each end of the distribution (i.e., 2.5% at the lower end and 2.5% at the upper end). We can see that 95% of the values are roughly within 1.96 standard deviations from the mean. Since we know the sample mean (<span class="math inline">\(\bar x\)</span>) and we can estimate the standard deviation of the sampling distribution (<span class="math inline">\(\sigma_{\bar x} \approx {s \over \sqrt{n}}\)</span>), we can now easily calculate the lower and upper boundaries of our confidence interval as:</p>
 <p><span class="math display">\[
@@ -438,42 +450,44 @@ CI_{upper} = {\bar x} + z_{1-{\alpha \over 2}} * \sigma_{\bar x}
 \]</span></p>
 <p>Here, <span class="math inline">\(\alpha\)</span> refers to the significance level. You can find a detailed discussion of this point at the end of the next chapter. For now, we will adopt the widely accepted significance level of 5% and set <span class="math inline">\(\alpha\)</span> to 0.05. Thus, <span class="math inline">\(\pm z_{1-{\alpha \over 2}}\)</span> gives us the z-scores (i.e., number of standard deviations from the mean) within which range 95% of the probability density lies.</p>
 <p>Plugging in the values from our sample, we get:</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" data-line-number="1">sample_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(hours_s)</a>
-<a class="sourceLine" id="cb175-2" data-line-number="2">se &lt;-<span class="st"> </span><span class="kw">sd</span>(hours_s)<span class="op">/</span><span class="kw">sqrt</span>(sample_size)</a>
-<a class="sourceLine" id="cb175-3" data-line-number="3">ci_lower &lt;-<span class="st"> </span>sample_mean <span class="op">-</span><span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">*</span>se</a>
-<a class="sourceLine" id="cb175-4" data-line-number="4">ci_upper &lt;-<span class="st"> </span>sample_mean <span class="op">+</span><span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">*</span>se</a>
-<a class="sourceLine" id="cb175-5" data-line-number="5">ci_lower</a></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" title="1">sample_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(hours_s)</a>
+<a class="sourceLine" id="cb175-2" title="2">se &lt;-<span class="st"> </span><span class="kw">sd</span>(hours_s)<span class="op">/</span><span class="kw">sqrt</span>(sample_size)</a>
+<a class="sourceLine" id="cb175-3" title="3">ci_lower &lt;-<span class="st"> </span>sample_mean <span class="op">-</span><span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>) <span class="op">*</span><span class="st"> </span>se</a>
+<a class="sourceLine" id="cb175-4" title="4">ci_upper &lt;-<span class="st"> </span>sample_mean <span class="op">+</span><span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>) <span class="op">*</span><span class="st"> </span>se</a>
+<a class="sourceLine" id="cb175-5" title="5">ci_lower</a></code></pre></div>
 <pre><code>## [1] 17.67089</code></pre>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" data-line-number="1">ci_upper</a></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" title="1">ci_upper</a></code></pre></div>
 <pre><code>## [1] 23.1592</code></pre>
 <p>such that if we collected 100 samples and computed the mean and confidence interval for each of them, in <span class="math inline">\(95\%\)</span> of the cases, the true population mean is going to be within this interval between 17.67 and 23.16. This is illustrated in the plot below that shows the mean of the first 100 samples and their confidence intervals:</p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb179-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">12</span>)</a>
-<a class="sourceLine" id="cb179-2" data-line-number="2">samples &lt;-<span class="st"> </span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb179-3" data-line-number="3">hours &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dv">25000</span>, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb179-4" data-line-number="4">means &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="ot">NA</span>, <span class="dt">nrow =</span> samples)</a>
-<a class="sourceLine" id="cb179-5" data-line-number="5"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>samples){</a>
-<a class="sourceLine" id="cb179-6" data-line-number="6">  student_sample &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25000</span>, <span class="dt">size =</span> <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb179-7" data-line-number="7">  means[i,] &lt;-<span class="st"> </span><span class="kw">mean</span>(hours[student_sample])</a>
-<a class="sourceLine" id="cb179-8" data-line-number="8">}</a>
-<a class="sourceLine" id="cb179-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb179-10" data-line-number="10">means_sd &lt;-<span class="st"> </span><span class="kw">data.frame</span>(means, <span class="dt">lower =</span>  means <span class="op">-</span><span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>) <span class="op">*</span><span class="st"> </span>(<span class="kw">sd</span>(hours)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">100</span>)), <span class="dt">upper =</span> means <span class="op">+</span><span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>) <span class="op">*</span><span class="st"> </span>(<span class="kw">sd</span>(hours)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">100</span>)), <span class="dt">y =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>)</a>
-<a class="sourceLine" id="cb179-11" data-line-number="11">means_sd<span class="op">$</span>diff &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">ifelse</span>(means_sd<span class="op">$</span>lower <span class="op">&gt;</span><span class="st"> </span><span class="kw">mean</span>(hours) <span class="op">|</span><span class="st"> </span>means_sd<span class="op">$</span>upper <span class="op">&lt;</span><span class="st"> </span><span class="kw">mean</span>(hours), <span class="st">&#39;No&#39;</span>, <span class="st">&#39;Yes&#39;</span>))</a>
-<a class="sourceLine" id="cb179-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb179-13" data-line-number="13">ggplot2<span class="op">::</span><span class="kw">ggplot</span>(means_sd, <span class="kw">aes</span>(<span class="dt">y =</span> y)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb179-14" data-line-number="14"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">100</span>, <span class="dt">by =</span> <span class="dv">1</span>), <span class="dt">expand =</span> <span class="kw">c</span>(<span class="fl">0.005</span>,<span class="fl">0.005</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb179-15" data-line-number="15"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> means, <span class="dt">color =</span> diff)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb179-16" data-line-number="16"><span class="st">  </span><span class="kw">geom_errorbarh</span>(<span class="kw">aes</span>(<span class="dt">xmin =</span> lower, <span class="dt">xmax =</span> upper, <span class="dt">color =</span> diff)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb179-17" data-line-number="17"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(hours)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb179-18" data-line-number="18"><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;black&quot;</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb179-19" data-line-number="19"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">color=</span><span class="kw">guide_legend</span>(<span class="dt">title=</span><span class="st">&quot;True mean in CI&quot;</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb179-20" data-line-number="20"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb179-1" title="1"><span class="kw">set.seed</span>(<span class="dv">12</span>)</a>
+<a class="sourceLine" id="cb179-2" title="2">samples &lt;-<span class="st"> </span><span class="dv">100</span></a>
+<a class="sourceLine" id="cb179-3" title="3">hours &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dv">25000</span>, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb179-4" title="4">means &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="ot">NA</span>, <span class="dt">nrow =</span> samples)</a>
+<a class="sourceLine" id="cb179-5" title="5"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>samples) {</a>
+<a class="sourceLine" id="cb179-6" title="6">    student_sample &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25000</span>, <span class="dt">size =</span> <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb179-7" title="7">    means[i, ] &lt;-<span class="st"> </span><span class="kw">mean</span>(hours[student_sample])</a>
+<a class="sourceLine" id="cb179-8" title="8">}</a>
+<a class="sourceLine" id="cb179-9" title="9"></a>
+<a class="sourceLine" id="cb179-10" title="10">means_sd &lt;-<span class="st"> </span><span class="kw">data.frame</span>(means, <span class="dt">lower =</span> means <span class="op">-</span><span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>) <span class="op">*</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb179-11" title="11"><span class="st">    </span>(<span class="kw">sd</span>(hours)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">100</span>)), <span class="dt">upper =</span> means <span class="op">+</span><span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>) <span class="op">*</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb179-12" title="12"><span class="st">    </span>(<span class="kw">sd</span>(hours)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">100</span>)), <span class="dt">y =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb179-13" title="13">means_sd<span class="op">$</span>diff &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">ifelse</span>(means_sd<span class="op">$</span>lower <span class="op">&gt;</span><span class="st"> </span><span class="kw">mean</span>(hours) <span class="op">|</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb179-14" title="14"><span class="st">    </span>means_sd<span class="op">$</span>upper <span class="op">&lt;</span><span class="st"> </span><span class="kw">mean</span>(hours), <span class="st">&quot;No&quot;</span>, <span class="st">&quot;Yes&quot;</span>))</a>
+<a class="sourceLine" id="cb179-15" title="15"></a>
+<a class="sourceLine" id="cb179-16" title="16">ggplot2<span class="op">::</span><span class="kw">ggplot</span>(means_sd, <span class="kw">aes</span>(<span class="dt">y =</span> y)) <span class="op">+</span><span class="st"> </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">1</span>, </a>
+<a class="sourceLine" id="cb179-17" title="17">    <span class="dv">100</span>, <span class="dt">by =</span> <span class="dv">1</span>), <span class="dt">expand =</span> <span class="kw">c</span>(<span class="fl">0.005</span>, <span class="fl">0.005</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> means, </a>
+<a class="sourceLine" id="cb179-18" title="18">    <span class="dt">color =</span> diff)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_errorbarh</span>(<span class="kw">aes</span>(<span class="dt">xmin =</span> lower, </a>
+<a class="sourceLine" id="cb179-19" title="19">    <span class="dt">xmax =</span> upper, <span class="dt">color =</span> diff)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(hours)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb179-20" title="20"><span class="st">    </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;black&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb179-21" title="21"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="kw">guide_legend</span>(<span class="dt">title =</span> <span class="st">&quot;True mean in CI&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb179-22" title="22"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-115-1.png" width="960" /></p>
 <p>Note that this does <strong>not</strong> mean that for a specific sample there is a <span class="math inline">\(95\%\)</span> chance that the population mean lies within its confidence interval. The statement depends on the large number of samples we do not actually draw in a real setting. You can view the set of all possible confidence intervals similarly to the sides of a coin or a die. If we throw a coin many times, we are going to observe head roughly half of the times. This does not, however, exclude the possibility of observing tails for the first 10 throws. Similarly, any specific confidence interval might or might not include the population mean but if we take many samples on average <span class="math inline">\(95\%\)</span> of the confidence intervals are going to include the population mean.</p>
 </div>
 </div>
 <div id="summary" class="section level2">
 <h2><span class="header-section-number">3.4</span> Summary</h2>
-<p>When conducting research, we are (almost) always faced with the problem of not having access to the entire group we are interested in. Therefore, we use sample properties that we have derived in this chapter to do statistical inference based on a single sample. We use statistics of the sample as well as the sample size to calculate the confidence interval of our choice (e.g. <span class="math inline">\(95\%\)</span>). In practice most of this is done for us, so you won’t need to do this by hand. With a sample at hand, we need to choose the appropriate test and a null hypothesis. How this is done will be discussed in the next chapter.</p>
+<p>When conducting research, we are (almost) always faced with the problem of not having access to the entire group we are interested in. Therefore, we use sample properties that we have derived in this chapter to do statistical inference based on a single sample. We use statistics of the sample as well as the sample size to calculate the confidence interval of our choice (e.g. <span class="math inline">\(95\%\)</span>). In practice most of this is done for us, so you won’t need to do this by hand. With a sample at hand, we need to choose the appropriate test and a null hypothesis. How this is done will be discussed in the next chapter.</p>
 
 </div>
 </div>
@@ -488,11 +502,13 @@ CI_{upper} = {\bar x} + z_{1-{\alpha \over 2}} * \sigma_{\bar x}
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -500,12 +516,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -517,6 +532,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
@@ -535,8 +554,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

@@ -1008,7 +1008,7 @@ summary(multiple_regression) #summary of results
 
 Note that while your choice of the baseline category impacts the coefficients and the significance level, the prediction for each group will be the same regardless of this choice.
 
-### Summary
+## Summary
 
 *	Regression analysis is a way of predicting an outcome (dependent) variable from one predictor (independent) variable (simple regression) or several predictor variables (multiple regression).
 *	In a simple linear regression, we do this by fitting a statistical model to the data in the form of a straight line.
@@ -1019,10 +1019,10 @@ Note that while your choice of the baseline category impacts the coefficients an
 *	Beta coefficient shows the extent to which the outcome variable changes when comes to one-unit change in the predictor variable.
 *	Intercept shows the value that dependent variable holds when beta coefficients are 0.
 *	Confidence interval of beta coefficient tell us, if we’d collected 100 samples, and calculated the confidence intervals for a beta coefficient, that 95% of these confidence intervals (out of 100) would contain the true value of beta coefficient.
-*	Assessing the regression model:
-  Check for the outliers and influential cases as they can cause a bias, because they influence the values of the estimated regression   coefficients.
-*	Check for the linearity, meaning that the relationship between the dependent and the independent variable can be reasonably             approximated in linear terms.
-*	Check that the error terms have a constant variance (homoscedasticity).
-*	Check that the error term is normally distributed.
-*	Check for the “third-variables” that are left out the model, but influence the outcome, and therefore introduce a bias in other         variables’ coefficients.
+*	Assessing the regression model:  
+1) Check for the outliers and influential cases as they can cause a bias, because they influence the values of the estimated regression   coefficients.  
+2) Check for the linearity, meaning that the relationship between the dependent and the independent variable can be reasonably approximated in linear terms.  
+3) Check that the error terms have a constant variance (homoscedasticity).  
+4) Check that the error term is normally distributed.  
+5) Check for the “third-variables” that are left out the model, but influence the outcome, and therefore introduce a bias in other variables’ coefficients.
 * Example of application in marketing: digital marketers usally have to assess how Euros put into online advertising contributes to sales. Most of times companies are running advertising on different channels. If you have run Google ads, Facebook ads and newspaper ads, the question that you as a digital marketer could wonder about is ads performance. Given that you collected enough data, you can apply multiple regression and calucate how much an additional Euro put in each of those channels drives additional sales.

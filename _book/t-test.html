@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7 T-Test | Marketing Research 2019</title>
   <meta name="description" content="An Introduction to Statistics Using R" />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7 T-Test | Marketing Research 2019" />
   <meta property="og:type" content="book" />
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="prev" href="correlation.html">
-<link rel="next" href="anova.html">
+<link rel="prev" href="correlation.html"/>
+<link rel="next" href="anova.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -38,6 +38,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -48,13 +51,13 @@
 <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -74,7 +77,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -201,17 +204,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1" data-path="chi-square-test.html"><a href="chi-square-test.html#confidence-intervals-for-proportions"><i class="fa fa-check"></i><b>5.1</b> Confidence intervals for proportions</a></li>
 <li class="chapter" data-level="5.2" data-path="chi-square-test.html"><a href="chi-square-test.html#chi-square-test-1"><i class="fa fa-check"></i><b>5.2</b> Chi-square test</a></li>
 <li class="chapter" data-level="5.3" data-path="chi-square-test.html"><a href="chi-square-test.html#sample-size-1"><i class="fa fa-check"></i><b>5.3</b> Sample size</a></li>
+<li class="chapter" data-level="5.4" data-path="chi-square-test.html"><a href="chi-square-test.html#summary-2"><i class="fa fa-check"></i><b>5.4</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>6</b> Correlation</a><ul>
 <li class="chapter" data-level="6.1" data-path="correlation.html"><a href="correlation.html#correlation-coefficient"><i class="fa fa-check"></i><b>6.1</b> Correlation coefficient</a></li>
 <li class="chapter" data-level="6.2" data-path="correlation.html"><a href="correlation.html#significance-testing"><i class="fa fa-check"></i><b>6.2</b> Significance testing</a></li>
+<li class="chapter" data-level="6.3" data-path="correlation.html"><a href="correlation.html#summary-3"><i class="fa fa-check"></i><b>6.3</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="t-test.html"><a href="t-test.html"><i class="fa fa-check"></i><b>7</b> T-Test</a><ul>
 <li class="chapter" data-level="7.1" data-path="t-test.html"><a href="t-test.html#one-sample-t-test"><i class="fa fa-check"></i><b>7.1</b> One sample t-test</a></li>
 <li class="chapter" data-level="7.2" data-path="t-test.html"><a href="t-test.html#comparing-two-means"><i class="fa fa-check"></i><b>7.2</b> Comparing two means</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="t-test.html"><a href="t-test.html#independent-means-t-test"><i class="fa fa-check"></i><b>7.2.1</b> Independent-means t-test</a></li>
 <li class="chapter" data-level="7.2.2" data-path="t-test.html"><a href="t-test.html#dependent-means-t-test"><i class="fa fa-check"></i><b>7.2.2</b> Dependent-means t-test</a></li>
-<li class="chapter" data-level="7.2.3" data-path="t-test.html"><a href="t-test.html#further-considerations"><i class="fa fa-check"></i><b>7.2.3</b> Further considerations</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="t-test.html"><a href="t-test.html#summary-4"><i class="fa fa-check"></i><b>7.3</b> Summary</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="t-test.html"><a href="t-test.html#further-considerations"><i class="fa fa-check"></i><b>7.3.1</b> Further considerations</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>8</b> ANOVA</a><ul>
@@ -227,6 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3.1" data-path="anova.html"><a href="anova.html#basic-anova"><i class="fa fa-check"></i><b>8.3.1</b> Basic ANOVA</a></li>
 <li class="chapter" data-level="8.3.2" data-path="anova.html"><a href="anova.html#post-hoc-tests"><i class="fa fa-check"></i><b>8.3.2</b> Post-hoc tests</a></li>
 </ul></li>
+<li class="chapter" data-level="8.4" data-path="anova.html"><a href="anova.html#summary-5"><i class="fa fa-check"></i><b>8.4</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>9</b> Regression</a><ul>
 <li class="chapter" data-level="9.1" data-path="regression.html"><a href="regression.html#regression-1"><i class="fa fa-check"></i><b>9.1</b> Regression</a><ul>
@@ -247,6 +255,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3.1" data-path="regression.html"><a href="regression.html#two-categories"><i class="fa fa-check"></i><b>9.3.1</b> Two categories</a></li>
 <li class="chapter" data-level="9.3.2" data-path="regression.html"><a href="regression.html#more-than-two-categories"><i class="fa fa-check"></i><b>9.3.2</b> More than two categories</a></li>
 </ul></li>
+<li class="chapter" data-level="9.4" data-path="regression.html"><a href="regression.html#summary-6"><i class="fa fa-check"></i><b>9.4</b> Summary</a></li>
 </ul></li>
 </ul>
 
@@ -283,24 +292,24 @@ H_1: \mu \neq 10
 <p>We choose the conventional 5% significance level.</p>
 <p><strong>4. Descriptive statistics and data visualization</strong></p>
 <p>Provide descriptive statistics using the <code>stat.desc()</code> function:</p>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb272-1" data-line-number="1"><span class="kw">library</span>(pastecs)</a>
-<a class="sourceLine" id="cb272-2" data-line-number="2"><span class="kw">stat.desc</span>(student_sample)</a></code></pre></div>
-<pre><code>##      nbr.val     nbr.null       nbr.na          min          max 
-##   50.0000000    0.0000000    0.0000000    1.9365049   64.9843737 
-##        range          sum       median         mean      SE.mean 
-##   63.0478688  929.5971917   16.2246844   18.5919438    1.7744470 
-## CI.mean.0.95          var      std.dev     coef.var 
-##    3.5658848  157.4331152   12.5472354    0.6748749</code></pre>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb272-1" title="1"><span class="kw">library</span>(pastecs)</a>
+<a class="sourceLine" id="cb272-2" title="2"><span class="kw">stat.desc</span>(student_sample)</a></code></pre></div>
+<pre><code>##      nbr.val     nbr.null       nbr.na          min          max        range 
+##   50.0000000    0.0000000    0.0000000    1.9365049   64.9843737   63.0478688 
+##          sum       median         mean      SE.mean CI.mean.0.95          var 
+##  929.5971917   16.2246844   18.5919438    1.7744470    3.5658848  157.4331152 
+##      std.dev     coef.var 
+##   12.5472354    0.6748749</code></pre>
 <p>From this, we can already see that the mean is different from the hypothesized value. The question however remains, whether this difference is significantly different, given the sample size and the variability in the data. Since we only have one continuous variable, we can visualize the distribution in a histogram.</p>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb274-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(student_sample)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb274-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> student_sample), <span class="dt">fill =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">color =</span> <span class="st">&#39;black&#39;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb274-3" data-line-number="3"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb274-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Distribution of values in the sample&quot;</span>,<span class="dt">x =</span> <span class="st">&quot;Hours&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb274-1" title="1"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(student_sample)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> student_sample), </a>
+<a class="sourceLine" id="cb274-2" title="2">    <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb274-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Distribution of values in the sample&quot;</span>, </a>
+<a class="sourceLine" id="cb274-4" title="4">        <span class="dt">x =</span> <span class="st">&quot;Hours&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-170-1.png" width="672" /></p>
 <p><strong>5. Conduct significance test</strong></p>
 <p>In the beginning of the chapter, we saw, how you could conduct significance test by hand. However, R has built-in routines that you can use to conduct the analyses. The <code>t.test()</code> function can be used to conduct the test. To test if the listening time among WU students was 10, you can use the following code:</p>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb275-1" data-line-number="1">H_<span class="dv">0</span> &lt;-<span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb275-2" data-line-number="2"><span class="kw">t.test</span>(student_sample, <span class="dt">mu =</span> H_<span class="dv">0</span>, <span class="dt">alternative =</span> <span class="st">&#39;two.sided&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb275-1" title="1">H_<span class="dv">0</span> &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb275-2" title="2"><span class="kw">t.test</span>(student_sample, <span class="dt">mu =</span> H_<span class="dv">0</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>## 
 ##  One Sample t-test
 ## 
@@ -325,41 +334,39 @@ H_1: \mu \neq 10
 <h3><span class="header-section-number">7.2.1</span> Independent-means t-test</h3>
 <p>Using an independent-means t-test, we can compare the means of two possibly different populations. It is, for example, quite common for online companies to test new service features by running an experiment and randomly splitting their website visitors into two groups: one is exposed to the website with the new feature (experimental group) and the other group is not exposed to the new feature (control group). This is a typical A/B-Test scenario.</p>
 <p>As an example, imagine that a music streaming service would like to introduce a new playlist feature that let’s their users access playlists created by other users. The goal is to analyse how the new service feature impacts the listening time of users. The service randomly splits a representative subset of their users into two groups and collects data about their listening times over one month. Let’s create a data set to simulate such a scenario.</p>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb277-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">321</span>)</a>
-<a class="sourceLine" id="cb277-2" data-line-number="2">hours_population_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dv">25000</span>, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb277-3" data-line-number="3"><span class="kw">set.seed</span>(<span class="dv">12567</span>)</a>
-<a class="sourceLine" id="cb277-4" data-line-number="4">sample_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25000</span>, <span class="dt">size =</span> <span class="dv">98</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb277-5" data-line-number="5">sample_<span class="dv">1</span>_hours &lt;-<span class="st"> </span>hours_population_<span class="dv">1</span>[sample_<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb277-6" data-line-number="6">sample_<span class="dv">1</span>_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">hours =</span> <span class="kw">round</span>(sample_<span class="dv">1</span>_hours,<span class="dv">0</span>), <span class="dt">group =</span> <span class="st">&quot;A&quot;</span>)</a>
-<a class="sourceLine" id="cb277-7" data-line-number="7"><span class="kw">set.seed</span>(<span class="dv">321</span>)</a>
-<a class="sourceLine" id="cb277-8" data-line-number="8">hours_population_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dv">25000</span>, <span class="dt">shape =</span> <span class="fl">2.5</span>, <span class="dt">scale =</span> <span class="dv">11</span>)</a>
-<a class="sourceLine" id="cb277-9" data-line-number="9"><span class="kw">set.seed</span>(<span class="dv">12567</span>)</a>
-<a class="sourceLine" id="cb277-10" data-line-number="10">sample_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25000</span>, <span class="dt">size =</span> <span class="dv">112</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb277-11" data-line-number="11">sample_<span class="dv">2</span>_hours &lt;-<span class="st"> </span>hours_population_<span class="dv">2</span>[sample_<span class="dv">2</span>]</a>
-<a class="sourceLine" id="cb277-12" data-line-number="12">sample_<span class="dv">2</span>_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">hours =</span> <span class="kw">round</span>(sample_<span class="dv">2</span>_hours,<span class="dv">0</span>), <span class="dt">group =</span> <span class="st">&quot;B&quot;</span>)</a>
-<a class="sourceLine" id="cb277-13" data-line-number="13">hours_a_b &lt;-<span class="st"> </span><span class="kw">rbind</span>(sample_<span class="dv">1</span>_df,sample_<span class="dv">2</span>_df) </a>
-<a class="sourceLine" id="cb277-14" data-line-number="14"><span class="kw">head</span>(hours_a_b)</a></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb277-1" title="1"><span class="kw">set.seed</span>(<span class="dv">321</span>)</a>
+<a class="sourceLine" id="cb277-2" title="2">hours_population_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dv">25000</span>, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb277-3" title="3"><span class="kw">set.seed</span>(<span class="dv">12567</span>)</a>
+<a class="sourceLine" id="cb277-4" title="4">sample_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25000</span>, <span class="dt">size =</span> <span class="dv">98</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb277-5" title="5">sample_<span class="dv">1</span>_hours &lt;-<span class="st"> </span>hours_population_<span class="dv">1</span>[sample_<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb277-6" title="6">sample_<span class="dv">1</span>_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">hours =</span> <span class="kw">round</span>(sample_<span class="dv">1</span>_hours, </a>
+<a class="sourceLine" id="cb277-7" title="7">    <span class="dv">0</span>), <span class="dt">group =</span> <span class="st">&quot;A&quot;</span>)</a>
+<a class="sourceLine" id="cb277-8" title="8"><span class="kw">set.seed</span>(<span class="dv">321</span>)</a>
+<a class="sourceLine" id="cb277-9" title="9">hours_population_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dv">25000</span>, <span class="dt">shape =</span> <span class="fl">2.5</span>, <span class="dt">scale =</span> <span class="dv">11</span>)</a>
+<a class="sourceLine" id="cb277-10" title="10"><span class="kw">set.seed</span>(<span class="dv">12567</span>)</a>
+<a class="sourceLine" id="cb277-11" title="11">sample_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25000</span>, <span class="dt">size =</span> <span class="dv">112</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb277-12" title="12">sample_<span class="dv">2</span>_hours &lt;-<span class="st"> </span>hours_population_<span class="dv">2</span>[sample_<span class="dv">2</span>]</a>
+<a class="sourceLine" id="cb277-13" title="13">sample_<span class="dv">2</span>_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">hours =</span> <span class="kw">round</span>(sample_<span class="dv">2</span>_hours, </a>
+<a class="sourceLine" id="cb277-14" title="14">    <span class="dv">0</span>), <span class="dt">group =</span> <span class="st">&quot;B&quot;</span>)</a>
+<a class="sourceLine" id="cb277-15" title="15">hours_a_b &lt;-<span class="st"> </span><span class="kw">rbind</span>(sample_<span class="dv">1</span>_df, sample_<span class="dv">2</span>_df)</a>
+<a class="sourceLine" id="cb277-16" title="16"><span class="kw">head</span>(hours_a_b)</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["hours"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["group"],"name":[2],"type":["fctr"],"align":["left"]}],"data":[{"1":"2","2":"A"},{"1":"27","2":"A"},{"1":"25","2":"A"},{"1":"2","2":"A"},{"1":"46","2":"A"},{"1":"13","2":"A"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>This data set contains two variables: the variable <code>hours</code> indicates the music listening times (in hours) and the variable <code>group</code> indicates from which group the observation comes, where ‘A’ refers to the control group (with the standard service) and ‘B’ refers to the experimental group (with the new playlist feature). Let’s first look at the descriptive statistics by group using the <code>describeBy</code> function:</p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb278-1" data-line-number="1"><span class="kw">library</span>(psych)</a>
-<a class="sourceLine" id="cb278-2" data-line-number="2"><span class="kw">describeBy</span>(hours_a_b<span class="op">$</span>hours, hours_a_b<span class="op">$</span>group)</a></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb278-1" title="1"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb278-2" title="2"><span class="kw">describeBy</span>(hours_a_b<span class="op">$</span>hours, hours_a_b<span class="op">$</span>group)</a></code></pre></div>
 <pre><code>## 
 ##  Descriptive statistics by group 
 ## group: A
-##    vars  n  mean   sd median trimmed   mad min max range skew kurtosis
-## X1    1 98 18.11 12.1     15   16.88 10.38   2  65    63 1.08     1.21
-##      se
-## X1 1.22
-## -------------------------------------------------------- 
+##    vars  n  mean   sd median trimmed   mad min max range skew kurtosis   se
+## X1    1 98 18.11 12.1     15   16.88 10.38   2  65    63 1.08     1.21 1.22
+## ------------------------------------------------------------ 
 ## group: B
-##    vars   n mean    sd median trimmed   mad min max range skew kurtosis
-## X1    1 112 28.5 17.97   24.5   26.56 15.57   1  83    82 0.96     0.82
-##     se
-## X1 1.7</code></pre>
+##    vars   n mean    sd median trimmed   mad min max range skew kurtosis  se
+## X1    1 112 28.5 17.97   24.5   26.56 15.57   1  83    82 0.96     0.82 1.7</code></pre>
 <p>From this, we can already see that there is a difference in means between groups A and B. We can also see that the number of observations is different, as is the standard deviation. The question that we would like to answer is whether there is a significant difference in mean listening times between the groups. Remember that different users are contained in each group (‘between-subjects design’) and that the observations in one group are independent of the observations in the other group. Before we will see how you can easily conduct an independent-means t-test, let’s go over some theory first.</p>
 <div id="theory" class="section level4">
 <h4><span class="header-section-number">7.2.1.1</span> Theory</h4>
@@ -377,37 +384,37 @@ H_0: \delta = 0 \\
 H_1: \delta \ne 0
 \]</span></p>
 <p>Remember that we usually don’t have access to the entire population so that we can not observe <span class="math inline">\(\delta\)</span> and have to estimate is from a sample statistic, which we define as <span class="math inline">\(d = \bar x_1-\bar x_2\)</span>, i.e., the difference between the sample means from group a (<span class="math inline">\(\bar x_1\)</span>) and group b (<span class="math inline">\(\bar x_2\)</span>). But can we really estimate <span class="math inline">\(d\)</span> from <span class="math inline">\(\delta\)</span>? Remember from the previous chapter, that we could estimate <span class="math inline">\(\mu\)</span> from <span class="math inline">\(\bar x\)</span>, because if we (hypothetically) take a larger number of samples, the distribution of the means of these samples (the sampling distribution) will be normally distributed and its mean will be (in the limit) equal to the population mean. It turns out that we can use the same underlying logic here. The above samples were drawn from two different populations with <span class="math inline">\(\mu_1\)</span> and <span class="math inline">\(\mu_2\)</span>. Let us compute the difference in means between these two populations:</p>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb280-1" data-line-number="1">delta_pop &lt;-<span class="st"> </span><span class="kw">mean</span>(hours_population_<span class="dv">1</span>)<span class="op">-</span><span class="kw">mean</span>(hours_population_<span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb280-2" data-line-number="2">delta_pop</a></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb280-1" title="1">delta_pop &lt;-<span class="st"> </span><span class="kw">mean</span>(hours_population_<span class="dv">1</span>) <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(hours_population_<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb280-2" title="2">delta_pop</a></code></pre></div>
 <pre><code>## [1] -7.422855</code></pre>
 <p>This means that the true difference between the mean listening times of groups a and b is -7.42. Let us now repeat the exercise from the previous chapter: let us repeatedly draw a large number of <span class="math inline">\(20,000\)</span> random samples of 100 users from each of these populations, compute the difference (i.e., <span class="math inline">\(d\)</span>, our estimate of <span class="math inline">\(\delta\)</span>), store the difference for each draw and create a histogram of <span class="math inline">\(d\)</span>.</p>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb282-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">321</span>)</a>
-<a class="sourceLine" id="cb282-2" data-line-number="2">hours_population_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dv">25000</span>, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb282-3" data-line-number="3">hours_population_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dv">25000</span>, <span class="dt">shape =</span> <span class="fl">2.5</span>, <span class="dt">scale =</span> <span class="dv">11</span>)</a>
-<a class="sourceLine" id="cb282-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb282-5" data-line-number="5">samples &lt;-<span class="st"> </span><span class="dv">20000</span></a>
-<a class="sourceLine" id="cb282-6" data-line-number="6">mean_delta &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="ot">NA</span>, <span class="dt">nrow =</span> samples)</a>
-<a class="sourceLine" id="cb282-7" data-line-number="7"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>samples){</a>
-<a class="sourceLine" id="cb282-8" data-line-number="8">  student_sample &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25000</span>, <span class="dt">size =</span> <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb282-9" data-line-number="9">  mean_delta[i,] &lt;-<span class="st"> </span><span class="kw">mean</span>(hours_population_<span class="dv">1</span>[student_sample])<span class="op">-</span><span class="kw">mean</span>(hours_population_<span class="dv">2</span>[student_sample])</a>
-<a class="sourceLine" id="cb282-10" data-line-number="10">}</a>
-<a class="sourceLine" id="cb282-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb282-12" data-line-number="12"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(mean_delta)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb282-13" data-line-number="13"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> mean_delta), <span class="dt">bins =</span> <span class="dv">30</span>, <span class="dt">fill=</span><span class="st">&#39;white&#39;</span>, <span class="dt">color=</span><span class="st">&#39;black&#39;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb282-14" data-line-number="14"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb282-15" data-line-number="15"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.title =</span> <span class="kw">element_blank</span>()) <span class="op">+</span></a>
-<a class="sourceLine" id="cb282-16" data-line-number="16"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(mean_delta)), <span class="dt">size=</span><span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;d&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb282-17" data-line-number="17"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="kw">TeX</span>(<span class="kw">sprintf</span>(<span class="st">&quot;%d samples; $d_{</span><span class="ch">\\</span><span class="st">bar{x}}$ = %.2f&quot;</span>,samples, <span class="kw">round</span>(<span class="kw">mean</span>(mean_delta),<span class="dv">2</span>))))</a></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb282-1" title="1"><span class="kw">set.seed</span>(<span class="dv">321</span>)</a>
+<a class="sourceLine" id="cb282-2" title="2">hours_population_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dv">25000</span>, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb282-3" title="3">hours_population_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dv">25000</span>, <span class="dt">shape =</span> <span class="fl">2.5</span>, <span class="dt">scale =</span> <span class="dv">11</span>)</a>
+<a class="sourceLine" id="cb282-4" title="4"></a>
+<a class="sourceLine" id="cb282-5" title="5">samples &lt;-<span class="st"> </span><span class="dv">20000</span></a>
+<a class="sourceLine" id="cb282-6" title="6">mean_delta &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="ot">NA</span>, <span class="dt">nrow =</span> samples)</a>
+<a class="sourceLine" id="cb282-7" title="7"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>samples) {</a>
+<a class="sourceLine" id="cb282-8" title="8">    student_sample &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25000</span>, <span class="dt">size =</span> <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb282-9" title="9">    mean_delta[i, ] &lt;-<span class="st"> </span><span class="kw">mean</span>(hours_population_<span class="dv">1</span>[student_sample]) <span class="op">-</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb282-10" title="10"><span class="st">        </span><span class="kw">mean</span>(hours_population_<span class="dv">2</span>[student_sample])</a>
+<a class="sourceLine" id="cb282-11" title="11">}</a>
+<a class="sourceLine" id="cb282-12" title="12"></a>
+<a class="sourceLine" id="cb282-13" title="13"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(mean_delta)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> mean_delta), </a>
+<a class="sourceLine" id="cb282-14" title="14">    <span class="dt">bins =</span> <span class="dv">30</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb282-15" title="15"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.title =</span> <span class="kw">element_blank</span>()) <span class="op">+</span><span class="st"> </span><span class="kw">geom_vline</span>(<span class="kw">aes</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(mean_delta)), </a>
+<a class="sourceLine" id="cb282-16" title="16">    <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;d&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ggtitle</span>(<span class="kw">TeX</span>(<span class="kw">sprintf</span>(<span class="st">&quot;%d samples; $d_{</span><span class="ch">\\</span><span class="st">bar{x}}$ = %.2f&quot;</span>, </a>
+<a class="sourceLine" id="cb282-17" title="17">    samples, <span class="kw">round</span>(<span class="kw">mean</span>(mean_delta), <span class="dv">2</span>))))</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-175-1.png" width="672" /></p>
 <p>This gives us the sampling distribution of the mean differences between the samples. You will notice that this distribution follows a normal distribution and is centered around the true difference between the populations. This means that, on average, the difference between two sample means <span class="math inline">\(d\)</span> is a good estimate of <span class="math inline">\(\delta\)</span>. In our example, the difference between <span class="math inline">\(\bar x_1\)</span> and <span class="math inline">\(\bar x_2\)</span> is:</p>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb283-1" data-line-number="1">mean_x1 &lt;-<span class="st"> </span><span class="kw">mean</span>(hours_a_b[hours_a_b<span class="op">$</span>group<span class="op">==</span><span class="st">&quot;A&quot;</span>,<span class="st">&quot;hours&quot;</span>])</a>
-<a class="sourceLine" id="cb283-2" data-line-number="2">mean_x1</a></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb283-1" title="1">mean_x1 &lt;-<span class="st"> </span><span class="kw">mean</span>(hours_a_b[hours_a_b<span class="op">$</span>group <span class="op">==</span><span class="st"> &quot;A&quot;</span>, <span class="st">&quot;hours&quot;</span>])</a>
+<a class="sourceLine" id="cb283-2" title="2">mean_x1</a></code></pre></div>
 <pre><code>## [1] 18.11224</code></pre>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb285-1" data-line-number="1">mean_x2 &lt;-<span class="st"> </span><span class="kw">mean</span>(hours_a_b[hours_a_b<span class="op">$</span>group<span class="op">==</span><span class="st">&quot;B&quot;</span>,<span class="st">&quot;hours&quot;</span>])</a>
-<a class="sourceLine" id="cb285-2" data-line-number="2">mean_x2</a></code></pre></div>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb285-1" title="1">mean_x2 &lt;-<span class="st"> </span><span class="kw">mean</span>(hours_a_b[hours_a_b<span class="op">$</span>group <span class="op">==</span><span class="st"> &quot;B&quot;</span>, <span class="st">&quot;hours&quot;</span>])</a>
+<a class="sourceLine" id="cb285-2" title="2">mean_x2</a></code></pre></div>
 <pre><code>## [1] 28.5</code></pre>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb287-1" data-line-number="1">d &lt;-<span class="st"> </span>mean_x1<span class="op">-</span>mean_x2</a>
-<a class="sourceLine" id="cb287-2" data-line-number="2">d </a></code></pre></div>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb287-1" title="1">d &lt;-<span class="st"> </span>mean_x1 <span class="op">-</span><span class="st"> </span>mean_x2</a>
+<a class="sourceLine" id="cb287-2" title="2">d</a></code></pre></div>
 <pre><code>## [1] -10.38776</code></pre>
 <p>Now that we have <span class="math inline">\(d\)</span> as an estimate of <span class="math inline">\(\delta\)</span>, how can we find out if the observed difference is significantly different from the null hypothesis (i.e., <span class="math inline">\(\delta = 0\)</span>)?</p>
 <p>Recall from the previous section, that the standard deviation of the sampling distribution <span class="math inline">\(\sigma_{\bar x}\)</span> (i.e., the standard error) gives us indication about the precision of our estimate. Further recall that the standard error can be calculated as <span class="math inline">\(\sigma_{\bar x}={\sigma \over \sqrt{n}}\)</span>. So how can we calculate the standard error of the difference between two population means? According to the <strong>variance sum law</strong>, to find the variance of the sampling distribution of differences, we merely need to add together the variances of the sampling distributions of the two populations that we are comparing. To find the standard error, we only need to take the square root of the variance (because the standard error is the standard deviation of the sampling distribution and the standard deviation is the square root of the variance), so that we get:</p>
@@ -419,16 +426,16 @@ H_1: \delta \ne 0
 SE_{\bar x_1-\bar x_2} = \sqrt{{s_1^2 \over n_1}+{s_2^2 \over n_2}}
 \]</span></p>
 <p>Hence, for our example, we can calculate the standard error as follows:</p>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" data-line-number="1">n1 &lt;-<span class="st"> </span><span class="dv">98</span></a>
-<a class="sourceLine" id="cb289-2" data-line-number="2">n2 &lt;-<span class="st"> </span><span class="dv">112</span></a>
-<a class="sourceLine" id="cb289-3" data-line-number="3">s1 &lt;-<span class="st"> </span><span class="kw">var</span>(hours_a_b[hours_a_b<span class="op">$</span>group<span class="op">==</span><span class="st">&quot;A&quot;</span>,<span class="st">&quot;hours&quot;</span>])</a>
-<a class="sourceLine" id="cb289-4" data-line-number="4">s1</a></code></pre></div>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" title="1">n1 &lt;-<span class="st"> </span><span class="dv">98</span></a>
+<a class="sourceLine" id="cb289-2" title="2">n2 &lt;-<span class="st"> </span><span class="dv">112</span></a>
+<a class="sourceLine" id="cb289-3" title="3">s1 &lt;-<span class="st"> </span><span class="kw">var</span>(hours_a_b[hours_a_b<span class="op">$</span>group <span class="op">==</span><span class="st"> &quot;A&quot;</span>, <span class="st">&quot;hours&quot;</span>])</a>
+<a class="sourceLine" id="cb289-4" title="4">s1</a></code></pre></div>
 <pre><code>## [1] 146.4924</code></pre>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" data-line-number="1">s2 &lt;-<span class="st"> </span><span class="kw">var</span>(hours_a_b[hours_a_b<span class="op">$</span>group<span class="op">==</span><span class="st">&quot;B&quot;</span>,<span class="st">&quot;hours&quot;</span>])</a>
-<a class="sourceLine" id="cb291-2" data-line-number="2">s2</a></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" title="1">s2 &lt;-<span class="st"> </span><span class="kw">var</span>(hours_a_b[hours_a_b<span class="op">$</span>group <span class="op">==</span><span class="st"> &quot;B&quot;</span>, <span class="st">&quot;hours&quot;</span>])</a>
+<a class="sourceLine" id="cb291-2" title="2">s2</a></code></pre></div>
 <pre><code>## [1] 322.9189</code></pre>
-<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb293-1" data-line-number="1">SE_x1_x2 &lt;-<span class="st"> </span><span class="kw">sqrt</span>(s1<span class="op">/</span>n1<span class="op">+</span>s2<span class="op">/</span>n2)</a>
-<a class="sourceLine" id="cb293-2" data-line-number="2">SE_x1_x2</a></code></pre></div>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb293-1" title="1">SE_x1_x2 &lt;-<span class="st"> </span><span class="kw">sqrt</span>(s1<span class="op">/</span>n1 <span class="op">+</span><span class="st"> </span>s2<span class="op">/</span>n2)</a>
+<a class="sourceLine" id="cb293-2" title="2">SE_x1_x2</a></code></pre></div>
 <pre><code>## [1] 2.092373</code></pre>
 <p>Recall from above that we can calculate the t-statistic as:</p>
 <p><span class="math display">\[
@@ -439,8 +446,8 @@ t= {\bar x - \mu_0 \over {s \over \sqrt{n}}}
 t= {(\bar{x}_1 - \bar{x}_2) - (\mu_1 - \mu_2) \over {\sqrt{{s_1^2 \over n_1}+{s_2^2 \over n_2}}}} 
 \]</span></p>
 <p>Note that according to our hypothesis <span class="math inline">\(\mu_1-\mu_2=0\)</span>, so that we can calculate the t-statistic as:</p>
-<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb295-1" data-line-number="1">t_score &lt;-<span class="st"> </span>d<span class="op">/</span>SE_x1_x2</a>
-<a class="sourceLine" id="cb295-2" data-line-number="2">t_score</a></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb295-1" title="1">t_score &lt;-<span class="st"> </span>d<span class="op">/</span>SE_x1_x2</a>
+<a class="sourceLine" id="cb295-2" title="2">t_score</a></code></pre></div>
 <pre><code>## [1] -4.964581</code></pre>
 <p>Following the example of our one sample t-test above, we would now need to compare this calculated test statistic to a critical value in order to assess if <span class="math inline">\(d\)</span> is sufficiently far away from the null hypothesis to be statistically significant. To do this, we would need to know the exact t-distribution, which depends on the degrees of freedom. The problem is that deriving the degrees of freedom in this case is not that obvious. If we were willing to assume that <span class="math inline">\(\sigma_1=\sigma_2\)</span>, the correct t-distribution has <span class="math inline">\(n_1 -1 + n_2-1\)</span> degrees of freedom (i.e., the sum of the degrees of freedom of the two samples). However, because in real life we don not know if <span class="math inline">\(\sigma_1=\sigma_2\)</span>, we need to account for this additional uncertainty. We will not go into detail here, but R automatically uses a sophisticated approach to correct the degrees of freedom called the Welch’s correction, as we will see in the subsequent application.</p>
 </div>
@@ -459,45 +466,37 @@ H_1: \mu_1 \ne \mu_2
 <p>We choose the conventional 5% significance level.</p>
 <p><strong>4. Descriptive statistics and data visualization</strong></p>
 <p>We can compute the descriptive statistics for each group separately, using the <code>describeBy()</code> function:</p>
-<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" data-line-number="1"><span class="kw">library</span>(psych)</a>
-<a class="sourceLine" id="cb297-2" data-line-number="2"><span class="kw">describeBy</span>(hours_a_b<span class="op">$</span>hours, hours_a_b<span class="op">$</span>group)</a></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" title="1"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb297-2" title="2"><span class="kw">describeBy</span>(hours_a_b<span class="op">$</span>hours, hours_a_b<span class="op">$</span>group)</a></code></pre></div>
 <pre><code>## 
 ##  Descriptive statistics by group 
 ## group: A
-##    vars  n  mean   sd median trimmed   mad min max range skew kurtosis
-## X1    1 98 18.11 12.1     15   16.88 10.38   2  65    63 1.08     1.21
-##      se
-## X1 1.22
-## -------------------------------------------------------- 
+##    vars  n  mean   sd median trimmed   mad min max range skew kurtosis   se
+## X1    1 98 18.11 12.1     15   16.88 10.38   2  65    63 1.08     1.21 1.22
+## ------------------------------------------------------------ 
 ## group: B
-##    vars   n mean    sd median trimmed   mad min max range skew kurtosis
-## X1    1 112 28.5 17.97   24.5   26.56 15.57   1  83    82 0.96     0.82
-##     se
-## X1 1.7</code></pre>
+##    vars   n mean    sd median trimmed   mad min max range skew kurtosis  se
+## X1    1 112 28.5 17.97   24.5   26.56 15.57   1  83    82 0.96     0.82 1.7</code></pre>
 <p>This already shows us that the mean between groups A and B are different. We can visualize the data using a plot of means, boxplot, and a histogram.</p>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" data-line-number="1"><span class="kw">ggplot</span>(hours_a_b,<span class="kw">aes</span>(group, hours)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb299-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;summary&quot;</span>,  <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">width =</span> <span class="fl">0.7</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb299-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="dt">stat =</span> <span class="st">&quot;summary&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb299-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Group&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Listening time (hours)&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb299-5" data-line-number="5"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Means and standard errors of listening times&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb299-6" data-line-number="6"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" title="1"><span class="kw">ggplot</span>(hours_a_b, <span class="kw">aes</span>(group, hours)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;summary&quot;</span>, </a>
+<a class="sourceLine" id="cb299-2" title="2">    <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">width =</span> <span class="fl">0.7</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb299-3" title="3"><span class="st">    </span><span class="kw">geom_pointrange</span>(<span class="dt">stat =</span> <span class="st">&quot;summary&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Group&quot;</span>, </a>
+<a class="sourceLine" id="cb299-4" title="4">    <span class="dt">y =</span> <span class="st">&quot;Listening time (hours)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Means and standard errors of listening times&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb299-5" title="5"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-180-1.png" width="672" /></p>
-<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb300-1" data-line-number="1"><span class="kw">ggplot</span>(hours_a_b, <span class="kw">aes</span>(<span class="dt">x =</span> group, <span class="dt">y =</span> hours)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb300-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb300-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Group&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Listening time (hours)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb300-4" data-line-number="4"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Boxplot of listening times&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb300-5" data-line-number="5"><span class="st">  </span><span class="kw">theme_bw</span>() </a></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb300-1" title="1"><span class="kw">ggplot</span>(hours_a_b, <span class="kw">aes</span>(<span class="dt">x =</span> group, <span class="dt">y =</span> hours)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb300-2" title="2"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Group&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Listening time (hours)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb300-3" title="3"><span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;Boxplot of listening times&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-180-2.png" width="672" /></p>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" data-line-number="1"><span class="kw">ggplot</span>(hours_a_b,<span class="kw">aes</span>(hours)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb301-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">col =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;darkblue&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb301-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Listening time (hours)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb301-4" data-line-number="4"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Histogram of listening times&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb301-5" data-line-number="5"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>group) <span class="op">+</span></a>
-<a class="sourceLine" id="cb301-6" data-line-number="6"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" title="1"><span class="kw">ggplot</span>(hours_a_b, <span class="kw">aes</span>(hours)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">col =</span> <span class="st">&quot;black&quot;</span>, </a>
+<a class="sourceLine" id="cb301-2" title="2">    <span class="dt">fill =</span> <span class="st">&quot;darkblue&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Listening time (hours)&quot;</span>, </a>
+<a class="sourceLine" id="cb301-3" title="3">    <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Histogram of listening times&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb301-4" title="4"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span>group) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-180-3.png" width="672" /></p>
 <p><strong>5. Conduct significance test</strong></p>
 <p>To conduct the independent means t-test, we can use the <code>t.test()</code> function:</p>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" data-line-number="1"><span class="kw">t.test</span>(hours <span class="op">~</span><span class="st"> </span>group, <span class="dt">data =</span> hours_a_b, <span class="dt">mu =</span> <span class="dv">0</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>, <span class="dt">var.equal =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" title="1"><span class="kw">t.test</span>(hours <span class="op">~</span><span class="st"> </span>group, <span class="dt">data =</span> hours_a_b, <span class="dt">mu =</span> <span class="dv">0</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, </a>
+<a class="sourceLine" id="cb302-2" title="2">    <span class="dt">conf.level =</span> <span class="fl">0.95</span>, <span class="dt">var.equal =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -517,18 +516,19 @@ H_1: \mu_1 \ne \mu_2
 <h3><span class="header-section-number">7.2.2</span> Dependent-means t-test</h3>
 <p>While the independent-means t-test is used when different units (e.g., participants, products) were assigned to the different condition, the <strong>dependent-means t-test</strong> is used when there are two experimental conditions and the same units (e.g., participants, products) were observed in both experimental conditions.</p>
 <p>Imagine, for example, a slightly different experimental setup for the above experiment. Imagine that we do not assign different users to the groups, but that a sample of 100 users gets to use the music streaming service with the new feature for one month and we compare the music listening times of these users during the month of the experiment with the listening time in the previous month. Let us generate data for this example:</p>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb304-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">321</span>)</a>
-<a class="sourceLine" id="cb304-2" data-line-number="2">hours_population_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dv">25000</span>, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb304-3" data-line-number="3"><span class="kw">set.seed</span>(<span class="dv">12567</span>)</a>
-<a class="sourceLine" id="cb304-4" data-line-number="4">sample_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25000</span>, <span class="dt">size =</span> <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb304-5" data-line-number="5">sample_<span class="dv">1</span>_hours &lt;-<span class="st"> </span>hours_population_<span class="dv">1</span>[sample_<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb304-6" data-line-number="6"><span class="kw">set.seed</span>(<span class="dv">321</span>)</a>
-<a class="sourceLine" id="cb304-7" data-line-number="7">hours_population_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dv">25000</span>, <span class="dt">shape =</span> <span class="fl">2.5</span>, <span class="dt">scale =</span> <span class="dv">11</span>)</a>
-<a class="sourceLine" id="cb304-8" data-line-number="8"><span class="kw">set.seed</span>(<span class="dv">12567</span>)</a>
-<a class="sourceLine" id="cb304-9" data-line-number="9">sample_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25000</span>, <span class="dt">size =</span> <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb304-10" data-line-number="10">sample_<span class="dv">2</span>_hours &lt;-<span class="st"> </span>hours_population_<span class="dv">2</span>[sample_<span class="dv">2</span>]</a>
-<a class="sourceLine" id="cb304-11" data-line-number="11">hours_a_b_paired &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">hours_a =</span> <span class="kw">round</span>(sample_<span class="dv">1</span>_hours,<span class="dv">0</span>),<span class="dt">hours_b =</span> <span class="kw">round</span>(sample_<span class="dv">2</span>_hours,<span class="dv">0</span>)) </a>
-<a class="sourceLine" id="cb304-12" data-line-number="12"><span class="kw">head</span>(hours_a_b_paired)</a></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb304-1" title="1"><span class="kw">set.seed</span>(<span class="dv">321</span>)</a>
+<a class="sourceLine" id="cb304-2" title="2">hours_population_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dv">25000</span>, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb304-3" title="3"><span class="kw">set.seed</span>(<span class="dv">12567</span>)</a>
+<a class="sourceLine" id="cb304-4" title="4">sample_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25000</span>, <span class="dt">size =</span> <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb304-5" title="5">sample_<span class="dv">1</span>_hours &lt;-<span class="st"> </span>hours_population_<span class="dv">1</span>[sample_<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb304-6" title="6"><span class="kw">set.seed</span>(<span class="dv">321</span>)</a>
+<a class="sourceLine" id="cb304-7" title="7">hours_population_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dv">25000</span>, <span class="dt">shape =</span> <span class="fl">2.5</span>, <span class="dt">scale =</span> <span class="dv">11</span>)</a>
+<a class="sourceLine" id="cb304-8" title="8"><span class="kw">set.seed</span>(<span class="dv">12567</span>)</a>
+<a class="sourceLine" id="cb304-9" title="9">sample_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25000</span>, <span class="dt">size =</span> <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb304-10" title="10">sample_<span class="dv">2</span>_hours &lt;-<span class="st"> </span>hours_population_<span class="dv">2</span>[sample_<span class="dv">2</span>]</a>
+<a class="sourceLine" id="cb304-11" title="11">hours_a_b_paired &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">hours_a =</span> <span class="kw">round</span>(sample_<span class="dv">1</span>_hours, </a>
+<a class="sourceLine" id="cb304-12" title="12">    <span class="dv">0</span>), <span class="dt">hours_b =</span> <span class="kw">round</span>(sample_<span class="dv">2</span>_hours, <span class="dv">0</span>))</a>
+<a class="sourceLine" id="cb304-13" title="13"><span class="kw">head</span>(hours_a_b_paired)</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["hours_a"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["hours_b"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"2","2":"24"},{"1":"27","2":"21"},{"1":"25","2":"51"},{"1":"2","2":"12"},{"1":"46","2":"54"},{"1":"13","2":"18"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -547,35 +547,35 @@ H_0: \delta = 0 \\
 H_1: \delta \neq 0
 \]</span></p>
 <p>where <span class="math inline">\(\delta\)</span> denotes the difference between the observed listening times from the two consecutive months <strong>of the same users</strong>. As is the previous example, since we do not observe the entire population, we estimate <span class="math inline">\(\delta\)</span> based on the sample using <span class="math inline">\(d\)</span>, which is the difference in mean listening time between the two months for our sample. Note that we assume that everything else (e.g., number of new releases) remained constant over the two month to keep it simple. We can show as above that the sampling distribution follows a normal distribution with a mean that is (in the limit) the same as the population mean. This means, again, that the difference in sample means is a good estimate for the difference in population means. Let’s compute a new variable <span class="math inline">\(d\)</span>, which is the difference between two month.</p>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" data-line-number="1">hours_a_b_paired<span class="op">$</span>d &lt;-<span class="st"> </span>hours_a_b_paired<span class="op">$</span>hours_a <span class="op">-</span><span class="st"> </span>hours_a_b_paired<span class="op">$</span>hours_b</a>
-<a class="sourceLine" id="cb305-2" data-line-number="2"><span class="kw">head</span>(hours_a_b_paired)</a></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" title="1">hours_a_b_paired<span class="op">$</span>d &lt;-<span class="st"> </span>hours_a_b_paired<span class="op">$</span>hours_a <span class="op">-</span><span class="st"> </span>hours_a_b_paired<span class="op">$</span>hours_b</a>
+<a class="sourceLine" id="cb305-2" title="2"><span class="kw">head</span>(hours_a_b_paired)</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["hours_a"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["hours_b"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["d"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"2","2":"24","3":"-22"},{"1":"27","2":"21","3":"6"},{"1":"25","2":"51","3":"-26"},{"1":"2","2":"12","3":"-10"},{"1":"46","2":"54","3":"-8"},{"1":"13","2":"18","3":"-5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>Note that we now have a new variable, which is the difference in listening times (in hours) between the two months. The mean of this difference is:</p>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb306-1" data-line-number="1">mean_d &lt;-<span class="st"> </span><span class="kw">mean</span>(hours_a_b_paired<span class="op">$</span>d)</a>
-<a class="sourceLine" id="cb306-2" data-line-number="2">mean_d</a></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb306-1" title="1">mean_d &lt;-<span class="st"> </span><span class="kw">mean</span>(hours_a_b_paired<span class="op">$</span>d)</a>
+<a class="sourceLine" id="cb306-2" title="2">mean_d</a></code></pre></div>
 <pre><code>## [1] -11.65</code></pre>
 <p>Again, we use <span class="math inline">\(SE_{\bar x}\)</span> as an estimate of <span class="math inline">\(\sigma_{\bar x}\)</span>:</p>
 <p><span class="math display">\[
 SE_{\bar d}={s \over \sqrt{n}}
 \]</span>
 Hence, we can compute the standard error as:</p>
-<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" data-line-number="1">n &lt;-<span class="st"> </span><span class="kw">nrow</span>(hours_a_b_paired)</a>
-<a class="sourceLine" id="cb308-2" data-line-number="2">SE_d &lt;-<span class="st"> </span><span class="kw">sd</span>(hours_a_b_paired<span class="op">$</span>d)<span class="op">/</span><span class="kw">sqrt</span>(n)</a>
-<a class="sourceLine" id="cb308-3" data-line-number="3">SE_d</a></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" title="1">n &lt;-<span class="st"> </span><span class="kw">nrow</span>(hours_a_b_paired)</a>
+<a class="sourceLine" id="cb308-2" title="2">SE_d &lt;-<span class="st"> </span><span class="kw">sd</span>(hours_a_b_paired<span class="op">$</span>d)<span class="op">/</span><span class="kw">sqrt</span>(n)</a>
+<a class="sourceLine" id="cb308-3" title="3">SE_d</a></code></pre></div>
 <pre><code>## [1] 2.151503</code></pre>
 <p>The test statistic is therefore:</p>
 <p><span class="math display">\[
 t = {\bar d-  \mu_0 \over SE_{\bar d}}
 \]</span>
 on 99 (i.e., n-1) degrees of freedom. Now we can compute the t-statistic as follows:</p>
-<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb310-1" data-line-number="1">t_score &lt;-<span class="st"> </span>mean_d<span class="op">/</span>SE_d</a>
-<a class="sourceLine" id="cb310-2" data-line-number="2">t_score</a></code></pre></div>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb310-1" title="1">t_score &lt;-<span class="st"> </span>mean_d<span class="op">/</span>SE_d</a>
+<a class="sourceLine" id="cb310-2" title="2">t_score</a></code></pre></div>
 <pre><code>## [1] -5.41482</code></pre>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" data-line-number="1"><span class="kw">qt</span>(<span class="fl">0.975</span>,<span class="dt">df=</span><span class="dv">99</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" title="1"><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dt">df =</span> <span class="dv">99</span>)</a></code></pre></div>
 <pre><code>## [1] 1.984217</code></pre>
 <p>Note that in the case of the dependent-means t-test, we only base our hypothesis on one population and hence there is only one population variance. This is because in the dependent sample test, the observations come from the same observational units (i.e., users). Hence, there is no unsystematic variation due to potential differences between users that were assigned to the experimental groups. This means that the influence of unobserved factors (unsystematic variation) relative to the variation due to the experimental manipulation (systematic variation) is not as strong in the dependent-means test compared to the independent-means test and we don’t need to correct for differences in the population variances.</p>
 </div>
@@ -586,7 +586,7 @@ on 99 (i.e., n-1) degrees of freedom. Now we can compute the t-statistic as foll
 <p>We would like to the test if there is a difference in music listening times between the two consecutive months, so our null hypothesis is that there is no difference, while the alternative hypothesis states the opposite:</p>
 <p><span class="math display">\[
 H_0: \mu_D = 0 \\
-H_0: \mu_D \ne 0
+H_1: \mu_D \ne 0
 \]</span></p>
 <p><strong>2. Select an appropriate test</strong></p>
 <p>Since we have a ratio scaled variable (i.e., listening times) and two observations of the same group of users (i.e., the groups contain the same units), the dependent-means t-test is appropriate.</p>
@@ -594,12 +594,12 @@ H_0: \mu_D \ne 0
 <p>We choose the conventional 5% significance level.</p>
 <p><strong>4. Descriptive statistics and data visualization</strong></p>
 <p>We can compute the descriptive statistics for each month separately, using the <code>describe()</code> function:</p>
-<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" data-line-number="1"><span class="kw">library</span>(psych)</a>
-<a class="sourceLine" id="cb314-2" data-line-number="2"><span class="kw">describe</span>(hours_a_b_paired)</a></code></pre></div>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" title="1"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb314-2" title="2"><span class="kw">describe</span>(hours_a_b_paired)</a></code></pre></div>
 <pre><code>## hours_a_b_paired 
 ## 
 ##  3  Variables      100  Observations
-## ---------------------------------------------------------------------------
+## --------------------------------------------------------------------------------
 ## hours_a 
 ##        n  missing distinct     Info     Mean      Gmd      .05      .10 
 ##      100        0       38    0.998    17.93    13.16     3.00     5.90 
@@ -607,7 +607,7 @@ H_0: \mu_D \ne 0
 ##     8.00    15.00    25.25    34.30    39.05 
 ## 
 ## lowest :  2  3  4  5  6, highest: 40 41 46 50 65
-## ---------------------------------------------------------------------------
+## --------------------------------------------------------------------------------
 ## hours_b 
 ##        n  missing distinct     Info     Mean      Gmd      .05      .10 
 ##      100        0       48    0.999    29.58     20.3     5.95     8.00 
@@ -615,7 +615,7 @@ H_0: \mu_D \ne 0
 ##    15.75    25.00    40.00    54.20    63.30 
 ## 
 ## lowest :  3  4  5  6  8, highest: 63 69 78 81 83
-## ---------------------------------------------------------------------------
+## --------------------------------------------------------------------------------
 ## d 
 ##        n  missing distinct     Info     Mean      Gmd      .05      .10 
 ##      100        0       52    0.999   -11.65    23.75   -54.15   -35.20 
@@ -623,42 +623,41 @@ H_0: \mu_D \ne 0
 ##   -23.25    -9.00     2.00    12.00    21.05 
 ## 
 ## lowest : -76 -64 -63 -60 -57, highest:  22  23  24  34  51
-## ---------------------------------------------------------------------------</code></pre>
+## --------------------------------------------------------------------------------</code></pre>
 <p>This already shows us that the mean between the two months are different. We can visiualize the data using a plot of means, boxplot, and a histogram.</p>
 <p>To plot the data, we need to do some restructuring first, since the variables are now stored in two different columns (“hours_a” and “hours_b”). This is also known as the “wide” format. To plot the data we need all observations to be stored in one variable. This is also known as the “long” format. We can use the <code>melt(...)</code> function from the <code>reshape2</code>package to “melt” the two variable into one column to plot the data.</p>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb316-1" data-line-number="1"><span class="kw">library</span>(reshape2)</a>
-<a class="sourceLine" id="cb316-2" data-line-number="2">hours_a_b_paired_long &lt;-<span class="st"> </span><span class="kw">melt</span>(hours_a_b_paired[, <span class="kw">c</span>(<span class="st">&quot;hours_a&quot;</span>, <span class="st">&quot;hours_b&quot;</span>)]) </a>
-<a class="sourceLine" id="cb316-3" data-line-number="3"><span class="kw">names</span>(hours_a_b_paired_long) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;group&quot;</span>,<span class="st">&quot;hours&quot;</span>)</a>
-<a class="sourceLine" id="cb316-4" data-line-number="4"><span class="kw">head</span>(hours_a_b_paired_long)</a></code></pre></div>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb316-1" title="1"><span class="kw">library</span>(reshape2)</a>
+<a class="sourceLine" id="cb316-2" title="2">hours_a_b_paired_long &lt;-<span class="st"> </span><span class="kw">melt</span>(hours_a_b_paired[, <span class="kw">c</span>(<span class="st">&quot;hours_a&quot;</span>, </a>
+<a class="sourceLine" id="cb316-3" title="3">    <span class="st">&quot;hours_b&quot;</span>)])</a>
+<a class="sourceLine" id="cb316-4" title="4"><span class="kw">names</span>(hours_a_b_paired_long) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;group&quot;</span>, <span class="st">&quot;hours&quot;</span>)</a>
+<a class="sourceLine" id="cb316-5" title="5"><span class="kw">head</span>(hours_a_b_paired_long)</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["group"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["hours"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"hours_a","2":"2"},{"1":"hours_a","2":"27"},{"1":"hours_a","2":"25"},{"1":"hours_a","2":"2"},{"1":"hours_a","2":"46"},{"1":"hours_a","2":"13"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>Now we are ready to plot the data:</p>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" data-line-number="1"><span class="kw">ggplot</span>(hours_a_b_paired_long,<span class="kw">aes</span>(group, hours)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb317-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;summary&quot;</span>,  <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">width =</span> <span class="fl">0.7</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb317-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="dt">stat =</span> <span class="st">&quot;summary&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb317-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Group&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Listening time (hours)&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb317-5" data-line-number="5"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Means and standard errors of listining times&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb317-6" data-line-number="6"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" title="1"><span class="kw">ggplot</span>(hours_a_b_paired_long, <span class="kw">aes</span>(group, hours)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb317-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;summary&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, </a>
+<a class="sourceLine" id="cb317-3" title="3">        <span class="dt">width =</span> <span class="fl">0.7</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_pointrange</span>(<span class="dt">stat =</span> <span class="st">&quot;summary&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb317-4" title="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Group&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Listening time (hours)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb317-5" title="5"><span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;Means and standard errors of listining times&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb317-6" title="6"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-189-1.png" width="672" /></p>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb318-1" data-line-number="1"><span class="kw">ggplot</span>(hours_a_b_paired_long, <span class="kw">aes</span>(<span class="dt">x =</span> group, <span class="dt">y =</span> hours)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb318-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb318-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Group&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Listening time (hours)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb318-4" data-line-number="4"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Boxplot of listening times&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb318-5" data-line-number="5"><span class="st">  </span><span class="kw">theme_bw</span>() </a></code></pre></div>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb318-1" title="1"><span class="kw">ggplot</span>(hours_a_b_paired_long, <span class="kw">aes</span>(<span class="dt">x =</span> group, <span class="dt">y =</span> hours)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb318-2" title="2"><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Group&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Listening time (hours)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb318-3" title="3"><span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;Boxplot of listening times&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-189-2.png" width="672" /></p>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb319-1" data-line-number="1"><span class="kw">ggplot</span>(hours_a_b_paired_long,<span class="kw">aes</span>(hours)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb319-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">col =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;darkblue&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb319-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Listening time (hours)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb319-4" data-line-number="4"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Histogram of listening times&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb319-5" data-line-number="5"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>group) <span class="op">+</span></a>
-<a class="sourceLine" id="cb319-6" data-line-number="6"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb319-1" title="1"><span class="kw">ggplot</span>(hours_a_b_paired_long, <span class="kw">aes</span>(hours)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">col =</span> <span class="st">&quot;black&quot;</span>, </a>
+<a class="sourceLine" id="cb319-2" title="2">    <span class="dt">fill =</span> <span class="st">&quot;darkblue&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Listening time (hours)&quot;</span>, </a>
+<a class="sourceLine" id="cb319-3" title="3">    <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Histogram of listening times&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb319-4" title="4"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span>group) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-189-3.png" width="672" /></p>
 <p><strong>5. Conduct significance test</strong></p>
 <p>To conduct the independent means t-test, we can use the <code>t.test()</code> function with the argument <code>paired = TRUE</code>:</p>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb320-1" data-line-number="1"><span class="kw">t.test</span>(hours_a_b_paired<span class="op">$</span>hours_a, hours_a_b_paired<span class="op">$</span>hours_b, <span class="dt">mu =</span> <span class="dv">0</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>, <span class="dt">paired=</span><span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb320-1" title="1"><span class="kw">t.test</span>(hours_a_b_paired<span class="op">$</span>hours_a, hours_a_b_paired<span class="op">$</span>hours_b, </a>
+<a class="sourceLine" id="cb320-2" title="2">    <span class="dt">mu =</span> <span class="dv">0</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>, </a>
+<a class="sourceLine" id="cb320-3" title="3">    <span class="dt">paired =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Paired t-test
 ## 
@@ -674,10 +673,38 @@ H_0: \mu_D \ne 0
 <p>On average, the same users used the service more when it included the new feature (M = 25.96, SE = 1.68) compared to the service without the feature (M = 20.99, SE = 1.34). This difference was significant t(99) = 2.3781, p &lt; .05 (95% CI = [0.82, 9.12]).</p>
 </div>
 </div>
+</div>
+<div id="summary-4" class="section level2">
+<h2><span class="header-section-number">7.3</span> Summary</h2>
+<ul>
+<li><p>Between-subject experimental design: When you run experiment and randomly split sample into two groups whose units/participants are independent of each other, one of which receives a treatment (experimental group) while the other doesn’t (control group). In this case we have two independent samples and use independent t-test.</p></li>
+<li><p>Within-subject experimental design: If you run an experiment with two experimental conditions and the same participants/units were observed in both experimental conditions, the sample is said to be dependent in the sense that you have the same participants/units in each group. In this case we have two dependent samples and use dependent t-test (Paired test).</p></li>
+<li><p>Hypotheses:<br />
+H0: The difference between the two (independent or dependent) groups is equal zero.<br />
+H1: The difference between the two (independent or dependent) groups is not equal 0.</p></li>
+<li><p>Both the independent t-test and the dependent t-test are parametric tests based on the normal distribution.</p></li>
+<li><p>Assumptions for both type of tests:</p></li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><p>The sampling distribution is normally distributed. In the dependent t-test this means that the sampling distribution of the differences between scores should be normal, not the scores themselves.</p></li>
+<li><p>Data are measured at least at the interval level.</p></li>
+</ol>
+<ul>
+<li>The independent t-test, because it is used to test independent groups of people, also assumes:</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><p>Scores in different treatment conditions (control group and test group) are independent (because they come from different participants/units/products).</p></li>
+<li><p>Homogeneity of variance – it assumes equal variances.</p></li>
+</ol>
+<ul>
+<li><p>Application in marketing: T-test can help marketing department of retailers to answer questions about customers spendings. Since they have collected extensive data about their customers through loyalty program, they may want to use to conduct a research. They might be interested in comparing average amount of Euros spent per purchase between customers who live closer (within range of 500 m) and customers who live further (more than 500m) from their new outlet. Therefore, they could form the following hypotheses:</p>
+<p>H0: There is no difference in a spending per purchase between customers who live closer to the outlet and customers who live further.<br />
+H1: There is a difference in a spending per purchase between customers who live closer to the outlet and customers who live further.</p></li>
+</ul>
 <div id="further-considerations" class="section level3">
-<h3><span class="header-section-number">7.2.3</span> Further considerations</h3>
+<h3><span class="header-section-number">7.3.1</span> Further considerations</h3>
 <div id="type-i-and-type-ii-errors" class="section level4">
-<h4><span class="header-section-number">7.2.3.1</span> Type I and Type II Errors</h4>
+<h4><span class="header-section-number">7.3.1.1</span> Type I and Type II Errors</h4>
 <p>When choosing the level of significance (<span class="math inline">\(\alpha\)</span>). It is important to note that the choice of the significance level affects the type 1 and type 2 error:</p>
 <ul>
 <li>Type I error: When we believe there is a genuine effect in our population, when in fact there isn’t. Probability of type I error (<span class="math inline">\(\alpha\)</span>) = level of significance.</li>
@@ -712,7 +739,7 @@ H_0: \mu_D \ne 0
 </table>
 </div>
 <div id="significance-level-sample-size-power-and-effect-size" class="section level4">
-<h4><span class="header-section-number">7.2.3.2</span> Significance level, sample size, power, and effect size</h4>
+<h4><span class="header-section-number">7.3.1.2</span> Significance level, sample size, power, and effect size</h4>
 <p>When you plan to conduct an experiment, there are some factors that are under direct control of the researcher:</p>
 <ul>
 <li><strong>Significance level (<span class="math inline">\(\alpha\)</span>)</strong>: The probability of finding an effect that does not genuinely exist.</li>
@@ -732,18 +759,20 @@ H_0: \mu_D \ne 0
 </ul>
 <p>In order to test more subtle effects (smaller effect sizes), you need a larger sample size compared to the test of more obvious effects. In <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2205186" target="_blank">this paper</a>, you can find a list of examples for different effect sizes and the number of observations you need to reliably find an effect of that magnitude. Although the exact effect size is unknown before the experiment, you might be able to make a guess about the effect size (e.g., based on previous studies).</p>
 <p>If you wish to obtain a standardized measure of the effect, you may compute the effect size (Cohen’s d) using the <code>cohensD()</code> function from the <code>lsr</code> package. Using the examples from the independent-means t-test above, we would use:</p>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb322-1" data-line-number="1"><span class="kw">library</span>(lsr)</a>
-<a class="sourceLine" id="cb322-2" data-line-number="2"><span class="kw">cohensD</span>(hours <span class="op">~</span><span class="st"> </span>group, <span class="dt">data =</span> hours_a_b)</a></code></pre></div>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb322-1" title="1"><span class="kw">library</span>(lsr)</a>
+<a class="sourceLine" id="cb322-2" title="2"><span class="kw">cohensD</span>(hours <span class="op">~</span><span class="st"> </span>group, <span class="dt">data =</span> hours_a_b)</a></code></pre></div>
 <pre><code>## [1] 0.6696301</code></pre>
 <p>According to the thresholds defined above, this effect would be judged to be a small-medium effect.</p>
 <p>For the dependent-means t-test, we would use:</p>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb324-1" data-line-number="1"><span class="kw">cohensD</span>(hours_a_b_paired<span class="op">$</span>hours_a, hours_a_b_paired<span class="op">$</span>hours_b, <span class="dt">method=</span><span class="st">&quot;paired&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb324-1" title="1"><span class="kw">cohensD</span>(hours_a_b_paired<span class="op">$</span>hours_a, hours_a_b_paired<span class="op">$</span>hours_b, </a>
+<a class="sourceLine" id="cb324-2" title="2">    <span class="dt">method =</span> <span class="st">&quot;paired&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] 0.541482</code></pre>
 <p>According to the thresholds defined above, this effect would also be judged to be a small-medium effect.</p>
 <p>When constructing an experimental design, your goal should be to maximize the power of the test while maintaining an acceptable significance level and keeping the sample as small as possible. To achieve this goal, you may use the <code>pwr</code> package, which let’s you compute <code>n</code>, <code>d</code>, <code>alpha</code>, and <code>power</code>. You only need to specify three of the four input variables to get the fourth.</p>
 <p>For example, what sample size do we need (per group) to identify an effect with d = 0.6, α = 0.05, and power = 0.8:</p>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb326-1" data-line-number="1"><span class="kw">library</span>(pwr)</a>
-<a class="sourceLine" id="cb326-2" data-line-number="2"><span class="kw">pwr.t.test</span>(<span class="dt">d =</span> <span class="fl">0.6</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">0.8</span>, <span class="dt">type =</span> <span class="kw">c</span>(<span class="st">&quot;two.sample&quot;</span>), <span class="dt">alternative =</span> <span class="kw">c</span>(<span class="st">&quot;two.sided&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb326-1" title="1"><span class="kw">library</span>(pwr)</a>
+<a class="sourceLine" id="cb326-2" title="2"><span class="kw">pwr.t.test</span>(<span class="dt">d =</span> <span class="fl">0.6</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">0.8</span>, </a>
+<a class="sourceLine" id="cb326-3" title="3">    <span class="dt">type =</span> <span class="kw">c</span>(<span class="st">&quot;two.sample&quot;</span>), <span class="dt">alternative =</span> <span class="kw">c</span>(<span class="st">&quot;two.sided&quot;</span>))</a></code></pre></div>
 <pre><code>## 
 ##      Two-sample t test power calculation 
 ## 
@@ -755,7 +784,8 @@ H_0: \mu_D \ne 0
 ## 
 ## NOTE: n is number in *each* group</code></pre>
 <p>Or we could ask, what is the power of our test with 51 observations in each group, d = 0.6, and α = 0.05:</p>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb328-1" data-line-number="1"><span class="kw">pwr.t.test</span>(<span class="dt">n =</span> <span class="dv">51</span>, <span class="dt">d =</span> <span class="fl">0.6</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">type =</span> <span class="kw">c</span>(<span class="st">&quot;two.sample&quot;</span>), <span class="dt">alternative =</span> <span class="kw">c</span>(<span class="st">&quot;two.sided&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb328-1" title="1"><span class="kw">pwr.t.test</span>(<span class="dt">n =</span> <span class="dv">51</span>, <span class="dt">d =</span> <span class="fl">0.6</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">type =</span> <span class="kw">c</span>(<span class="st">&quot;two.sample&quot;</span>), </a>
+<a class="sourceLine" id="cb328-2" title="2">    <span class="dt">alternative =</span> <span class="kw">c</span>(<span class="st">&quot;two.sided&quot;</span>))</a></code></pre></div>
 <pre><code>## 
 ##      Two-sample t test power calculation 
 ## 
@@ -768,8 +798,8 @@ H_0: \mu_D \ne 0
 ## NOTE: n is number in *each* group</code></pre>
 </div>
 <div id="p-values-stopping-rules-and-p-hacking" class="section level4">
-<h4><span class="header-section-number">7.2.3.3</span> P-values, stopping rules and p-hacking</h4>
-<p>From my experience, students tend to place a lot of weight on p-values when interpreting their research findings. It is therefore important to note some points that hopefully help to put the meaning of a “significant” vs. “insignificant” test result into perspective.</p>
+<h4><span class="header-section-number">7.3.1.3</span> P-values, stopping rules and p-hacking</h4>
+<p>From my experience, students tend to place a lot of weight on p-values when interpreting their research findings. It is therefore important to note some points that hopefully help to put the meaning of a “significant” vs. “insignificant” test result into perspective.</p>
 <p><strong>Significant result</strong></p>
 <ul>
 <li>Even if the probability of the effect being a chance result is small (e.g., less than .05) it doesn’t necessarily mean that the effect is important.</li>
@@ -811,11 +841,13 @@ Figure 7.1: p-hacking (red indicates false positives)
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -823,12 +855,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -840,6 +871,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
@@ -858,8 +893,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
