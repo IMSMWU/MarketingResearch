@@ -50,6 +50,14 @@
 
 <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -129,11 +137,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul class="summary">
 <li><strong><a href="./">MR 2019</a></strong></li>
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#main-reference"><i class="fa fa-check"></i>Main reference</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#further-readings"><i class="fa fa-check"></i>Further readings</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#datacamp"><i class="fa fa-check"></i>DataCamp</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#other-web-resources"><i class="fa fa-check"></i>Other web-resources</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a></li>
+<li class="chapter" data-level="" data-path="course-materials.html"><a href="course-materials.html"><i class="fa fa-check"></i>Course materials</a><ul>
+<li class="chapter" data-level="" data-path="course-materials.html"><a href="course-materials.html#main-reference"><i class="fa fa-check"></i>Main reference</a></li>
+<li class="chapter" data-level="" data-path="course-materials.html"><a href="course-materials.html#further-readings"><i class="fa fa-check"></i>Further readings</a></li>
+<li class="chapter" data-level="" data-path="course-materials.html"><a href="course-materials.html#datacamp"><i class="fa fa-check"></i>DataCamp</a></li>
+<li class="chapter" data-level="" data-path="course-materials.html"><a href="course-materials.html#other-web-resources"><i class="fa fa-check"></i>Other web-resources</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>1</b> Getting started</a><ul>
 <li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#how-to-download-and-install-r-and-rstudio"><i class="fa fa-check"></i><b>1.1</b> How to download and install R and RStudio</a></li>
@@ -274,37 +283,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="correlation-coefficient" class="section level2">
 <h2><span class="header-section-number">6.1</span> Correlation coefficient</h2>
 <p>The correlation coefficient summarizes the strength of the linear relationship between two metric (interval or ratio scaled) variables. Let’s consider a simple example. Say you conduct a survey to investigate the relationship between the attitude towards a city and the duration of residency. The “Attitude” variable can take values between 1 (very unfavorable) and 12 (very favorable), and the “duration of residency” is measured in years. Let’s further assume for this example that the attitude measurement represents an interval scale (although it is usually not realistic to assume that the scale points on an itemized rating scale have the same distance). To keep it simple, let’s further assume that you only asked 12 people. We can create a short data set like this:</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" title="1"><span class="kw">readRDS</span>(<span class="st">&quot;music_data.rds&quot;</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1">s.genre &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;pop&quot;</span>, <span class="st">&quot;hip hop&quot;</span>, <span class="st">&quot;rock&quot;</span>, <span class="st">&quot;rap&quot;</span>, <span class="st">&quot;indie&quot;</span>)</a>
-<a class="sourceLine" id="cb72-2" title="2">music_data &lt;-<span class="st"> </span><span class="kw">subset</span>(music_data, top.genre <span class="op">%in%</span><span class="st"> </span>s.genre)</a>
-<a class="sourceLine" id="cb72-3" title="3"></a>
-<a class="sourceLine" id="cb72-4" title="4">music_data<span class="op">$</span>genre_cat &lt;-<span class="st"> </span><span class="kw">as.factor</span>(music_data<span class="op">$</span>top.genre)</a>
-<a class="sourceLine" id="cb72-5" title="5">music_data<span class="op">$</span>explicit_cat &lt;-<span class="st"> </span><span class="kw">factor</span>(music_data<span class="op">$</span>explicit, </a>
-<a class="sourceLine" id="cb72-6" title="6">    <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;not explicit&quot;</span>, <span class="st">&quot;explicit&quot;</span>))</a>
-<a class="sourceLine" id="cb72-7" title="7"></a>
-<a class="sourceLine" id="cb72-8" title="8"><span class="kw">head</span>(music_data)</a></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" title="1"><span class="kw">readRDS</span>(<span class="st">&quot;music_data.rds&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb251-1" title="1">s.genre &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;pop&quot;</span>, <span class="st">&quot;hip hop&quot;</span>, <span class="st">&quot;rock&quot;</span>, <span class="st">&quot;rap&quot;</span>, <span class="st">&quot;indie&quot;</span>)</a>
+<a class="sourceLine" id="cb251-2" title="2">music_data &lt;-<span class="st"> </span><span class="kw">subset</span>(music_data, top.genre <span class="op">%in%</span><span class="st"> </span>s.genre)</a>
+<a class="sourceLine" id="cb251-3" title="3"></a>
+<a class="sourceLine" id="cb251-4" title="4">music_data<span class="op">$</span>genre_cat &lt;-<span class="st"> </span><span class="kw">as.factor</span>(music_data<span class="op">$</span>top.genre)</a>
+<a class="sourceLine" id="cb251-5" title="5">music_data<span class="op">$</span>explicit_cat &lt;-<span class="st"> </span><span class="kw">factor</span>(music_data<span class="op">$</span>explicit, </a>
+<a class="sourceLine" id="cb251-6" title="6">    <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;not explicit&quot;</span>, <span class="st">&quot;explicit&quot;</span>))</a>
+<a class="sourceLine" id="cb251-7" title="7"></a>
+<a class="sourceLine" id="cb251-8" title="8"><span class="kw">head</span>(music_data)</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["trackName"],"name":[2],"type":["chr"],"align":["left"]},{"label":["isrc"],"name":[3],"type":["chr"],"align":["left"]},{"label":["explicit"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["trackPopularity"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["primary_artistName"],"name":[6],"type":["chr"],"align":["left"]},{"label":["primary_artistID"],"name":[7],"type":["chr"],"align":["left"]},{"label":["artistName"],"name":[8],"type":["chr"],"align":["left"]},{"label":["artistIDs"],"name":[9],"type":["chr"],"align":["left"]},{"label":["albumName"],"name":[10],"type":["chr"],"align":["left"]},{"label":["albumID"],"name":[11],"type":["chr"],"align":["left"]},{"label":["available_markets"],"name":[12],"type":["chr"],"align":["left"]},{"label":["n_available_markets"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["releaseDate"],"name":[14],"type":["date"],"align":["right"]},{"label":["releaseDate_precision"],"name":[15],"type":["chr"],"align":["left"]},{"label":["danceability"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["energy"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["key"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["loudness"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["mode"],"name":[20],"type":["dbl"],"align":["right"]},{"label":["speechiness"],"name":[21],"type":["dbl"],"align":["right"]},{"label":["acousticness"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["instrumentalness"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["liveness"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["valence"],"name":[25],"type":["dbl"],"align":["right"]},{"label":["tempo"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["duration_ms"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["time_signature"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["uri"],"name":[29],"type":["chr"],"align":["left"]},{"label":["analysis_url"],"name":[30],"type":["chr"],"align":["left"]},{"label":["followers"],"name":[31],"type":["dbl"],"align":["right"]},{"label":["type"],"name":[32],"type":["chr"],"align":["left"]},{"label":["popularity"],"name":[33],"type":["dbl"],"align":["right"]},{"label":["primary_genre"],"name":[34],"type":["chr"],"align":["left"]},{"label":["genres"],"name":[35],"type":["chr"],"align":["left"]},{"label":["n_genres"],"name":[36],"type":["dbl"],"align":["right"]},{"label":["total_releases"],"name":[37],"type":["dbl"],"align":["right"]},{"label":["n_album"],"name":[38],"type":["dbl"],"align":["right"]},{"label":["n_single"],"name":[39],"type":["dbl"],"align":["right"]},{"label":["n_appears_on"],"name":[40],"type":["dbl"],"align":["right"]},{"label":["n_compilation"],"name":[41],"type":["dbl"],"align":["right"]},{"label":["mstreams"],"name":[42],"type":["dbl"],"align":["right"]},{"label":["region"],"name":[43],"type":["chr"],"align":["left"]},{"label":["adv_spending"],"name":[44],"type":["dbl"],"align":["right"]},{"label":["top.genre"],"name":[45],"type":["chr"],"align":["left"]},{"label":["genre_cat"],"name":[46],"type":["fctr"],"align":["left"]},{"label":["explicit_cat"],"name":[47],"type":["fctr"],"align":["left"]}],"data":[{"1":"5aAx2yezTd8zXrkmtKl66Z","2":"Starboy","3":"USUG11600976","4":"1","5":"22","6":"The Weeknd","7":"1Xyo4u8uXC1ZmMpatF05PJ","8":"The Weeknd feat. Daft Punk","9":"1Xyo4u8uXC1ZmMpatF05PJ,4tZwfgrHOc3mvqYlEYSvVi","10":"Starboy","11":"09fggMHib4YkOtwQNXEBII","12":"NA","13":"0","14":"2016-11-25","15":"day","16":"0.681","17":"0.594","18":"7","19":"-7.028","20":"1","21":"0.2820","22":"0.1650","23":"0.00000349","24":"0.134","25":"0.535","26":"186.054","27":"230453","28":"4","29":"spotify:track:5aAx2yezTd8zXrkmtKl66Z","30":"https://api.spotify.com/v1/audio-analysis/5aAx2yezTd8zXrkmtKl66Z","31":"15222808","32":"artist","33":"91","34":"canadian contemporary r&b","35":"canadian contemporary r&b, canadian pop, pop, rap","36":"4","37":"124","38":"13","39":"20","40":"91","41":"0","42":"357336.0","43":"us","44":"4538745582809720084484024442860668048880048662828002246462622248860488860200660880246202488046088200066826842264","45":"pop","46":"pop","47":"explicit"},{"1":"7BKLCZ1jbUBVqRi2FVlTVw","2":"Closer","3":"USQX91601347","4":"0","5":"86","6":"The Chainsmokers","7":"69GGBxA162lTqCwzJG5jLp","8":"The Chainsmokers feat. Halsey","9":"69GGBxA162lTqCwzJG5jLp,26VFTg2z8YR0cCuwLzESi2","10":"Closer","11":"0rSLgV8p5FzfnqlEk4GzxE","12":"AD, AE, AR, AT, AU, BE, BG, BH, BO, BR, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, LB, LI, LT, LU, LV, MA, MC, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, SA, SE, SG, SK, SV, TH, TN, TR, TW, US, UY, VN, ZA","13":"79","14":"2016-07-29","15":"day","16":"0.748","17":"0.524","18":"8","19":"-5.599","20":"1","21":"0.0338","22":"0.4140","23":"0.00000000","24":"0.111","25":"0.661","26":"95.010","27":"244960","28":"4","29":"spotify:track:7BKLCZ1jbUBVqRi2FVlTVw","30":"https://api.spotify.com/v1/audio-analysis/7BKLCZ1jbUBVqRi2FVlTVw","31":"11565104","32":"artist","33":"90","34":"dance pop","35":"dance pop, electropop, pop, tropical house","36":"4","37":"96","38":"2","39":"59","40":"35","41":"0","42":"323081.4","43":"us","44":"87296125002616694832882460600060208466800848806624260244862640444286060866044600806284802800064402066048406208","45":"pop","46":"pop","47":"not explicit"},{"1":"4pdPtRcBmOSQDlJ3Fk945m","2":"Let Me Love You","3":"QMZSY1600015","4":"0","5":"27","6":"DJ Snake","7":"540vIaP2JwjQb9dm3aArA4","8":"DJ Snake feat. Justin Bieber","9":"540vIaP2JwjQb9dm3aArA4,1uNFoZAHBGtllmzznpCI3s","10":"Encore","11":"55bbXORm6ZrVq52zfZnxBf","12":"NA","13":"0","14":"2016-08-05","15":"day","16":"0.476","17":"0.718","18":"8","19":"-5.309","20":"1","21":"0.0576","22":"0.0784","23":"0.00000000","24":"0.122","25":"0.142","26":"199.864","27":"205947","28":"4","29":"spotify:track:4pdPtRcBmOSQDlJ3Fk945m","30":"https://api.spotify.com/v1/audio-analysis/4pdPtRcBmOSQDlJ3Fk945m","31":"4345960","32":"artist","33":"86","34":"dance pop","35":"dance pop, edm, electronic trap, pop, tropical house","36":"5","37":"85","38":"2","39":"38","40":"45","41":"0","42":"264546.4","43":"us","44":"4052673829394860012068608242402620220642222464600242282482886024464808420264228282600202608242446606420002080","45":"pop","46":"pop","47":"not explicit"},{"1":"5knuzwU65gJK7IF5yJsuaW","2":"Rockabye (feat. Sean Paul & Anne-Marie)","3":"GBAHS1600363","4":"0","5":"81","6":"Clean Bandit","7":"6MDME20pz9RveH9rEXvrOM","8":"Clean Bandit feat. Sean Paul feat. Anne-Marie","9":"6MDME20pz9RveH9rEXvrOM,3Isy6kedDrgPYoTS1dazA9,1zNqDE7qDGCsyzJwohVaoX","10":"Rockabye (feat. Sean Paul & Anne-Marie)","11":"3meZFplbMmji648oWUNEfQ","12":"AD, AE, AR, AT, AU, BE, BG, BH, BO, BR, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HU, ID, IE, IL, IS, IT, JO, JP, KW, LB, LI, LT, LU, LV, MA, MC, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, SA, SE, SG, SK, SV, TH, TN, TR, TW, US, UY, VN, ZA","13":"78","14":"2016-10-21","15":"day","16":"0.720","17":"0.763","18":"9","19":"-4.068","20":"0","21":"0.0523","22":"0.4060","23":"0.00000000","24":"0.180","25":"0.742","26":"101.965","27":"251088","28":"4","29":"spotify:track:5knuzwU65gJK7IF5yJsuaW","30":"https://api.spotify.com/v1/audio-analysis/5knuzwU65gJK7IF5yJsuaW","31":"2504254","32":"artist","33":"84","34":"dance pop","35":"dance pop, edm, pop, tropical house, uk funky","36":"5","37":"97","38":"2","39":"73","40":"22","41":"0","42":"299399.5","43":"us","44":"63076779883569398412860000868482028288628844246244082246422600040886402246824442664406842200224602284406228008","45":"pop","46":"pop","47":"not explicit"},{"1":"1xznGGDReH1oQq0xzbwXa3","2":"One Dance","3":"USCM51600028","4":"0","5":"25","6":"Drake","7":"3TVXtAsR1Inumwj472S9r4","8":"Drake feat. WizKid feat. Kyla","9":"3TVXtAsR1Inumwj472S9r4,3tVQdUvClmAT7URs9V3rsp,77DAFfvm3O9zT5dIoG0eIO","10":"Views","11":"3hARKC8cinq3mZLLAEaBh9","12":"NA","13":"0","14":"2016-05-06","15":"day","16":"0.791","17":"0.619","18":"1","19":"-5.886","20":"1","21":"0.0532","22":"0.0078","23":"0.00420000","24":"0.351","25":"0.371","26":"103.989","27":"173987","28":"4","29":"spotify:track:1xznGGDReH1oQq0xzbwXa3","30":"https://api.spotify.com/v1/audio-analysis/1xznGGDReH1oQq0xzbwXa3","31":"35200192","32":"artist","33":"98","34":"canadian hip hop","35":"canadian hip hop, canadian pop, hip hop, pop rap, rap","36":"5","37":"403","38":"27","39":"37","40":"339","41":"0","42":"265877.0","43":"us","44":"4668617894331640150824284686604420280424480024404060860488826264282200468808642628046046820200280026606226842","45":"pop","46":"pop","47":"not explicit"},{"1":"343YBumqHu19cGoGARUTsd","2":"Fake Love","3":"USCM51700084","4":"1","5":"76","6":"Drake","7":"3TVXtAsR1Inumwj472S9r4","8":"Drake","9":"3TVXtAsR1Inumwj472S9r4","10":"More Life","11":"1lXY618HWkwYKJWBRYR4MK","12":"AD, AE, AR, AT, AU, BE, BG, BH, BO, BR, CA, CH, CL, CO, CR, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GR, GT, HK, HN, HU, ID, IE, IL, IN, IS, IT, JO, JP, KW, LB, LI, LT, LU, LV, MA, MC, MT, MX, MY, NI, NL, NO, NZ, OM, PA, PE, PH, PL, PS, PT, PY, QA, RO, SA, SE, SG, SK, SV, TH, TN, TR, TW, US, UY, VN, ZA","13":"79","14":"2017-03-18","15":"day","16":"0.927","17":"0.488","18":"9","19":"-9.433","20":"0","21":"0.4200","22":"0.1080","23":"0.00000000","24":"0.196","25":"0.605","26":"133.987","27":"210937","28":"4","29":"spotify:track:343YBumqHu19cGoGARUTsd","30":"https://api.spotify.com/v1/audio-analysis/343YBumqHu19cGoGARUTsd","31":"35200192","32":"artist","33":"98","34":"canadian hip hop","35":"canadian hip hop, canadian pop, hip hop, pop rap, rap","36":"5","37":"403","38":"27","39":"37","40":"339","41":"0","42":"425740.1","43":"us","44":"34419285169424099066628240286688246028008200020264000666286680004846860408284404088266622826680488408820820066466","45":"pop","46":"pop","47":"explicit"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>Let’s look at the data. The following graph shows the individual data points for the “duration of residency”" variable, where the blue horizontal line represents the mean of the variable (0.65) and the vertical lines show the distance of the individual data points from the mean.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-43"></span>
-<img src="_main_files/figure-html/unnamed-chunk-43-1.png" alt="Scores for duration of residency variable" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-158"></span>
+<img src="_main_files/figure-html/unnamed-chunk-158-1.png" alt="Scores for duration of residency variable" width="672" />
 <p class="caption">
 Figure 6.1: Scores for duration of residency variable
 </p>
 </div>
 <p>You can see that there are some respondents that have been living in the city longer than average and some respondents that have been living in the city shorter than average. Let’s do the same for the second variable (“Attitude”):</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-44"></span>
-<img src="_main_files/figure-html/unnamed-chunk-44-1.png" alt="Scores for attitude variable" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-159"></span>
+<img src="_main_files/figure-html/unnamed-chunk-159-1.png" alt="Scores for attitude variable" width="672" />
 <p class="caption">
 Figure 6.2: Scores for attitude variable
 </p>
 </div>
 <p>Again, we can see that some respondents have an above average attitude towards the city (more favorable) and some respondents have a below average attitude towards the city. Let’s plot the data in one graph now to see if there is some co-movement:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-45"></span>
-<img src="_main_files/figure-html/unnamed-chunk-45-1.png" alt="Scores for attitude and duration of residency variables" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-160"></span>
+<img src="_main_files/figure-html/unnamed-chunk-160-1.png" alt="Scores for attitude and duration of residency variables" width="672" />
 <p class="caption">
 Figure 6.3: Scores for attitude and duration of residency variables
 </p>
@@ -332,16 +341,16 @@ Cov(x, y) =\frac{\sum_{i=1}^{N}(X_i-\overline{X})*(Y_i-\overline{Y})}{N-1}
 \tag{6.2}
 \end{equation}\]</span></p>
 <p>You can easily compute the covariance manually as follows</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" title="1">x &lt;-<span class="st"> </span>music_data<span class="op">$</span>energy[<span class="op">!</span><span class="kw">is.na</span>(music_data<span class="op">$</span>energy)]</a>
-<a class="sourceLine" id="cb73-2" title="2">x_bar &lt;-<span class="st"> </span><span class="kw">mean</span>(music_data<span class="op">$</span>energy, <span class="dt">na.rm =</span> T)</a>
-<a class="sourceLine" id="cb73-3" title="3">y &lt;-<span class="st"> </span>music_data<span class="op">$</span>loudness[<span class="op">!</span><span class="kw">is.na</span>(music_data<span class="op">$</span>loudness)]</a>
-<a class="sourceLine" id="cb73-4" title="4">y_bar &lt;-<span class="st"> </span><span class="kw">mean</span>(music_data<span class="op">$</span>loudness, <span class="dt">na.rm =</span> T)</a>
-<a class="sourceLine" id="cb73-5" title="5">N &lt;-<span class="st"> </span><span class="kw">nrow</span>(music_data)</a>
-<a class="sourceLine" id="cb73-6" title="6">cov &lt;-<span class="st"> </span>(<span class="kw">sum</span>((x <span class="op">-</span><span class="st"> </span>x_bar) <span class="op">*</span><span class="st"> </span>(y <span class="op">-</span><span class="st"> </span>y_bar)))<span class="op">/</span>(N <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb73-7" title="7">cov</a></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb252-1" title="1">x &lt;-<span class="st"> </span>music_data<span class="op">$</span>energy[<span class="op">!</span><span class="kw">is.na</span>(music_data<span class="op">$</span>energy)]</a>
+<a class="sourceLine" id="cb252-2" title="2">x_bar &lt;-<span class="st"> </span><span class="kw">mean</span>(music_data<span class="op">$</span>energy, <span class="dt">na.rm =</span> T)</a>
+<a class="sourceLine" id="cb252-3" title="3">y &lt;-<span class="st"> </span>music_data<span class="op">$</span>loudness[<span class="op">!</span><span class="kw">is.na</span>(music_data<span class="op">$</span>loudness)]</a>
+<a class="sourceLine" id="cb252-4" title="4">y_bar &lt;-<span class="st"> </span><span class="kw">mean</span>(music_data<span class="op">$</span>loudness, <span class="dt">na.rm =</span> T)</a>
+<a class="sourceLine" id="cb252-5" title="5">N &lt;-<span class="st"> </span><span class="kw">nrow</span>(music_data)</a>
+<a class="sourceLine" id="cb252-6" title="6">cov &lt;-<span class="st"> </span>(<span class="kw">sum</span>((x <span class="op">-</span><span class="st"> </span>x_bar) <span class="op">*</span><span class="st"> </span>(y <span class="op">-</span><span class="st"> </span>y_bar)))<span class="op">/</span>(N <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb252-7" title="7">cov</a></code></pre></div>
 <pre><code>## [1] 0.3475062</code></pre>
 <p>Or you simply use the built-in <code>cov()</code> function:</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" title="1"><span class="kw">cov</span>(x, y)  <span class="co"># apply the cov function </span></a></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb254-1" title="1"><span class="kw">cov</span>(x, y)  <span class="co"># apply the cov function </span></a></code></pre></div>
 <pre><code>## [1] 0.3475891</code></pre>
 <p>A positive covariance indicates that as one variable deviates from the mean, the other variable deviates in the same direction. A negative covariance indicates that as one variable deviates from the mean (e.g., increases), the other variable deviates in the opposite direction (e.g., decreases).</p>
 <p>However, the size of the covariance depends on the scale of measurement. Larger scale units will lead to larger covariance. To overcome the problem of dependence on measurement scale, we need to convert covariance to a standard set of units through standardization by dividing the covariance by the standard deviation (i.e., similar to how we compute z-scores).</p>
@@ -351,14 +360,14 @@ r=\frac{Cov_{xy}}{s_x*s_y}
 \tag{6.3}
 \end{equation}\]</span></p>
 <p>This is known as the product moment correlation (r) and it is straight-forward to compute:</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" title="1">x_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(music_data<span class="op">$</span>energy, <span class="dt">na.rm =</span> T)</a>
-<a class="sourceLine" id="cb77-2" title="2">y_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(music_data<span class="op">$</span>loudness, <span class="dt">na.rm =</span> T)</a>
-<a class="sourceLine" id="cb77-3" title="3">r &lt;-<span class="st"> </span>cov<span class="op">/</span>(x_sd <span class="op">*</span><span class="st"> </span>y_sd)</a>
-<a class="sourceLine" id="cb77-4" title="4">r</a></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb256-1" title="1">x_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(music_data<span class="op">$</span>energy, <span class="dt">na.rm =</span> T)</a>
+<a class="sourceLine" id="cb256-2" title="2">y_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(music_data<span class="op">$</span>loudness, <span class="dt">na.rm =</span> T)</a>
+<a class="sourceLine" id="cb256-3" title="3">r &lt;-<span class="st"> </span>cov<span class="op">/</span>(x_sd <span class="op">*</span><span class="st"> </span>y_sd)</a>
+<a class="sourceLine" id="cb256-4" title="4">r</a></code></pre></div>
 <pre><code>## [1] 0.7314902</code></pre>
 <p>Or you could just use the <code>cor()</code> function:</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" title="1"><span class="kw">cor</span>(music_data[, <span class="kw">c</span>(<span class="st">&quot;energy&quot;</span>, <span class="st">&quot;loudness&quot;</span>)], <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>, </a>
-<a class="sourceLine" id="cb79-2" title="2">    <span class="dt">use =</span> <span class="st">&quot;complete&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb258-1" title="1"><span class="kw">cor</span>(music_data[, <span class="kw">c</span>(<span class="st">&quot;energy&quot;</span>, <span class="st">&quot;loudness&quot;</span>)], <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>, </a>
+<a class="sourceLine" id="cb258-2" title="2">    <span class="dt">use =</span> <span class="st">&quot;complete&quot;</span>)</a></code></pre></div>
 <pre><code>##             energy  loudness
 ## energy   1.0000000 0.7316648
 ## loudness 0.7316648 1.0000000</code></pre>
@@ -384,18 +393,18 @@ t=\frac{r*\sqrt{N-2}}{\sqrt{1-r^2}}
 \tag{6.4}
 \end{equation}\]</span></p>
 <p>It has a t distribution with n - 2 degrees of freedom. Then, we follow the usual procedure of calculating the test statistic and comparing the test statistic to the critical value of the underlying probability distribution. If the calculated test statistic is larger than the critical value, the null hypothesis of no relationship between X and Y is rejected.</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" title="1">t_calc &lt;-<span class="st"> </span>r <span class="op">*</span><span class="st"> </span><span class="kw">sqrt</span>(N <span class="op">-</span><span class="st"> </span><span class="dv">2</span>)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>r<span class="op">^</span><span class="dv">2</span>)  <span class="co">#calculated test statistic</span></a>
-<a class="sourceLine" id="cb81-2" title="2">t_calc</a></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" title="1">t_calc &lt;-<span class="st"> </span>r <span class="op">*</span><span class="st"> </span><span class="kw">sqrt</span>(N <span class="op">-</span><span class="st"> </span><span class="dv">2</span>)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>r<span class="op">^</span><span class="dv">2</span>)  <span class="co">#calculated test statistic</span></a>
+<a class="sourceLine" id="cb260-2" title="2">t_calc</a></code></pre></div>
 <pre><code>## [1] 219.5965</code></pre>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" title="1">df &lt;-<span class="st"> </span>(N <span class="op">-</span><span class="st"> </span><span class="dv">2</span>)  <span class="co">#degrees of freedom</span></a>
-<a class="sourceLine" id="cb83-2" title="2">t_crit &lt;-<span class="st"> </span><span class="kw">qt</span>(<span class="fl">0.975</span>, df)  <span class="co">#critical value</span></a>
-<a class="sourceLine" id="cb83-3" title="3">t_crit</a></code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb262-1" title="1">df &lt;-<span class="st"> </span>(N <span class="op">-</span><span class="st"> </span><span class="dv">2</span>)  <span class="co">#degrees of freedom</span></a>
+<a class="sourceLine" id="cb262-2" title="2">t_crit &lt;-<span class="st"> </span><span class="kw">qt</span>(<span class="fl">0.975</span>, df)  <span class="co">#critical value</span></a>
+<a class="sourceLine" id="cb262-3" title="3">t_crit</a></code></pre></div>
 <pre><code>## [1] 1.960021</code></pre>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" title="1"><span class="kw">pt</span>(<span class="dt">q =</span> t_calc, <span class="dt">df =</span> df, <span class="dt">lower.tail =</span> F) <span class="op">*</span><span class="st"> </span><span class="dv">2</span>  <span class="co">#p-value </span></a></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb264-1" title="1"><span class="kw">pt</span>(<span class="dt">q =</span> t_calc, <span class="dt">df =</span> df, <span class="dt">lower.tail =</span> F) <span class="op">*</span><span class="st"> </span><span class="dv">2</span>  <span class="co">#p-value </span></a></code></pre></div>
 <pre><code>## [1] 0</code></pre>
 <p>Or you can simply use the <code>cor.test()</code> function, which also produces the 95% confidence interval:</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" title="1"><span class="kw">cor.test</span>(music_data<span class="op">$</span>energy, music_data<span class="op">$</span>loudness, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, </a>
-<a class="sourceLine" id="cb87-2" title="2">    <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb266-1" title="1"><span class="kw">cor.test</span>(music_data<span class="op">$</span>energy, music_data<span class="op">$</span>loudness, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, </a>
+<a class="sourceLine" id="cb266-2" title="2">    <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -412,8 +421,8 @@ t=\frac{r*\sqrt{N-2}}{\sqrt{1-r^2}}
 <li>Spearman’s correlation coefficient: requires ordinal data and ranks the data before applying Pearson’s equation.</li>
 <li>Kendall’s tau: use when N is small or the number of tied ranks is large.</li>
 </ul>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" title="1"><span class="kw">cor.test</span>(music_data<span class="op">$</span>energy, music_data<span class="op">$</span>loudness, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, </a>
-<a class="sourceLine" id="cb89-2" title="2">    <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb268-1" title="1"><span class="kw">cor.test</span>(music_data<span class="op">$</span>energy, music_data<span class="op">$</span>loudness, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, </a>
+<a class="sourceLine" id="cb268-2" title="2">    <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Spearman&#39;s rank correlation rho
 ## 
@@ -423,8 +432,8 @@ t=\frac{r*\sqrt{N-2}}{\sqrt{1-r^2}}
 ## sample estimates:
 ##       rho 
 ## 0.7140161</code></pre>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" title="1"><span class="kw">cor.test</span>(music_data<span class="op">$</span>energy, music_data<span class="op">$</span>loudness, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, </a>
-<a class="sourceLine" id="cb91-2" title="2">    <span class="dt">method =</span> <span class="st">&quot;kendall&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb270-1" title="1"><span class="kw">cor.test</span>(music_data<span class="op">$</span>energy, music_data<span class="op">$</span>loudness, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, </a>
+<a class="sourceLine" id="cb270-2" title="2">    <span class="dt">method =</span> <span class="st">&quot;kendall&quot;</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>## 
 ##  Kendall&#39;s rank correlation tau
 ## 
