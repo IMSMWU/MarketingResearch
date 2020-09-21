@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Hypothesis testing | Marketing Research 2019</title>
+  <title>4 Hypothesis testing | Marketing Research</title>
   <meta name="description" content="An Introduction to Statistics Using R" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Hypothesis testing | Marketing Research 2019" />
+  <meta property="og:title" content="4 Hypothesis testing | Marketing Research" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Hypothesis testing | Marketing Research 2019" />
+  <meta name="twitter:title" content="4 Hypothesis testing | Marketing Research" />
   
   <meta name="twitter:description" content="An Introduction to Statistics Using R" />
   
@@ -31,6 +31,7 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="prev" href="introduction-to-statistical-inference.html"/>
 <link rel="next" href="chi-square-test.html"/>
+<script src="libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -54,32 +55,33 @@
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="libs/plotly-binding-4.9.2/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
 <link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
 <script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -88,9 +90,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -135,116 +137,140 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><strong><a href="./">MR 2019</a></strong></li>
+<li><strong><a href="./">Marketing Research</a></strong></li>
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a></li>
-<li class="chapter" data-level="" data-path="course-materials.html"><a href="course-materials.html"><i class="fa fa-check"></i>Course materials</a><ul>
+<li class="chapter" data-level="" data-path="course-materials.html"><a href="course-materials.html"><i class="fa fa-check"></i>Course materials</a>
+<ul>
 <li class="chapter" data-level="" data-path="course-materials.html"><a href="course-materials.html#main-reference"><i class="fa fa-check"></i>Main reference</a></li>
 <li class="chapter" data-level="" data-path="course-materials.html"><a href="course-materials.html#further-readings"><i class="fa fa-check"></i>Further readings</a></li>
 <li class="chapter" data-level="" data-path="course-materials.html"><a href="course-materials.html#datacamp"><i class="fa fa-check"></i>DataCamp</a></li>
 <li class="chapter" data-level="" data-path="course-materials.html"><a href="course-materials.html#other-web-resources"><i class="fa fa-check"></i>Other web-resources</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>1</b> Getting started</a><ul>
+<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>1</b> Getting started</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#how-to-download-and-install-r-and-rstudio"><i class="fa fa-check"></i><b>1.1</b> How to download and install R and RStudio</a></li>
 <li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#getting-help"><i class="fa fa-check"></i><b>1.2</b> Getting help</a></li>
 <li class="chapter" data-level="1.3" data-path="getting-started.html"><a href="getting-started.html#functions"><i class="fa fa-check"></i><b>1.3</b> Functions</a></li>
 <li class="chapter" data-level="1.4" data-path="getting-started.html"><a href="getting-started.html#packages"><i class="fa fa-check"></i><b>1.4</b> Packages</a></li>
 <li class="chapter" data-level="1.5" data-path="getting-started.html"><a href="getting-started.html#a-typical-r-session"><i class="fa fa-check"></i><b>1.5</b> A typical R session</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="data-handling.html"><a href="data-handling.html"><i class="fa fa-check"></i><b>2</b> Data handling</a><ul>
-<li class="chapter" data-level="2.1" data-path="data-handling.html"><a href="data-handling.html#basic-data-handling"><i class="fa fa-check"></i><b>2.1</b> Basic data handling</a><ul>
+<li class="chapter" data-level="2" data-path="data-handling.html"><a href="data-handling.html"><i class="fa fa-check"></i><b>2</b> Data handling</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="data-handling.html"><a href="data-handling.html#basic-data-handling"><i class="fa fa-check"></i><b>2.1</b> Basic data handling</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="data-handling.html"><a href="data-handling.html#creating-objects"><i class="fa fa-check"></i><b>2.1.1</b> Creating objects</a></li>
 <li class="chapter" data-level="2.1.2" data-path="data-handling.html"><a href="data-handling.html#data-types"><i class="fa fa-check"></i><b>2.1.2</b> Data types</a></li>
 <li class="chapter" data-level="2.1.3" data-path="data-handling.html"><a href="data-handling.html#data-structures"><i class="fa fa-check"></i><b>2.1.3</b> Data structures</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="data-handling.html"><a href="data-handling.html#data-import-and-export"><i class="fa fa-check"></i><b>2.2</b> Data import and export</a><ul>
+<li class="chapter" data-level="2.2" data-path="data-handling.html"><a href="data-handling.html#data-import-and-export"><i class="fa fa-check"></i><b>2.2</b> Data import and export</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="data-handling.html"><a href="data-handling.html#getting-data-for-this-course"><i class="fa fa-check"></i><b>2.2.1</b> Getting data for this course</a></li>
 <li class="chapter" data-level="2.2.2" data-path="data-handling.html"><a href="data-handling.html#import-data-created-by-other-software-packages"><i class="fa fa-check"></i><b>2.2.2</b> Import data created by other software packages</a></li>
 <li class="chapter" data-level="2.2.3" data-path="data-handling.html"><a href="data-handling.html#export-data"><i class="fa fa-check"></i><b>2.2.3</b> Export data</a></li>
 <li class="chapter" data-level="2.2.4" data-path="data-handling.html"><a href="data-handling.html#import-data-from-the-web"><i class="fa fa-check"></i><b>2.2.4</b> Import data from the Web</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="data-handling.html"><a href="data-handling.html#summarizing-data"><i class="fa fa-check"></i><b>2.3</b> Summarizing data</a><ul>
+<li class="chapter" data-level="2.3" data-path="data-handling.html"><a href="data-handling.html#summarizing-data"><i class="fa fa-check"></i><b>2.3</b> Summarizing data</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="data-handling.html"><a href="data-handling.html#summary-statistics"><i class="fa fa-check"></i><b>2.3.1</b> Summary statistics</a></li>
 <li class="chapter" data-level="2.3.2" data-path="data-handling.html"><a href="data-handling.html#categorical-variables"><i class="fa fa-check"></i><b>2.3.2</b> Categorical variables</a></li>
 <li class="chapter" data-level="2.3.3" data-path="data-handling.html"><a href="data-handling.html#continuous-variables"><i class="fa fa-check"></i><b>2.3.3</b> Continuous variables</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="data-handling.html"><a href="data-handling.html#data-visualization"><i class="fa fa-check"></i><b>2.4</b> Data visualization</a><ul>
+<li class="chapter" data-level="2.4" data-path="data-handling.html"><a href="data-handling.html#data-visualization"><i class="fa fa-check"></i><b>2.4</b> Data visualization</a>
+<ul>
 <li class="chapter" data-level="2.4.1" data-path="data-handling.html"><a href="data-handling.html#categorical-variables-1"><i class="fa fa-check"></i><b>2.4.1</b> Categorical variables</a></li>
 <li class="chapter" data-level="2.4.2" data-path="data-handling.html"><a href="data-handling.html#continuous-variables-1"><i class="fa fa-check"></i><b>2.4.2</b> Continuous variables</a></li>
 <li class="chapter" data-level="2.4.3" data-path="data-handling.html"><a href="data-handling.html#saving-plots"><i class="fa fa-check"></i><b>2.4.3</b> Saving plots</a></li>
 <li class="chapter" data-level="2.4.4" data-path="data-handling.html"><a href="data-handling.html#additional-options"><i class="fa fa-check"></i><b>2.4.4</b> Additional options</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="data-handling.html"><a href="data-handling.html#writing-reports-using-r-markdown"><i class="fa fa-check"></i><b>2.5</b> Writing reports using R-Markdown</a><ul>
+<li class="chapter" data-level="2.5" data-path="data-handling.html"><a href="data-handling.html#writing-reports-using-r-markdown"><i class="fa fa-check"></i><b>2.5</b> Writing reports using R-Markdown</a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="data-handling.html"><a href="data-handling.html#creating-a-new-r-markdown-document"><i class="fa fa-check"></i><b>2.5.1</b> Creating a new R-Markdown document</a></li>
 <li class="chapter" data-level="2.5.2" data-path="data-handling.html"><a href="data-handling.html#text-and-equations"><i class="fa fa-check"></i><b>2.5.2</b> Text and Equations</a></li>
 <li class="chapter" data-level="2.5.3" data-path="data-handling.html"><a href="data-handling.html#r-code"><i class="fa fa-check"></i><b>2.5.3</b> R-Code</a></li>
 <li class="chapter" data-level="2.5.4" data-path="data-handling.html"><a href="data-handling.html#latex-math"><i class="fa fa-check"></i><b>2.5.4</b> LaTeX Math</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="introduction-to-statistical-inference.html"><a href="introduction-to-statistical-inference.html"><i class="fa fa-check"></i><b>3</b> Introduction to Statistical Inference</a><ul>
-<li class="chapter" data-level="3.1" data-path="introduction-to-statistical-inference.html"><a href="introduction-to-statistical-inference.html#if-we-knew-it-all"><i class="fa fa-check"></i><b>3.1</b> If we knew it all</a><ul>
+<li class="chapter" data-level="3" data-path="introduction-to-statistical-inference.html"><a href="introduction-to-statistical-inference.html"><i class="fa fa-check"></i><b>3</b> Introduction to Statistical Inference</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="introduction-to-statistical-inference.html"><a href="introduction-to-statistical-inference.html#if-we-knew-it-all"><i class="fa fa-check"></i><b>3.1</b> If we knew it all</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="introduction-to-statistical-inference.html"><a href="introduction-to-statistical-inference.html#sampling-from-a-known-population"><i class="fa fa-check"></i><b>3.1.1</b> Sampling from a known population</a></li>
 <li class="chapter" data-level="3.1.2" data-path="introduction-to-statistical-inference.html"><a href="introduction-to-statistical-inference.html#standard-error-of-the-mean"><i class="fa fa-check"></i><b>3.1.2</b> Standard error of the mean</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="introduction-to-statistical-inference.html"><a href="introduction-to-statistical-inference.html#the-central-limit-theorem"><i class="fa fa-check"></i><b>3.2</b> The Central Limit Theorem</a></li>
-<li class="chapter" data-level="3.3" data-path="introduction-to-statistical-inference.html"><a href="introduction-to-statistical-inference.html#using-what-we-actually-know"><i class="fa fa-check"></i><b>3.3</b> Using what we actually know</a><ul>
+<li class="chapter" data-level="3.3" data-path="introduction-to-statistical-inference.html"><a href="introduction-to-statistical-inference.html#using-what-we-actually-know"><i class="fa fa-check"></i><b>3.3</b> Using what we actually know</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="introduction-to-statistical-inference.html"><a href="introduction-to-statistical-inference.html#confidence-intervals-for-the-sample-mean"><i class="fa fa-check"></i><b>3.3.1</b> Confidence Intervals for the Sample Mean</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="introduction-to-statistical-inference.html"><a href="introduction-to-statistical-inference.html#summary"><i class="fa fa-check"></i><b>3.4</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>4</b> Hypothesis testing</a><ul>
-<li class="chapter" data-level="4.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction</a><ul>
+<li class="chapter" data-level="4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>4</b> Hypothesis testing</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#the-null-hypothesis"><i class="fa fa-check"></i><b>4.1.1</b> The null hypothesis</a></li>
 <li class="chapter" data-level="4.1.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#statistical-inference-on-a-sample"><i class="fa fa-check"></i><b>4.1.2</b> Statistical inference on a sample</a></li>
 <li class="chapter" data-level="4.1.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#choosing-the-right-test"><i class="fa fa-check"></i><b>4.1.3</b> Choosing the right test</a></li>
 <li class="chapter" data-level="4.1.4" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#summary-1"><i class="fa fa-check"></i><b>4.1.4</b> Summary</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="chi-square-test.html"><a href="chi-square-test.html"><i class="fa fa-check"></i><b>5</b> Chi-square test</a><ul>
+<li class="chapter" data-level="5" data-path="chi-square-test.html"><a href="chi-square-test.html"><i class="fa fa-check"></i><b>5</b> Chi-square test</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="chi-square-test.html"><a href="chi-square-test.html#confidence-intervals-for-proportions"><i class="fa fa-check"></i><b>5.1</b> Confidence intervals for proportions</a></li>
 <li class="chapter" data-level="5.2" data-path="chi-square-test.html"><a href="chi-square-test.html#chi-square-test-1"><i class="fa fa-check"></i><b>5.2</b> Chi-square test</a></li>
 <li class="chapter" data-level="5.3" data-path="chi-square-test.html"><a href="chi-square-test.html#sample-size-1"><i class="fa fa-check"></i><b>5.3</b> Sample size</a></li>
 <li class="chapter" data-level="5.4" data-path="chi-square-test.html"><a href="chi-square-test.html#summary-2"><i class="fa fa-check"></i><b>5.4</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>6</b> Correlation</a><ul>
+<li class="chapter" data-level="6" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>6</b> Correlation</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="correlation.html"><a href="correlation.html#correlation-coefficient"><i class="fa fa-check"></i><b>6.1</b> Correlation coefficient</a></li>
 <li class="chapter" data-level="6.2" data-path="correlation.html"><a href="correlation.html#significance-testing"><i class="fa fa-check"></i><b>6.2</b> Significance testing</a></li>
 <li class="chapter" data-level="6.3" data-path="correlation.html"><a href="correlation.html#summary-3"><i class="fa fa-check"></i><b>6.3</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="t-test.html"><a href="t-test.html"><i class="fa fa-check"></i><b>7</b> T-Test</a><ul>
+<li class="chapter" data-level="7" data-path="t-test.html"><a href="t-test.html"><i class="fa fa-check"></i><b>7</b> t-test</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="t-test.html"><a href="t-test.html#one-sample-t-test"><i class="fa fa-check"></i><b>7.1</b> One sample t-test</a></li>
-<li class="chapter" data-level="7.2" data-path="t-test.html"><a href="t-test.html#comparing-two-means"><i class="fa fa-check"></i><b>7.2</b> Comparing two means</a><ul>
+<li class="chapter" data-level="7.2" data-path="t-test.html"><a href="t-test.html#comparing-two-means"><i class="fa fa-check"></i><b>7.2</b> Comparing two means</a>
+<ul>
 <li class="chapter" data-level="7.2.1" data-path="t-test.html"><a href="t-test.html#independent-means-t-test"><i class="fa fa-check"></i><b>7.2.1</b> Independent-means t-test</a></li>
 <li class="chapter" data-level="7.2.2" data-path="t-test.html"><a href="t-test.html#dependent-means-t-test"><i class="fa fa-check"></i><b>7.2.2</b> Dependent-means t-test</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="t-test.html"><a href="t-test.html#summary-4"><i class="fa fa-check"></i><b>7.3</b> Summary</a></li>
-<li class="chapter" data-level="7.4" data-path="t-test.html"><a href="t-test.html#further-considerations"><i class="fa fa-check"></i><b>7.4</b> Further considerations</a><ul>
+<li class="chapter" data-level="7.4" data-path="t-test.html"><a href="t-test.html#further-considerations"><i class="fa fa-check"></i><b>7.4</b> Further considerations</a>
+<ul>
 <li class="chapter" data-level="7.4.1" data-path="t-test.html"><a href="t-test.html#type-i-and-type-ii-errors"><i class="fa fa-check"></i><b>7.4.1</b> Type I and Type II Errors</a></li>
 <li class="chapter" data-level="7.4.2" data-path="t-test.html"><a href="t-test.html#significance-level-sample-size-power-and-effect-size"><i class="fa fa-check"></i><b>7.4.2</b> Significance level, sample size, power, and effect size</a></li>
 <li class="chapter" data-level="7.4.3" data-path="t-test.html"><a href="t-test.html#p-values-stopping-rules-and-p-hacking"><i class="fa fa-check"></i><b>7.4.3</b> P-values, stopping rules and p-hacking</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>8</b> ANOVA</a><ul>
+<li class="chapter" data-level="8" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>8</b> ANOVA</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="anova.html"><a href="anova.html#introduction-1"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
-<li class="chapter" data-level="8.2" data-path="anova.html"><a href="anova.html#decomposing-variance"><i class="fa fa-check"></i><b>8.2</b> Decomposing variance</a><ul>
+<li class="chapter" data-level="8.2" data-path="anova.html"><a href="anova.html#decomposing-variance"><i class="fa fa-check"></i><b>8.2</b> Decomposing variance</a>
+<ul>
 <li class="chapter" data-level="8.2.1" data-path="anova.html"><a href="anova.html#total-sum-of-squares"><i class="fa fa-check"></i><b>8.2.1</b> Total sum of squares</a></li>
 <li class="chapter" data-level="8.2.2" data-path="anova.html"><a href="anova.html#model-sum-of-squares"><i class="fa fa-check"></i><b>8.2.2</b> Model sum of squares</a></li>
 <li class="chapter" data-level="8.2.3" data-path="anova.html"><a href="anova.html#residual-sum-of-squares"><i class="fa fa-check"></i><b>8.2.3</b> Residual sum of squares</a></li>
 <li class="chapter" data-level="8.2.4" data-path="anova.html"><a href="anova.html#effect-strength"><i class="fa fa-check"></i><b>8.2.4</b> Effect strength</a></li>
 <li class="chapter" data-level="8.2.5" data-path="anova.html"><a href="anova.html#test-of-significance"><i class="fa fa-check"></i><b>8.2.5</b> Test of significance</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="anova.html"><a href="anova.html#one-way-anova"><i class="fa fa-check"></i><b>8.3</b> One-way ANOVA</a><ul>
+<li class="chapter" data-level="8.3" data-path="anova.html"><a href="anova.html#one-way-anova"><i class="fa fa-check"></i><b>8.3</b> One-way ANOVA</a>
+<ul>
 <li class="chapter" data-level="8.3.1" data-path="anova.html"><a href="anova.html#basic-anova"><i class="fa fa-check"></i><b>8.3.1</b> Basic ANOVA</a></li>
 <li class="chapter" data-level="8.3.2" data-path="anova.html"><a href="anova.html#post-hoc-tests"><i class="fa fa-check"></i><b>8.3.2</b> Post-hoc tests</a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="anova.html"><a href="anova.html#summary-5"><i class="fa fa-check"></i><b>8.4</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>9</b> Regression</a><ul>
-<li class="chapter" data-level="9.1" data-path="regression.html"><a href="regression.html#regression-1"><i class="fa fa-check"></i><b>9.1</b> Regression</a><ul>
+<li class="chapter" data-level="9" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>9</b> Regression</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="regression.html"><a href="regression.html#regression-1"><i class="fa fa-check"></i><b>9.1</b> Regression</a>
+<ul>
 <li class="chapter" data-level="9.1.1" data-path="regression.html"><a href="regression.html#simple-linear-regression"><i class="fa fa-check"></i><b>9.1.1</b> Simple linear regression</a></li>
 <li class="chapter" data-level="9.1.2" data-path="regression.html"><a href="regression.html#multiple-linear-regression"><i class="fa fa-check"></i><b>9.1.2</b> Multiple linear regression</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="regression.html"><a href="regression.html#potential-problems"><i class="fa fa-check"></i><b>9.2</b> Potential problems</a><ul>
+<li class="chapter" data-level="9.2" data-path="regression.html"><a href="regression.html#potential-problems"><i class="fa fa-check"></i><b>9.2</b> Potential problems</a>
+<ul>
 <li class="chapter" data-level="9.2.1" data-path="regression.html"><a href="regression.html#outliers"><i class="fa fa-check"></i><b>9.2.1</b> Outliers</a></li>
 <li class="chapter" data-level="9.2.2" data-path="regression.html"><a href="regression.html#influential-observations"><i class="fa fa-check"></i><b>9.2.2</b> Influential observations</a></li>
 <li class="chapter" data-level="9.2.3" data-path="regression.html"><a href="regression.html#non-linearity"><i class="fa fa-check"></i><b>9.2.3</b> Non-linearity</a></li>
@@ -254,7 +280,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2.7" data-path="regression.html"><a href="regression.html#collinearity"><i class="fa fa-check"></i><b>9.2.7</b> Collinearity</a></li>
 <li class="chapter" data-level="9.2.8" data-path="regression.html"><a href="regression.html#omitted-variables"><i class="fa fa-check"></i><b>9.2.8</b> Omitted Variables</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="regression.html"><a href="regression.html#categorical-predictors"><i class="fa fa-check"></i><b>9.3</b> Categorical predictors</a><ul>
+<li class="chapter" data-level="9.3" data-path="regression.html"><a href="regression.html#categorical-predictors"><i class="fa fa-check"></i><b>9.3</b> Categorical predictors</a>
+<ul>
 <li class="chapter" data-level="9.3.1" data-path="regression.html"><a href="regression.html#two-categories"><i class="fa fa-check"></i><b>9.3.1</b> Two categories</a></li>
 <li class="chapter" data-level="9.3.2" data-path="regression.html"><a href="regression.html#more-than-two-categories"><i class="fa fa-check"></i><b>9.3.2</b> More than two categories</a></li>
 </ul></li>
@@ -269,7 +296,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Marketing Research 2019</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Marketing Research</a>
           </h1>
         </div>
 
@@ -277,28 +304,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="hypothesis-testing" class="section level1">
+<div id="hypothesis-testing" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> Hypothesis testing</h1>
 <p>This chapter is primarily based on Field, A., Miles J., &amp; Field, Z. (2012): Discovering Statistics Using R. Sage Publications, <strong>chapter 5</strong>.</p>
 <p><a href="./Code/07-hypothesis_testing%20(2).R">You can download the corresponding R-Code here</a></p>
-<div id="introduction" class="section level2">
+<div id="introduction" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Introduction</h2>
 <p>We test hypotheses because we are confined to taking samples – we rarely work with the entire population. In the previous chapter, we introduced the standard error (i.e., the standard deviation of a large number of hypothetical samples) as an estimate of how well a particular sample represents the population. We also saw how we can construct confidence intervals around the sample mean <span class="math inline">\(\bar x\)</span> by computing <span class="math inline">\(SE_{\bar x}\)</span> as an estimate of <span class="math inline">\(\sigma_{\bar x}\)</span> using <span class="math inline">\(s\)</span> as an estimate of <span class="math inline">\(\sigma\)</span> and calculating the 95% CI as <span class="math inline">\(\bar x \pm 1.96 * SE_{\bar x}\)</span>. Although we do not know the true population mean (<span class="math inline">\(\mu\)</span>), we might have an hypothesis about it and this would tell us how the corresponding sampling distribution looks like. Based on the sampling distribution of the hypothesized population mean, we could then determine the probability of a given sample <strong>assuming that the hypothesis is true</strong>.</p>
 <p>Let us again begin by assuming we know the entire population using the example of music listening times among students from the previous example. As a reminder, the following plot shows the distribution of music listening times in the population of WU students.</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" title="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb180-2" title="2"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb180-3" title="3"><span class="kw">library</span>(latex2exp)</a>
-<a class="sourceLine" id="cb180-4" title="4"><span class="kw">set.seed</span>(<span class="dv">321</span>)</a>
-<a class="sourceLine" id="cb180-5" title="5">hours &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dv">25000</span>, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb180-6" title="6"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(hours)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> hours), </a>
-<a class="sourceLine" id="cb180-7" title="7">    <span class="dt">bins =</span> <span class="dv">30</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(hours), </a>
-<a class="sourceLine" id="cb180-8" title="8">    <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram of listening times&quot;</span>, </a>
-<a class="sourceLine" id="cb180-9" title="9">    <span class="dt">subtitle =</span> <span class="kw">TeX</span>(<span class="kw">sprintf</span>(<span class="st">&quot;Population mean ($</span><span class="ch">\\</span><span class="st">mu$) = %.2f; population standard deviation ($</span><span class="ch">\\</span><span class="st">sigma$) = %.2f&quot;</span>, </a>
-<a class="sourceLine" id="cb180-10" title="10">        <span class="kw">round</span>(<span class="kw">mean</span>(hours), <span class="dv">2</span>), <span class="kw">round</span>(<span class="kw">sd</span>(hours), <span class="dv">2</span>))), </a>
-<a class="sourceLine" id="cb180-11" title="11">    <span class="dt">y =</span> <span class="st">&quot;Number of students&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Hours&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="hypothesis-testing.html#cb181-1" aria-hidden="true"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb181-2"><a href="hypothesis-testing.html#cb181-2" aria-hidden="true"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb181-3"><a href="hypothesis-testing.html#cb181-3" aria-hidden="true"></a><span class="kw">library</span>(latex2exp)</span>
+<span id="cb181-4"><a href="hypothesis-testing.html#cb181-4" aria-hidden="true"></a><span class="kw">set.seed</span>(<span class="dv">321</span>)</span>
+<span id="cb181-5"><a href="hypothesis-testing.html#cb181-5" aria-hidden="true"></a>hours &lt;-<span class="st"> </span><span class="kw">rgamma</span>(<span class="dv">25000</span>, <span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">scale =</span> <span class="dv">10</span>)</span>
+<span id="cb181-6"><a href="hypothesis-testing.html#cb181-6" aria-hidden="true"></a><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(hours)) <span class="op">+</span></span>
+<span id="cb181-7"><a href="hypothesis-testing.html#cb181-7" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> hours), <span class="dt">bins =</span> <span class="dv">30</span>, <span class="dt">fill=</span><span class="st">&#39;white&#39;</span>, <span class="dt">color=</span><span class="st">&#39;black&#39;</span>) <span class="op">+</span></span>
+<span id="cb181-8"><a href="hypothesis-testing.html#cb181-8" aria-hidden="true"></a><span class="st">    </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(hours), <span class="dt">size =</span> <span class="dv">1</span>)  <span class="op">+</span><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb181-9"><a href="hypothesis-testing.html#cb181-9" aria-hidden="true"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram of listening times&quot;</span>,</span>
+<span id="cb181-10"><a href="hypothesis-testing.html#cb181-10" aria-hidden="true"></a>       <span class="dt">subtitle =</span> <span class="kw">TeX</span>(<span class="kw">sprintf</span>(<span class="st">&quot;Population mean ($</span><span class="ch">\\</span><span class="st">mu$) = %.2f; population standard deviation ($</span><span class="ch">\\</span><span class="st">sigma$) = %.2f&quot;</span>,<span class="kw">round</span>(<span class="kw">mean</span>(hours),<span class="dv">2</span>),<span class="kw">round</span>(<span class="kw">sd</span>(hours),<span class="dv">2</span>))),</span>
+<span id="cb181-11"><a href="hypothesis-testing.html#cb181-11" aria-hidden="true"></a>       <span class="dt">y =</span> <span class="st">&#39;Number of students&#39;</span>, </span>
+<span id="cb181-12"><a href="hypothesis-testing.html#cb181-12" aria-hidden="true"></a>       <span class="dt">x =</span> <span class="st">&#39;Hours&#39;</span>) </span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-117-1.png" width="672" /></p>
 <p>In this example, the population mean (<span class="math inline">\(\mu\)</span>) is equal to 19.98, and the population standard deviation <span class="math inline">\(\sigma\)</span> is equal to 14.15.</p>
-<div id="the-null-hypothesis" class="section level3">
+<div id="the-null-hypothesis" class="section level3" number="4.1.1">
 <h3><span class="header-section-number">4.1.1</span> The null hypothesis</h3>
 <p>Let us assume that we were planning to take a random sample of 50 students from this population and our hypothesis was that the mean listening time is equal to some specific value <span class="math inline">\(\mu_0\)</span>, say <span class="math inline">\(10\)</span>. This would be our <strong>null hypothesis</strong>. The null hypothesis refers to the statement that is being tested and is usually a statement of the status quo, one of no difference or no effect. In our example, the null hypothesis would state that there is no difference between the true population mean <span class="math inline">\(\mu\)</span> and the hypothesized value <span class="math inline">\(\mu_0\)</span> (in our example <span class="math inline">\(10\)</span>), which can be expressed as follows:</p>
 <p><span class="math display">\[
@@ -310,34 +338,32 @@ H_1: \mu \neq \mu_0
 \]</span>
 Accepting the alternative hypothesis in turn will often lead to changes in opinions or actions. Note that while the null hypothesis may be rejected, it can never be accepted based on a single test. If we fail to reject the null hypothesis, it means that we simply haven’t collected enough evidence against the null hypothesis to disprove it. In classical hypothesis testing, there is no way to determine whether the null hypothesis is true. <strong>Hypothesis testing</strong> provides a means to quantify to what extent the data from our sample is in line with the null hypothesis.</p>
 <p>In order to quantify the concept of “sufficient evidence” we look at the theoretical distribution of the sample means given our null hypothesis and the sample standard error. Using the available information we can infer the sampling distribution for our null hypothesis. Recall that the standard deviation of the sampling distribution (i.e., the standard error of the mean) is given by <span class="math inline">\(\sigma_{\bar x}={\sigma \over \sqrt{n}}\)</span>, and thus can be computed as follows:</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" title="1">mean_pop &lt;-<span class="st"> </span><span class="kw">mean</span>(hours)</a>
-<a class="sourceLine" id="cb181-2" title="2">sigma &lt;-<span class="st"> </span><span class="kw">sd</span>(hours)  <span class="co">#population standard deviation</span></a>
-<a class="sourceLine" id="cb181-3" title="3">n &lt;-<span class="st"> </span><span class="dv">50</span>  <span class="co">#sample size</span></a>
-<a class="sourceLine" id="cb181-4" title="4">standard_error &lt;-<span class="st"> </span>sigma<span class="op">/</span><span class="kw">sqrt</span>(n)  <span class="co">#standard error</span></a>
-<a class="sourceLine" id="cb181-5" title="5">standard_error</a></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="hypothesis-testing.html#cb182-1" aria-hidden="true"></a>mean_pop &lt;-<span class="st"> </span><span class="kw">mean</span>(hours)</span>
+<span id="cb182-2"><a href="hypothesis-testing.html#cb182-2" aria-hidden="true"></a>sigma &lt;-<span class="st"> </span><span class="kw">sd</span>(hours) <span class="co">#population standard deviation</span></span>
+<span id="cb182-3"><a href="hypothesis-testing.html#cb182-3" aria-hidden="true"></a>n &lt;-<span class="st"> </span><span class="dv">50</span> <span class="co">#sample size</span></span>
+<span id="cb182-4"><a href="hypothesis-testing.html#cb182-4" aria-hidden="true"></a>standard_error &lt;-<span class="st"> </span>sigma<span class="op">/</span><span class="kw">sqrt</span>(n) <span class="co">#standard error</span></span>
+<span id="cb182-5"><a href="hypothesis-testing.html#cb182-5" aria-hidden="true"></a>standard_error</span></code></pre></div>
 <pre><code>## [1] 2.001639</code></pre>
 <p>Since we know from the central limit theorem that the sampling distribution is normal for large enough samples, we can now visualize the expected sampling distribution <strong>if our null hypothesis was in fact true</strong> (i.e., if the was no difference between the true population mean and the hypothesized mean of 10).</p>
 <p><img src="_main_files/figure-html/unnamed-chunk-119-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>We also know that 95% of the probability is within 1.96 standard deviations from the mean. Values higher than that are rather unlikely, if our hypothesis about the population mean was indeed true. This is shown by the shaded area, also known as the “rejection region”. To test our hypothesis that the population mean is equal to <span class="math inline">\(10\)</span>, let us take a random sample from the population.</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" title="1"><span class="kw">set.seed</span>(<span class="dv">12567</span>)</a>
-<a class="sourceLine" id="cb183-2" title="2">H_<span class="dv">0</span> &lt;-<span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb183-3" title="3">student_sample &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25000</span>, <span class="dt">size =</span> <span class="dv">50</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb183-4" title="4">student_sample &lt;-<span class="st"> </span>hours[student_sample]</a>
-<a class="sourceLine" id="cb183-5" title="5">mean_sample &lt;-<span class="st"> </span><span class="kw">mean</span>(student_sample)</a>
-<a class="sourceLine" id="cb183-6" title="6"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(student_sample)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> student_sample), </a>
-<a class="sourceLine" id="cb183-7" title="7">    <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb183-8" title="8"><span class="st">    </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(student_sample), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, </a>
-<a class="sourceLine" id="cb183-9" title="9">        <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">TeX</span>(<span class="kw">sprintf</span>(<span class="st">&quot;Distribution of values in the sample ($n =$ %.0f, $</span><span class="ch">\\</span><span class="st">bar{x] = $ %.2f, s = %.2f)&quot;</span>, </a>
-<a class="sourceLine" id="cb183-10" title="10">    n, <span class="kw">mean</span>(student_sample), <span class="kw">sd</span>(student_sample))), </a>
-<a class="sourceLine" id="cb183-11" title="11">    <span class="dt">x =</span> <span class="st">&quot;Hours&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="hypothesis-testing.html#cb184-1" aria-hidden="true"></a><span class="kw">set.seed</span>(<span class="dv">12567</span>)</span>
+<span id="cb184-2"><a href="hypothesis-testing.html#cb184-2" aria-hidden="true"></a>H_<span class="dv">0</span> &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb184-3"><a href="hypothesis-testing.html#cb184-3" aria-hidden="true"></a>student_sample &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25000</span>, <span class="dt">size =</span> <span class="dv">50</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb184-4"><a href="hypothesis-testing.html#cb184-4" aria-hidden="true"></a>student_sample &lt;-<span class="st"> </span>hours[student_sample]</span>
+<span id="cb184-5"><a href="hypothesis-testing.html#cb184-5" aria-hidden="true"></a>mean_sample &lt;-<span class="st"> </span><span class="kw">mean</span>(student_sample)</span>
+<span id="cb184-6"><a href="hypothesis-testing.html#cb184-6" aria-hidden="true"></a><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(student_sample)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb184-7"><a href="hypothesis-testing.html#cb184-7" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> student_sample), <span class="dt">fill =</span> <span class="st">&#39;white&#39;</span>, <span class="dt">color =</span> <span class="st">&#39;black&#39;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span></span>
+<span id="cb184-8"><a href="hypothesis-testing.html#cb184-8" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(student_sample), <span class="dt">color =</span> <span class="st">&#39;black&#39;</span>, <span class="dt">size=</span><span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb184-9"><a href="hypothesis-testing.html#cb184-9" aria-hidden="true"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">TeX</span>(<span class="kw">sprintf</span>(<span class="st">&quot;Distribution of values in the sample ($n =$ %.0f, $</span><span class="ch">\\</span><span class="st">bar{x] = $ %.2f, s = %.2f)&quot;</span>,n,<span class="kw">mean</span>(student_sample),<span class="kw">sd</span>(student_sample))),<span class="dt">x =</span> <span class="st">&quot;Hours&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Frequency&quot;</span>) </span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-120-1.png" width="672" /></p>
 <p>The mean listening time in the sample (black line) <span class="math inline">\(\bar x\)</span> is 18.59. We can already see from the graphic above that such a value is rather unlikely under the hypothesis that the population mean is <span class="math inline">\(10\)</span>. Intuitively, such a result would therefore provide evidence against our null hypothesis. But how could we quantify specifically how unlikely it is to obtain such a value and decide whether or not to reject the null hypothesis? Significance tests can be used to provide answers to these questions.</p>
 </div>
-<div id="statistical-inference-on-a-sample" class="section level3">
+<div id="statistical-inference-on-a-sample" class="section level3" number="4.1.2">
 <h3><span class="header-section-number">4.1.2</span> Statistical inference on a sample</h3>
-<div id="test-statistic" class="section level4">
+<div id="test-statistic" class="section level4" number="4.1.2.1">
 <h4><span class="header-section-number">4.1.2.1</span> Test statistic</h4>
-<div id="z-scores" class="section level5">
+<div id="z-scores" class="section level5" number="4.1.2.1.1">
 <h5><span class="header-section-number">4.1.2.1.1</span> z-scores</h5>
 <p>Let’s go back to the sampling distribution above. We know that 95% of all values will fall within 1.96 standard deviations from the mean. So if we could express the distance between our sample mean and the null hypothesis in terms of standard deviations, we could make statements about the probability of getting a sample mean of the observed magnitude (or more extreme values). Essentially, we would like to know how many standard deviations (<span class="math inline">\(\sigma_{\bar x}\)</span>) our sample mean (<span class="math inline">\(\bar x\)</span>) is away from the population mean if the null hypothesis was true (<span class="math inline">\(\mu_0\)</span>). This can be formally expressed as follows:</p>
 <p><span class="math display">\[
@@ -348,19 +374,19 @@ Accepting the alternative hypothesis in turn will often lead to changes in opini
 z = {\bar x-  \mu_0 \over \sigma_{\bar x}}={\bar x-  \mu_0 \over \sigma / \sqrt{n}}
 \]</span></p>
 <p>This standardized value (or “z-score”) is also referred to as a <strong>test statistic</strong>. Let’s compute the test statistic for our example above:</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb184-1" title="1">z_score &lt;-<span class="st"> </span>(mean_sample <span class="op">-</span><span class="st"> </span>H_<span class="dv">0</span>)<span class="op">/</span>(sigma<span class="op">/</span><span class="kw">sqrt</span>(n))</a>
-<a class="sourceLine" id="cb184-2" title="2">z_score</a></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="hypothesis-testing.html#cb185-1" aria-hidden="true"></a>z_score &lt;-<span class="st"> </span>(mean_sample <span class="op">-</span><span class="st"> </span>H_<span class="dv">0</span>)<span class="op">/</span>(sigma<span class="op">/</span><span class="kw">sqrt</span>(n))</span>
+<span id="cb185-2"><a href="hypothesis-testing.html#cb185-2" aria-hidden="true"></a>z_score</span></code></pre></div>
 <pre><code>## [1] 4.292454</code></pre>
 <p>To make a decision on whether the difference can be deemed statistically significant, we now need to compare this calculated test statistic to a meaningful threshold. In order to do so, we need to decide on a significance level <span class="math inline">\(\alpha\)</span>, which expresses the probability of finding an effect that does not actually exist (i.e., Type I Error). You can find a detailed discussion of this point at the end of this chapter. For now, we will adopt the widely accepted significance level of 5% and set <span class="math inline">\(\alpha\)</span> to 0.05. The critical value for the normal distribution and <span class="math inline">\(\alpha\)</span> = 0.05 can be computed using the <code>qnorm()</code> function as follows:</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb186-1" title="1">z_crit &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)</a>
-<a class="sourceLine" id="cb186-2" title="2">z_crit</a></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="hypothesis-testing.html#cb187-1" aria-hidden="true"></a>z_crit &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)</span>
+<span id="cb187-2"><a href="hypothesis-testing.html#cb187-2" aria-hidden="true"></a>z_crit</span></code></pre></div>
 <pre><code>## [1] 1.959964</code></pre>
 <p>We use <code>0.975</code> and not <code>0.95</code> since we are running a two-sided test and need to account for the rejection region at the other end of the distribution. Recall that for the normal distribution, 95% of the total probability falls within 1.96 standard deviations of the mean, so that higher (absolute) values provide evidence against the null hypothesis. Generally, we speak of a statistically significant effect if the (absolute) calculated test statistic is larger than the (absolute) critical value. We can easily check if this is the case in our example:</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" title="1"><span class="kw">abs</span>(z_score) <span class="op">&gt;</span><span class="st"> </span><span class="kw">abs</span>(z_crit)</a></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="hypothesis-testing.html#cb189-1" aria-hidden="true"></a><span class="kw">abs</span>(z_score) <span class="op">&gt;</span><span class="st"> </span><span class="kw">abs</span>(z_crit)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>Since the absolute value of the calculated test statistic is larger than the critical value, we would reject <span class="math inline">\(H_0\)</span> and conclude that the true population mean <span class="math inline">\(\mu\)</span> is significantly different from the hypothesized value <span class="math inline">\(\mu_0 = 10\)</span>.</p>
 </div>
-<div id="t-statistic" class="section level5">
+<div id="t-statistic" class="section level5" number="4.1.2.1.2">
 <h5><span class="header-section-number">4.1.2.1.2</span> t-statistic</h5>
 <p>You may have noticed that the formula for the z-score above assumes that we know the true population standard deviation (<span class="math inline">\(\sigma\)</span>) when computing the standard deviation of the sampling distribution (<span class="math inline">\(\sigma_{\bar x}\)</span>) in the denominator. However, the population standard deviation is usually not known in the real world and therefore represents another unknown population parameter which we have to estimate from the sample. We saw in the previous chapter that we usually use <span class="math inline">\(s\)</span> as an estimate of <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(SE_{\bar x}\)</span> as and estimate of <span class="math inline">\(\sigma_{\bar x}\)</span>. Intuitively, we should be more conservative regarding the critical value that we used above to assess whether we have a significant effect to reflect this uncertainty about the true population standard deviation. That is, the threshold for a “significant” effect should be higher to safeguard against falsely claiming a significant effect when there is none. If we replace <span class="math inline">\(\sigma_{\bar x}\)</span> by it’s estimate <span class="math inline">\(SE_{\bar x}\)</span> in the formula for the z-score, we get a new test statistic (i.e, the <strong>t-statistic</strong>) with its own distribution (the <strong>t-distribution</strong>):</p>
 <p><span class="math display">\[
@@ -369,17 +395,17 @@ t = {\bar x-  \mu_0 \over SE_{\bar x}}={\bar x-  \mu_0 \over s / \sqrt{n}}
 <p>Here, <span class="math inline">\(\bar X\)</span> denotes the sample mean and <span class="math inline">\(s\)</span> the sample standard deviation. The t-distribution has more probability in its “tails”, i.e. farther away from the mean. This reflects the higher uncertainty introduced by replacing the population standard deviation by its sample estimate. Intuitively, this is particularly relevant for small samples, since the uncertainty about the true population parameters decreases with increasing sample size. This is reflected by the fact that the exact shape of the t-distribution depends on the <strong>degrees of freedom</strong>, which is the sample size minus one (i.e., <span class="math inline">\(n-1\)</span>). To see this, the following graph shows the t-distribution with different degrees of freedom for a two-tailed test and <span class="math inline">\(\alpha = 0.05\)</span>. The grey curve shows the normal distribution.</p>
 <p><img src="_main_files/figure-html/unnamed-chunk-124-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>Notice that as <span class="math inline">\(n\)</span> gets larger, the t-distribution gets closer and closer to the normal distribution, reflecting the fact that the uncertainty introduced by <span class="math inline">\(s\)</span> is reduced. To summarize, we now have an estimate for the standard deviation of the distribution of the sample mean (i.e., <span class="math inline">\(SE_{\bar x}\)</span>) and an appropriate distribution that takes into account the necessary uncertainty (i.e., the t-distribution). Let us now compute the t-statistic according to the formula above:</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" title="1">SE &lt;-<span class="st"> </span>(<span class="kw">sd</span>(student_sample)<span class="op">/</span><span class="kw">sqrt</span>(n))</a>
-<a class="sourceLine" id="cb190-2" title="2">t_score &lt;-<span class="st"> </span>(mean_sample <span class="op">-</span><span class="st"> </span>H_<span class="dv">0</span>)<span class="op">/</span>SE</a>
-<a class="sourceLine" id="cb190-3" title="3">t_score</a></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="hypothesis-testing.html#cb191-1" aria-hidden="true"></a>SE &lt;-<span class="st"> </span>(<span class="kw">sd</span>(student_sample)<span class="op">/</span><span class="kw">sqrt</span>(n))</span>
+<span id="cb191-2"><a href="hypothesis-testing.html#cb191-2" aria-hidden="true"></a>t_score &lt;-<span class="st"> </span>(mean_sample <span class="op">-</span><span class="st"> </span>H_<span class="dv">0</span>)<span class="op">/</span>SE</span>
+<span id="cb191-3"><a href="hypothesis-testing.html#cb191-3" aria-hidden="true"></a>t_score</span></code></pre></div>
 <pre><code>## [1] 4.84204</code></pre>
 <p>Notice that the value of the t-statistic is higher compared to the z-score (4.29). This can be attributed to the fact that by using the <span class="math inline">\(s\)</span> as and estimate of <span class="math inline">\(\sigma\)</span>, we underestimate the true population standard deviation. Hence, the critical value would need to be larger to adjust for this. This is what the t-distribution does. Let us compute the critical value from the t-distribution with <code>n - 1</code>degrees of freedom.</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" title="1">df =<span class="st"> </span>n <span class="op">-</span><span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb192-2" title="2">t_crit &lt;-<span class="st"> </span><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dt">df =</span> df)</a>
-<a class="sourceLine" id="cb192-3" title="3">t_crit</a></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="hypothesis-testing.html#cb193-1" aria-hidden="true"></a>df =<span class="st"> </span>n <span class="op">-</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb193-2"><a href="hypothesis-testing.html#cb193-2" aria-hidden="true"></a>t_crit &lt;-<span class="st"> </span><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dt">df =</span> df)</span>
+<span id="cb193-3"><a href="hypothesis-testing.html#cb193-3" aria-hidden="true"></a>t_crit</span></code></pre></div>
 <pre><code>## [1] 2.009575</code></pre>
 <p>Again, we use <code>0.975</code> and not <code>0.95</code> since we are running a two-sided test and need to account for the rejection region at the other end of the distribution. Notice that the new critical value based on the t-distributionis larger, to reflect the uncertainty when estimating <span class="math inline">\(\sigma\)</span> from <span class="math inline">\(s\)</span>. Now we can see that the calculated test statistic is still larger than the critical value.</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" title="1"><span class="kw">abs</span>(t_score) <span class="op">&gt;</span><span class="st"> </span><span class="kw">abs</span>(t_crit)</a></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="hypothesis-testing.html#cb195-1" aria-hidden="true"></a><span class="kw">abs</span>(t_score) <span class="op">&gt;</span><span class="st"> </span><span class="kw">abs</span>(t_crit)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>The following graphics shows that the calculated test statistic (red line) falls into the rejection region so that in our example, we would reject the null hypothesis that the true population mean is equal to <span class="math inline">\(10\)</span>.</p>
 <p><img src="_main_files/figure-html/unnamed-chunk-128-1.png" width="768" style="display: block; margin: auto;" /></p>
@@ -387,16 +413,16 @@ t = {\bar x-  \mu_0 \over SE_{\bar x}}={\bar x-  \mu_0 \over s / \sqrt{n}}
 <p>Something to keep in mind here is the fact the test statistic is a function of the sample size. This, as <span class="math inline">\(n\)</span> gets large, the test statistic gets larger as well and we are more likely to find a significant effect. This reflects the decrease in uncertainty about the true population mean as our sample size increases.</p>
 </div>
 </div>
-<div id="p-values" class="section level4">
+<div id="p-values" class="section level4" number="4.1.2.2">
 <h4><span class="header-section-number">4.1.2.2</span> P-values</h4>
 <p>In the previous section, we computed the test statistic, which tells us how close our sample is to the null hypothesis. The p-value corresponds to the probability that the test statistic would take a value as extreme or more extreme than the one that we actually observed, <strong>assuming that the null hypothesis is true</strong>. It is important to note that this is a <strong>conditional probability</strong>: we compute the probability of observing a sample mean (or a more extreme value) conditional on the assumption that the null hypothesis is true. The <code>pnorm()</code>function can be used to compute this probability. It is the cumulative probability distribution function of the `normal distribution. Cumulative probability means that the function returns the probability that the test statistic will take a value <strong>less than or equal to</strong> the calculated test statistic given the degrees of freedom. However, we are interested in obtaining the probability of observing a test statistic <strong>larger than or equal to</strong> the calculated test statistic under the null hypothesis (i.e., the p-value). Thus, we need to subtract the cumulative probability from 1. In addition, since we are running a two-sided test, we need to multiply the probability by 2 to account for the rejection region at the other side of the distribution.</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" title="1">p_value &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pt</span>(<span class="kw">abs</span>(t_score), <span class="dt">df =</span> df))</a>
-<a class="sourceLine" id="cb196-2" title="2">p_value</a></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="hypothesis-testing.html#cb197-1" aria-hidden="true"></a>p_value &lt;-<span class="st"> </span><span class="dv">2</span><span class="op">*</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">pt</span>(<span class="kw">abs</span>(t_score), <span class="dt">df =</span> df))</span>
+<span id="cb197-2"><a href="hypothesis-testing.html#cb197-2" aria-hidden="true"></a>p_value</span></code></pre></div>
 <pre><code>## [1] 0.00001326885</code></pre>
 <p>This value corresponds to the probability of observing a mean equal to or larger than the one we obtained from our sample, if the null hypothesis was true. As you can see, this probability is very low. A small p-value signals that it is unlikely to observe the calculated test statistic under the null hypothesis. To decide whether or not to reject the null hypothesis, we would now compare this value to the level of significance (<span class="math inline">\(\alpha\)</span>) that we chose for our test. For this example, we adopt the widely accepted significance level of 5%, so any test results with a p-value &lt; 0.05 would be deemed statistically significant. Note that the p-value is directly related to the value of the test statistic. The relationship is such that the higher (lower) the value of the test statistic, the lower (higher) the p-value.</p>
 <p><strong>Decision:</strong> Reject <span class="math inline">\(H_0\)</span>, given that the p-value is smaller than 0.05.</p>
 </div>
-<div id="confidence-interval" class="section level4">
+<div id="confidence-interval" class="section level4" number="4.1.2.3">
 <h4><span class="header-section-number">4.1.2.3</span> Confidence interval</h4>
 <p>For a given statistic calculated for a sample of observations (e.g., listening times), a 95% confidence interval can be constructed such that in 95% of samples, the true value of the true population mean will fall within its limits. If the parameter value specified in the null hypothesis (here <span class="math inline">\(10\)</span>) does not lie within the bounds, we reject <span class="math inline">\(H_0\)</span>. Building on what we learned about confidence intervals in the previous chapter, the 95% confidence interval based on the t-distribution can be computed as follows:</p>
 <p><span class="math display">\[
@@ -404,18 +430,18 @@ CI_{lower} = {\bar x} - t_{1-{\alpha \over 2}} * SE_{\bar x} \\
 CI_{upper} = {\bar x} + t_{1-{\alpha \over 2}} * SE_{\bar x}
 \]</span></p>
 <p>It is easy to compute this interval manually:</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" title="1">ci_lower &lt;-<span class="st"> </span>(mean_sample) <span class="op">-</span><span class="st"> </span><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dt">df =</span> df) <span class="op">*</span><span class="st"> </span>SE</a>
-<a class="sourceLine" id="cb198-2" title="2">ci_upper &lt;-<span class="st"> </span>(mean_sample) <span class="op">+</span><span class="st"> </span><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dt">df =</span> df) <span class="op">*</span><span class="st"> </span>SE</a>
-<a class="sourceLine" id="cb198-3" title="3">ci_lower</a></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="hypothesis-testing.html#cb199-1" aria-hidden="true"></a>ci_lower &lt;-<span class="st"> </span>(mean_sample)<span class="op">-</span><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dt">df =</span> df)<span class="op">*</span>SE</span>
+<span id="cb199-2"><a href="hypothesis-testing.html#cb199-2" aria-hidden="true"></a>ci_upper &lt;-<span class="st"> </span>(mean_sample)<span class="op">+</span><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dt">df =</span> df)<span class="op">*</span>SE</span>
+<span id="cb199-3"><a href="hypothesis-testing.html#cb199-3" aria-hidden="true"></a>ci_lower</span></code></pre></div>
 <pre><code>## [1] 15.02606</code></pre>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" title="1">ci_upper</a></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="hypothesis-testing.html#cb201-1" aria-hidden="true"></a>ci_upper</span></code></pre></div>
 <pre><code>## [1] 22.15783</code></pre>
 <p>The interpretation of this interval is as follows: if we would (hypothetically) take 100 samples and calculated the mean and confidence interval for each of them, then the true population mean would be included in 95% of these intervals. The CI is informative when reporting the result of your test, since it provides an estimate of the uncertainty associated with the test result. From the test statistic or the p-value alone, it is not easy to judge in which range the true population parameter is located. The CI provides an estimate of this range.</p>
 <p><strong>Decision:</strong> Reject <span class="math inline">\(H_0\)</span>, given that the parameter value from the null hypothesis (<span class="math inline">\(10\)</span>) is not included in the interval.</p>
 <p>To summarize, you can see that we arrive at the same conclusion (i.e., reject <span class="math inline">\(H_0\)</span>), irrespective if we use the test statistic, the p-value, or the confidence interval. However, keep in mind that rejecting the null hypothesis does not prove the alternative hypothesis (we can merely provide support for it). Rather, think of the p-value as the chance of obtaining the data we’ve collected assuming that the null hypothesis is true. You should report the confidence interval to provide an estimate of the uncertainty associated with your test results.</p>
 </div>
 </div>
-<div id="choosing-the-right-test" class="section level3">
+<div id="choosing-the-right-test" class="section level3" number="4.1.3">
 <h3><span class="header-section-number">4.1.3</span> Choosing the right test</h3>
 <p>The test statistic, as we have seen, measures how close the sample is to the null hypothesis and often follows a well-known distribution (e.g., normal, t, or chi-square). To select the correct test, various factors need to be taken into consideration. Some examples are:</p>
 <ul>
@@ -426,15 +452,15 @@ CI_{upper} = {\bar x} + t_{1-{\alpha \over 2}} * SE_{\bar x}
 </ul>
 <p>The previous discussion used a <strong>one sample t-test</strong> as an example, which requires that variable is measured on an interval or ratio scale. If you are confronted with other settings, the following flow chart provides a rough guideline on selecting the correct test:</p>
 <div class="figure">
-<img src="https://github.com/IMSMWU/Teaching/raw/master/MRDA2017/testselection.JPG" alt="Flowchart for selecting an appropriate test (source: McElreath, R. (2016): Statistical Rethinking, p. 2)" />
+<img src="https://github.com/IMSMWU/Teaching/raw/master/MRDA2017/testselection.JPG" alt="" />
 <p class="caption">Flowchart for selecting an appropriate test (source: McElreath, R. (2016): Statistical Rethinking, p. 2)</p>
 </div>
 <p>For a detailed overview over the different type of tests, please also refer to <a href="https://stats.idre.ucla.edu/other/mult-pkg/whatstat/" target="_blank">this overview</a> by the UCLA.</p>
-<div id="parametric-vs.-non-parametric-tests" class="section level4">
+<div id="parametric-vs.-non-parametric-tests" class="section level4" number="4.1.3.1">
 <h4><span class="header-section-number">4.1.3.1</span> Parametric vs. non-parametric tests</h4>
 <p>A basic distinction can be made between parametric and non-parametric tests. <strong>Parametric tests</strong> require that variables are measured on an interval or ratio scale and that the sampling distribution follows a known distribution. <strong>Non-Parametric tests</strong> on the other hand do not require the sampling distribution to be normally distributed (a.k.a. “assumption free tests”). These tests may be used when the variable of interest is measured on an ordinal scale or when the parametric assumptions do not hold. They often rely on ranking the data instead of analyzing the actual scores. By ranking the data, information on the magnitude of differences is lost. Thus, parametric tests are more powerful if the sampling distribution is normally distributed. In this chapter, we will first focus on parametric tests and cover non-parametric tests later.</p>
 </div>
-<div id="one-tailed-vs.-two-tailed-test" class="section level4">
+<div id="one-tailed-vs.-two-tailed-test" class="section level4" number="4.1.3.2">
 <h4><span class="header-section-number">4.1.3.2</span> One-tailed vs. two-tailed test</h4>
 <p>For some tests you may choose between a <strong>one-tailed test</strong> versus a <strong>two-tailed test</strong>. The choice depends on the hypothesis you specified, i.e., whether you specified a directional or a non-directional hypotheses. In the example above, we used a <strong>non-directional hypothesis</strong>. That is, we stated that the mean is different from the comparison value <span class="math inline">\(\mu_0\)</span>, but we did not state the direction of the effect. A <strong>directional hypothesis</strong> states the direction of the effect. For example, we might test whether the population mean is smaller than a comparison value:</p>
 <p><span class="math display">\[
@@ -452,7 +478,7 @@ H_1: \mu &gt; \mu_0
 <p>It can be seen that under a one-sided test, the rejection region is at one end of the distribution or the other. In a two-sided test, the rejection region is split between the two tails. As a consequence, the critical value of the test statistic is smaller using a one-tailed test, meaning that it has more power to detect an effect. Having said that, in most applications, we would like to be able catch effects in both directions, simply because we can often not rule out that an effect might exist that is not in the hypothesized direction. For example, if we would conduct a one-tailed test for a mean larger than some specified value but the mean turns out to be substantially smaller, then testing a one-directional hypothesis ($H_0: _0 $) would not allow us to conclude that there is a significant effect because there is not rejection at this end of the distribution.</p>
 </div>
 </div>
-<div id="summary-1" class="section level3">
+<div id="summary-1" class="section level3" number="4.1.4">
 <h3><span class="header-section-number">4.1.4</span> Summary</h3>
 <p>As we have seen, the process of hypothesis testing consists of various steps:</p>
 <ol style="list-style-type: decimal">

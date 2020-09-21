@@ -1,13 +1,4 @@
----
-title: "08-hypothesis testing"
-output:
-  html_document:
-    df_print: paged
-    toc: yes
-  html_notebook: default
-  pdf_document:
-    toc: yes
----
+
 ```{r, echo=FALSE, warning=FALSE}
 library(knitr)
 #This code automatically tidies code so that it does not reach over the page
@@ -1048,7 +1039,7 @@ Correlation coefficients give no indication of the direction of causality. In ou
 * Correlation coefficients give no indication of the direction of causality.
 * Consideration of the third-variable problem is necessary when interpreting correlation as there might be other unobserved variables that influence the result.
 
-# T-Test
+# t-test
 This chapter is primarily based on Field, A., Miles J., & Field, Z. (2012): Discovering Statistics Using R. Sage Publications, **chapter 9**.
 
 ## One sample t-test
